@@ -214,7 +214,7 @@
 					3CD5D3331EFD47F7008007BF = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = X8R96VPB27;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -446,6 +446,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4a75fd0a-c91b-4ec0-94fd-66c20f068e69";
+				PROVISIONING_PROFILE_SPECIFIER = TaskTrackerDev;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -456,11 +458,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = X8R96VPB27;
 				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f6e68576-d3d4-4db1-b569-a2cb1dda2e76";
+				PROVISIONING_PROFILE_SPECIFIER = TaskTrackerDis;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
