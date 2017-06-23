@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else
         {
             initialViewController = PFLoginViewController.storyboardInstance()
+//            let registered = UserDefaults.standard.value(forKey: kIsRegistered) as? Bool ?? false
+//            if registered {
+//                initialViewController.type =
+//            }
         }
         
         self.window?.rootViewController = initialViewController

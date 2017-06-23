@@ -8,7 +8,19 @@
 
 import UIKit
 
+enum AuthType {
+    case login
+    case registration
+}
+
 class PFLoginViewController: UIViewController {
+    
+    
+    // MARK: - Properties
+    
+    
+    let authObject = PFAuthAdapter()
+    let authType: AuthType? = nil
     
     
     // MARK: - Outlets
@@ -21,14 +33,8 @@ class PFLoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    
-    // MARK: - Actions
-    
-    
-    @IBAction func loginButtonDidPressed(_ sender: Any) {
-        
-    }
-    
+
+    // MARK: - LifeCycle
     
     
     static func storyboardInstance() -> PFLoginViewController? {
@@ -38,7 +44,7 @@ class PFLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
         // Do any additional setup after loading the view.
     }
 
@@ -48,10 +54,51 @@ class PFLoginViewController: UIViewController {
     }
     
     
+    func setupUI () {
+        
+    }
+    
+    func configurateAuthType() {
+        
+        
+    }
+    
+    
+    // MARK: - Actions
+    
+    
+    @IBAction func loginButtonDidPressed(_ sender: Any) {
+        
+        if (inputIsValid()) {
+            let email = emailTextField.text ?? ""
+            let password = passwordTextField.text ?? ""
+            authObject.signIn(withEmail: email,
+                              password: password) { (success) in
+                                if success
+                                {
+                                    print("signed in successful")
+                                    self.loginButton.blink(color: .blue)
+                                    self.performSegue(withIdentifier:"signInSuccesfulSegue", sender: nil)
+                                }
+                                else
+                                {
+                                    self.loginButton.blink(color: .red)
+                                    print("signed in with error")
+                                }
+            }
+        }
+        else {
+            self.loginButton.blink(color: .red)
+            print("validation failed")
+        }
+    }
+    
+    
     //MARK: - Validation
     
     
     func inputIsValid() -> Bool {
+        
         
         let emailIsValid = validateEmail()
         let passIsValid = validatePassword()
