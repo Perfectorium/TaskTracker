@@ -24,7 +24,7 @@
 		A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25751621EFD51910003E023 /* PFLoginViewController.swift */; };
 		A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */; };
 		A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */; };
-		A257516B1EFD55240003E023 /* PRProjectsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A257516A1EFD55240003E023 /* PRProjectsListViewController.swift */; };
+		A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,7 @@
 		A25751621EFD51910003E023 /* PFLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFLoginViewController.swift; sourceTree = "<group>"; };
 		A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFLoginViewController.storyboard; sourceTree = "<group>"; };
 		A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFProjectsListViewController.storyboard; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.storyboard; sourceTree = "<group>"; };
-		A257516A1EFD55240003E023 /* PRProjectsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PRProjectsListViewController.swift; path = Controllers/PFProjectsListViewController/PRProjectsListViewController.swift; sourceTree = "<group>"; };
+		A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListViewController.swift; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.swift; sourceTree = "<group>"; };
 		C1437242EC1604DC57E187A6 /* Pods-TaskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F11261E8B0D9751043C4CAE1 /* Pods-TaskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */,
-				A257516A1EFD55240003E023 /* PRProjectsListViewController.swift */,
+				A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */,
 			);
 			name = PFProjectsListViewController;
 			sourceTree = "<group>";
@@ -357,7 +357,7 @@
 				3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */,
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
 				3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */,
-				A257516B1EFD55240003E023 /* PRProjectsListViewController.swift in Sources */,
+				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

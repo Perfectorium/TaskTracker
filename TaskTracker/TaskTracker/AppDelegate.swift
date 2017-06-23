@@ -19,6 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       
         FirebaseApp.configure()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
+        var initialViewController: UIViewController?
+        
+        if signedIn
+        {
+            initialViewController = PFProjectsListViewController.storyboardInstance()
+        }
+        else
+        {
+            initialViewController = PFLoginViewController.storyboardInstance()
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

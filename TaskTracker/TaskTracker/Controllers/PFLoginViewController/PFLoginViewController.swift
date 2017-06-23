@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class PFLoginViewController: UIViewController {
     
     
     // MARK: - Outlets
@@ -31,9 +31,9 @@ class LoginViewController: UIViewController {
     
     
     
-    static func storyboardInstance() -> LoginViewController? {
+    static func storyboardInstance() -> PFLoginViewController? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? LoginViewController
+        return storyboard.instantiateInitialViewController() as? PFLoginViewController
     }
 
     override func viewDidLoad() {
