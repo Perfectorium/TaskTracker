@@ -20,32 +20,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         FirebaseApp.configure()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
-        var initialViewController: UIViewController?
-        
-        if signedIn
-        {
-            initialViewController = PFProjectsListViewController.storyboardInstance()
-        }
-        else
-        {
-            initialViewController = PFLoginViewController.storyboardInstance()
-//            let registered = UserDefaults.standard.value(forKey: kIsRegistered) as? Bool ?? false
-//            if registered {
-//                initialViewController.type =
-//            }
-        }
-        
-        self.window?.rootViewController = initialViewController
+        self.window?.rootViewController = AppDelegate.createNavigationController()
         self.window?.makeKeyAndVisible()
         
         return true
     }
-
-
+    
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = AppDelegate.createNavigationController(registration: true)
+        
+        let url = userActivity.webpageURL!
+        PFAuthAdapter.passActivityURL(url)
+        
+        self.window?.makeKeyAndVisible()
+        return true
+    }
+    
+    
+    // MARK: - Navigation
+    
+    
+    class func createNavigationController(registration: Bool = false) -> UINavigationController {
+        let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
+        
+        let navigationController: UINavigationController?
+        if signedIn
+        {
+            guard let root = PFProjectsListViewController.storyboardInstance()
+                else
+            {
+                return UINavigationController()
+            }
+            navigationController = UINavigationController(rootViewController: root)
+        }
+        else
+        {
+            guard let root = PFLoginViewController.storyboardInstance()
+                else
+            {
+                return UINavigationController()
+            }
+            //let registration = UserDefaults.standard.value(forKey: kIsRegistered) as? Bool ?? false
+            if registration
+            {
+                root.authType = .registration
+            }
+            else
+            {
+                root.authType = .login
+            }
+            navigationController = UINavigationController(rootViewController: root)
+        }
+        return navigationController!
+        
+    }
+    
 
     // MARK: - Core Data stack
 
+    
     lazy var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "TaskTracker")
@@ -57,8 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    
     // MARK: - Core Data Saving support
 
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -70,6 +110,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
 }
 

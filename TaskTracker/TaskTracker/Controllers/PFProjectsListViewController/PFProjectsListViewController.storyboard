@@ -1,7 +1,64 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fmT-gk-2QN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Projects List View Controller-->
+        <scene sceneID="gzT-eq-Zfo">
+            <objects>
+                <collectionViewController id="fmT-gk-2QN" customClass="PFProjectsListViewController" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tJF-mX-Gqi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uh0-Ox-WQx">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PFProjectsListCollectionViewCell" id="27X-B9-Qx8" customClass="PFProjectsListCollectionViewCell" customModule="TaskTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ur7-ja-KW6">
+                                            <rect key="frame" x="0.0" y="0.5" width="100" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="Ur7-ja-KW6" firstAttribute="width" secondItem="27X-B9-Qx8" secondAttribute="width" id="K8M-lp-4cc"/>
+                                    <constraint firstItem="Ur7-ja-KW6" firstAttribute="centerY" secondItem="27X-B9-Qx8" secondAttribute="centerY" id="cKg-dq-nqT"/>
+                                    <constraint firstItem="Ur7-ja-KW6" firstAttribute="height" secondItem="27X-B9-Qx8" secondAttribute="height" id="fn7-Vw-rxp"/>
+                                    <constraint firstItem="Ur7-ja-KW6" firstAttribute="centerX" secondItem="27X-B9-Qx8" secondAttribute="centerX" id="s99-An-1Zx"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="projectLabel" destination="Ur7-ja-KW6" id="jTN-25-gfb"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="fmT-gk-2QN" id="WvN-4G-gD2"/>
+                            <outlet property="delegate" destination="fmT-gk-2QN" id="6RJ-VH-LF9"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qHS-b5-2gL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-58.399999999999999" y="42.728635682158924"/>
+        </scene>
+    </scenes>
 </document>

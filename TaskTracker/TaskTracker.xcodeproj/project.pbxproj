@@ -11,20 +11,36 @@
 		3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D33B1EFD47F7008007BF /* Main.storyboard */; };
 		3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3411EFD47F7008007BF /* Assets.xcassets */; };
 		3CD5D3451EFD47F7008007BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3431EFD47F7008007BF /* LaunchScreen.storyboard */; };
-		3CD5D3561EFD4995008007BF /* PFAccountAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3541EFD4995008007BF /* PFAccountAdapter.swift */; };
-		3CD5D3571EFD4995008007BF /* PFAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3551EFD4995008007BF /* PFAccountManager.swift */; };
+		3CD5D3561EFD4995008007BF /* PFUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3541EFD4995008007BF /* PFUserAdapter.swift */; };
 		3CD5D35A1EFD49A1008007BF /* PFAuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3581EFD49A1008007BF /* PFAuthAdapter.swift */; };
-		3CD5D35B1EFD49A1008007BF /* PFAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3591EFD49A1008007BF /* PFAuthManager.swift */; };
 		3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D35C1EFD49A7008007BF /* PFCloudStorageManager.swift */; };
 		3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D35E1EFD49BB008007BF /* Constants.swift */; };
 		3CD5D3611EFD49C5008007BF /* Other Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3601EFD49C5008007BF /* Other Extensions.swift */; };
 		3CD5D3641EFD49F5008007BF /* TaskTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3621EFD49F5008007BF /* TaskTracker.xcdatamodeld */; };
 		3CD5D3671EFD4CEE008007BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3661EFD4CEE008007BF /* GoogleService-Info.plist */; };
 		6F0A2D8A35FF5CAF85570326 /* Pods_TaskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */; };
+		A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2226A991F024739005ACC9F /* PFFirebaseManager.swift */; };
+		A2226A9C1F028557005ACC9F /* PFUserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */; };
 		A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25751621EFD51910003E023 /* PFLoginViewController.swift */; };
 		A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */; };
 		A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */; };
 		A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */; };
+		A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */; };
+		A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */; };
+		A2B9DB171F04F22300307AAC /* PFCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB151F04F22300307AAC /* PFCommentModel.swift */; };
+		A2B9DB181F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB161F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift */; };
+		A2B9DB1B1F04F23100307AAC /* PFFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB191F04F23100307AAC /* PFFileModel.swift */; };
+		A2B9DB1C1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB1A1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift */; };
+		A2B9DB1F1F04F23B00307AAC /* PFOwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB1D1F04F23B00307AAC /* PFOwnerModel.swift */; };
+		A2B9DB201F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB1E1F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift */; };
+		A2B9DB231F04F24500307AAC /* PFProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB211F04F24500307AAC /* PFProjectModel.swift */; };
+		A2B9DB241F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB221F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift */; };
+		A2B9DB271F04F24D00307AAC /* PFTaskGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB251F04F24D00307AAC /* PFTaskGroupModel.swift */; };
+		A2B9DB281F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB261F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift */; };
+		A2B9DB2B1F04F25800307AAC /* PFTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB291F04F25800307AAC /* PFTaskModel.swift */; };
+		A2B9DB2C1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB2A1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift */; };
+		A2B9DB2F1F04F26300307AAC /* PFUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB2D1F04F26300307AAC /* PFUserModel.swift */; };
+		A2B9DB301F04F26300307AAC /* PFUserModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB2E1F04F26300307AAC /* PFUserModel+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +50,8 @@
 		3CD5D3411EFD47F7008007BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CD5D3441EFD47F7008007BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CD5D3461EFD47F7008007BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CD5D3541EFD4995008007BF /* PFAccountAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAccountAdapter.swift; path = Adapters/PFAccountAdapter/PFAccountAdapter.swift; sourceTree = "<group>"; };
-		3CD5D3551EFD4995008007BF /* PFAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAccountManager.swift; path = Adapters/PFAccountAdapter/PFAccountManager.swift; sourceTree = "<group>"; };
+		3CD5D3541EFD4995008007BF /* PFUserAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserAdapter.swift; path = Adapters/PFAccountAdapter/PFUserAdapter.swift; sourceTree = "<group>"; };
 		3CD5D3581EFD49A1008007BF /* PFAuthAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthAdapter.swift; path = Adapters/PFAuthAdapter/PFAuthAdapter.swift; sourceTree = "<group>"; };
-		3CD5D3591EFD49A1008007BF /* PFAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthManager.swift; path = Adapters/PFAuthAdapter/PFAuthManager.swift; sourceTree = "<group>"; };
 		3CD5D35C1EFD49A7008007BF /* PFCloudStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCloudStorageManager.swift; path = Adapters/PFCloudStorageAdapter/PFCloudStorageManager.swift; sourceTree = "<group>"; };
 		3CD5D35E1EFD49BB008007BF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Constatns/Constants.swift; sourceTree = "<group>"; };
 		3CD5D3601EFD49C5008007BF /* Other Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Other Extensions.swift"; path = "Extensions/Other Extensions.swift"; sourceTree = "<group>"; };
@@ -45,10 +59,28 @@
 		3CD5D3651EFD4B9E008007BF /* TaskTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskTracker.entitlements; sourceTree = "<group>"; };
 		3CD5D3661EFD4CEE008007BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2226A991F024739005ACC9F /* PFFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFirebaseManager.swift; path = Managers/PFFirebaseManager.swift; sourceTree = "<group>"; };
+		A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserFirebaseManager.swift; path = Managers/PFUserFirebaseManager.swift; sourceTree = "<group>"; };
 		A25751621EFD51910003E023 /* PFLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFLoginViewController.swift; sourceTree = "<group>"; };
 		A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFLoginViewController.storyboard; sourceTree = "<group>"; };
 		A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFProjectsListViewController.storyboard; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.storyboard; sourceTree = "<group>"; };
 		A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListViewController.swift; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.swift; sourceTree = "<group>"; };
+		A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListCollectionViewCell.swift; path = Controllers/PFProjectsListViewController/PFProjectsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthFirebaseManager.swift; path = Managers/PFAuthFirebaseManager.swift; sourceTree = "<group>"; };
+		A2B9DB151F04F22300307AAC /* PFCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCommentModel.swift; path = Models/PFCommentModel/PFCommentModel.swift; sourceTree = "<group>"; };
+		A2B9DB161F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFCommentModel+CoreDataProperties.swift"; path = "Models/PFCommentModel/PFCommentModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB191F04F23100307AAC /* PFFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFileModel.swift; path = Models/PFFileModel/PFFileModel.swift; sourceTree = "<group>"; };
+		A2B9DB1A1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFFileModel+CoreDataProperties.swift"; path = "Models/PFFileModel/PFFileModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB1D1F04F23B00307AAC /* PFOwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFOwnerModel.swift; path = Models/PFOwnerModel/PFOwnerModel.swift; sourceTree = "<group>"; };
+		A2B9DB1E1F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFOwnerModel+CoreDataProperties.swift"; path = "Models/PFOwnerModel/PFOwnerModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB211F04F24500307AAC /* PFProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectModel.swift; path = Models/PFProjectModel/PFProjectModel.swift; sourceTree = "<group>"; };
+		A2B9DB221F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFProjectModel+CoreDataProperties.swift"; path = "Models/PFProjectModel/PFProjectModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB251F04F24D00307AAC /* PFTaskGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskGroupModel.swift; path = Models/PFTaskGroup/PFTaskGroupModel.swift; sourceTree = "<group>"; };
+		A2B9DB261F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskGroupModel+CoreDataProperties.swift"; path = "Models/PFTaskGroup/PFTaskGroupModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB291F04F25800307AAC /* PFTaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskModel.swift; path = Models/PFTaskModel/PFTaskModel.swift; sourceTree = "<group>"; };
+		A2B9DB2A1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskModel+CoreDataProperties.swift"; path = "Models/PFTaskModel/PFTaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB2D1F04F26300307AAC /* PFUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserModel.swift; path = Models/PFUserModel/PFUserModel.swift; sourceTree = "<group>"; };
+		A2B9DB2E1F04F26300307AAC /* PFUserModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFUserModel+CoreDataProperties.swift"; path = "Models/PFUserModel/PFUserModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C1437242EC1604DC57E187A6 /* Pods-TaskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F11261E8B0D9751043C4CAE1 /* Pods-TaskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +97,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C3210831F014C02004A50BD /* PFOwnerModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB1D1F04F23B00307AAC /* PFOwnerModel.swift */,
+				A2B9DB1E1F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift */,
+			);
+			name = PFOwnerModel;
+			sourceTree = "<group>";
+		};
+		3C3210841F014C0F004A50BD /* PFFileModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB191F04F23100307AAC /* PFFileModel.swift */,
+				A2B9DB1A1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift */,
+			);
+			name = PFFileModel;
+			sourceTree = "<group>";
+		};
+		3C3210851F014C11004A50BD /* PFCommentModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB151F04F22300307AAC /* PFCommentModel.swift */,
+				A2B9DB161F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift */,
+			);
+			name = PFCommentModel;
+			sourceTree = "<group>";
+		};
+		3C3210861F014C12004A50BD /* PFProjectModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB211F04F24500307AAC /* PFProjectModel.swift */,
+				A2B9DB221F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift */,
+			);
+			name = PFProjectModel;
+			sourceTree = "<group>";
+		};
+		3C3210871F014C14004A50BD /* PFTaskModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB291F04F25800307AAC /* PFTaskModel.swift */,
+				A2B9DB2A1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift */,
+			);
+			name = PFTaskModel;
+			sourceTree = "<group>";
+		};
+		3C3210881F014C15004A50BD /* PFUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB2D1F04F26300307AAC /* PFUserModel.swift */,
+				A2B9DB2E1F04F26300307AAC /* PFUserModel+CoreDataProperties.swift */,
+			);
+			name = PFUserModel;
+			sourceTree = "<group>";
+		};
 		3CD5D32B1EFD47F7008007BF = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +172,7 @@
 		3CD5D3361EFD47F7008007BF /* TaskTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A2226A981F0246F6005ACC9F /* Managers */,
 				A25751611EFD516F0003E023 /* Controllers */,
 				3CD5D3651EFD4B9E008007BF /* TaskTracker.entitlements */,
 				3CD5D3501EFD48EA008007BF /* Adapters */,
@@ -121,6 +208,13 @@
 		3CD5D34E1EFD4870008007BF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A2B9DB141F04F10100307AAC /* PFTaskGroupModel */,
+				3C3210881F014C15004A50BD /* PFUserModel */,
+				3C3210871F014C14004A50BD /* PFTaskModel */,
+				3C3210861F014C12004A50BD /* PFProjectModel */,
+				3C3210851F014C11004A50BD /* PFCommentModel */,
+				3C3210841F014C0F004A50BD /* PFFileModel */,
+				3C3210831F014C02004A50BD /* PFOwnerModel */,
 				3CD5D3621EFD49F5008007BF /* TaskTracker.xcdatamodeld */,
 			);
 			name = Models;
@@ -137,7 +231,7 @@
 		3CD5D3501EFD48EA008007BF /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				3CD5D3531EFD491D008007BF /* PFAccountAdapter */,
+				3CD5D3531EFD491D008007BF /* PFUserAdapter */,
 				3CD5D3521EFD4915008007BF /* PFAuthAdapter */,
 				3CD5D3511EFD4905008007BF /* PFCloudStorageAdapter */,
 			);
@@ -156,18 +250,16 @@
 			isa = PBXGroup;
 			children = (
 				3CD5D3581EFD49A1008007BF /* PFAuthAdapter.swift */,
-				3CD5D3591EFD49A1008007BF /* PFAuthManager.swift */,
 			);
 			name = PFAuthAdapter;
 			sourceTree = "<group>";
 		};
-		3CD5D3531EFD491D008007BF /* PFAccountAdapter */ = {
+		3CD5D3531EFD491D008007BF /* PFUserAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				3CD5D3541EFD4995008007BF /* PFAccountAdapter.swift */,
-				3CD5D3551EFD4995008007BF /* PFAccountManager.swift */,
+				3CD5D3541EFD4995008007BF /* PFUserAdapter.swift */,
 			);
-			name = PFAccountAdapter;
+			name = PFUserAdapter;
 			sourceTree = "<group>";
 		};
 		58FCDDC2588092DB45B460E8 /* Frameworks */ = {
@@ -176,6 +268,16 @@
 				909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2226A981F0246F6005ACC9F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A2226A991F024739005ACC9F /* PFFirebaseManager.swift */,
+				A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */,
+				A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		A25751611EFD516F0003E023 /* Controllers */ = {
@@ -190,8 +292,8 @@
 		A25751641EFD528B0003E023 /* PFLoginViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A25751621EFD51910003E023 /* PFLoginViewController.swift */,
 				A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */,
+				A25751621EFD51910003E023 /* PFLoginViewController.swift */,
 			);
 			name = PFLoginViewController;
 			path = Controllers/PFLoginViewController;
@@ -202,8 +304,18 @@
 			children = (
 				A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */,
 				A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */,
+				A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */,
 			);
 			name = PFProjectsListViewController;
+			sourceTree = "<group>";
+		};
+		A2B9DB141F04F10100307AAC /* PFTaskGroupModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B9DB251F04F24D00307AAC /* PFTaskGroupModel.swift */,
+				A2B9DB261F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift */,
+			);
+			name = PFTaskGroupModel;
 			sourceTree = "<group>";
 		};
 		FAE742150BCAE34E6B8CDDDE /* Pods */ = {
@@ -251,7 +363,7 @@
 					3CD5D3331EFD47F7008007BF = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = X8R96VPB27;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -347,17 +459,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD5D3561EFD4995008007BF /* PFAccountAdapter.swift in Sources */,
+				A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */,
+				A2B9DB181F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
+				3CD5D3561EFD4995008007BF /* PFUserAdapter.swift in Sources */,
+				A2B9DB1F1F04F23B00307AAC /* PFOwnerModel.swift in Sources */,
+				A2B9DB1B1F04F23100307AAC /* PFFileModel.swift in Sources */,
+				A2B9DB1C1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */,
 				3CD5D35A1EFD49A1008007BF /* PFAuthAdapter.swift in Sources */,
+				A2B9DB171F04F22300307AAC /* PFCommentModel.swift in Sources */,
 				3CD5D3611EFD49C5008007BF /* Other Extensions.swift in Sources */,
+				A2B9DB241F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */,
+				A2B9DB2F1F04F26300307AAC /* PFUserModel.swift in Sources */,
+				A2B9DB301F04F26300307AAC /* PFUserModel+CoreDataProperties.swift in Sources */,
+				A2B9DB271F04F24D00307AAC /* PFTaskGroupModel.swift in Sources */,
+				A2B9DB231F04F24500307AAC /* PFProjectModel.swift in Sources */,
+				A2B9DB281F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */,
 				3CD5D3641EFD49F5008007BF /* TaskTracker.xcdatamodeld in Sources */,
+				A2B9DB2B1F04F25800307AAC /* PFTaskModel.swift in Sources */,
 				3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */,
-				3CD5D3571EFD4995008007BF /* PFAccountManager.swift in Sources */,
-				3CD5D35B1EFD49A1008007BF /* PFAuthManager.swift in Sources */,
+				A2226A9C1F028557005ACC9F /* PFUserFirebaseManager.swift in Sources */,
+				A2B9DB2C1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */,
 				3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */,
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
 				3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */,
+				A2B9DB201F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */,
 				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
+				A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */,
+				A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,13 +610,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
-				DEVELOPMENT_TEAM = X8R96VPB27;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4a75fd0a-c91b-4ec0-94fd-66c20f068e69";
-				PROVISIONING_PROFILE_SPECIFIER = TaskTrackerDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -499,14 +628,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = X8R96VPB27;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6e68576-d3d4-4db1-b569-a2cb1dda2e76";
-				PROVISIONING_PROFILE_SPECIFIER = TaskTrackerDis;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

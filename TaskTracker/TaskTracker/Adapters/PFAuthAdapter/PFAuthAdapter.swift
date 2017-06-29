@@ -8,71 +8,87 @@
 
 import Foundation
 
-
-protocol APIAuthDelegate {
-    func signIn(aDict: [String:Any],
-                completionHandler: @escaping (_ success:Bool) -> Void)
-    
-    func signOut() -> Bool
-    
-    func registration(aDict: [String:Any],
-                      completionHandler: @escaping (_ success:Bool) -> Void)
-}
-
-
-
 class PFAuthAdapter {
     
-    var delegate = PFAuthManager()
+    // Returns array of parameters from URL
+    static func getQueryParameters(url: String) -> [String]? {
+        
+        let fullParams = url.components(separatedBy: "/")
+        let params = fullParams[3].components(separatedBy: "&")
+        return params
+    }
+    
+    // Registration URL parsing
+    class func passActivityURL(_ url: URL) {                // Check APPDELEGATE
+        
+        let urlString = url.absoluteString
+        guard let params = PFAuthAdapter.getQueryParameters(url: urlString) else {
+            print()
+            return
+        }
+        
+        var dict = [String : Any]()
+        for pair in params {
+            let pairArr = pair.components(separatedBy: "=")
+            dict[pairArr[0]] = pairArr[1]
+        }
+        
+        let defaults = UserDefaults.standard
+        defaults.set(dict, forKey: kParametersKey)
+    }
     
     
-    // MARK: - Authentication
-    
-    
-    func registration(password: String,
+    class func registration(password: String,
                       completionHandler outerHandler: @escaping (_ success:Bool) -> Void) {
         
         guard var dict = UserDefaults.standard.object(forKey: kParametersKey) as! [String: Any]? else {
+            print("PFAuthAdapter - registration: parameters is nil")
             return
         }
-        dict[kPassword] = password
-
-        delegate.registration(aDict: dict) { (success) in
-            if (success)
-            {
-                outerHandler(true)
-                UserDefaults.standard.set(true, forKey: kIsRegistered)
-            }
-            else
-            {
-                outerHandler(false)
-            }
+        guard let email = dict[kEmail] as! String?
+            else {
+                print("PFAuthAdapter - registration: email is nil")
+                return
         }
-        
+        PFAuthFirebaseManager.registration(withEmail: email,
+                                       password: password) { (success) in
+                                        if success
+                                        {
+                                            outerHandler(true)
+                                            UserDefaults.standard.set(true, forKey: kIsRegistered)
+                                            UserDefaults.standard.set(true, forKey: kIsSignedIn)
+                                        }
+                                        else
+                                        {
+                                            outerHandler(false)
+                                        }
+        }
     }
     
-    func signIn(withEmail email: String,
+    class func signIn(withEmail email: String,
                 password: String,
                 completionHandler outerHandler: @escaping (_ success:Bool) -> Void) {
         
-        var dict: [String: Any] = [:]
+        var dict: [String:Any] = [:]
         dict[kEmail] = email
         dict[kPassword] = password
-        delegate.signIn(aDict: dict) { (success) in
-            if success {
-                UserDefaults.standard.set(true, forKey: kIsSignedIn)
-                outerHandler(success)
-                return
-            }
-            outerHandler(success)
+        PFAuthFirebaseManager.signIn(withEmail: email,
+                                 password: password) { (success) in
+                                    if success
+                                    {
+                                        UserDefaults.standard.set(true, forKey: kIsSignedIn)
+                                        outerHandler(success)
+                                        return
+                                    }
+                                    outerHandler(success)
         }
     }
     
-    func signOut(completionHandler outerHandler: @escaping (_ success:Bool) -> Void) {
+    class func signOut(completionHandler outerHandler: @escaping (_ success:Bool) -> Void) {
         
-        if !(delegate.signOut())
+        if !(PFAuthFirebaseManager.signOut())
         {
-            print("Signed out with error")
+            print("PFAuthAdapter - signOut: error")
             outerHandler(false)
             return
         }

@@ -16,11 +16,6 @@ let testUserID      = "222"
 let testAdminID     = "111"
 
 
-// MARK: - FIRAccountAdapter
-
-
-let kAccountMainInfo = "accoutMainInfo"
-
 
 // MARK: - AuthManager
 
@@ -41,7 +36,10 @@ let kAdminID        = "adminID"
 let kUserID         = "userID"
 let kRole           = "role"
 let kCode           = "code"
-
+let kUsers          = "users"
+let kUndefined      = "undefined"
+let kPhone          = "phone"
+let kAvatarURL      = "avatarURL"
 
 // MARK: - 
 

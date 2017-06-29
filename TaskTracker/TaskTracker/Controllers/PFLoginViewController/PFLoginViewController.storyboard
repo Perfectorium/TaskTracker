@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="cQS-fN-euV">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="oWK-7i-TnQ" customClass="LoginViewController" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="oWK-7i-TnQ" customClass="PFLoginViewController" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8nc-87-7gN"/>
                         <viewControllerLayoutGuide type="bottom" id="VlE-5C-RfK"/>
@@ -67,6 +67,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BGp-gW-EET" appends="YES" id="fHx-fr-lVq"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="c02-bt-cpv" id="leg-om-4lP"/>
@@ -78,6 +82,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROl-MT-kz1" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BGp-gW-EET">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="oWK-7i-TnQ" id="Axb-Yb-hYB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>

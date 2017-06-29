@@ -15,6 +15,9 @@ extension Int {
         formatter.numberStyle = .spellOut
         return "\(formatter.string(from: NSNumber(value:self))!)"
     }
+    static func random(from: Int, to: Int) -> Int {
+       return Int(arc4random_uniform(UInt32(to))) - from
+    }
 }
 
 extension Data {
@@ -196,6 +199,15 @@ extension String {
         let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordTest.evaluate(with: self)
+    }
+}
+
+extension UIColor {
+    static func randomColor(withAlpha alpha: CGFloat = 1.0) -> UIColor {
+        return UIColor(red: CGFloat(drand48()),
+                       green: CGFloat(drand48()),
+                       blue: CGFloat(drand48()),
+                       alpha: alpha)
     }
 }
 

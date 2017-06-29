@@ -20,7 +20,7 @@ class PFLoginViewController: UIViewController {
     
     
     let authObject = PFAuthAdapter()
-    let authType: AuthType? = nil
+    var authType: AuthType? = nil
     
     
     // MARK: - Outlets
@@ -33,33 +33,148 @@ class PFLoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-
+    
     // MARK: - LifeCycle
     
     
     static func storyboardInstance() -> PFLoginViewController? {
+        
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
         return storyboard.instantiateInitialViewController() as? PFLoginViewController
     }
-
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
+    // MARK: - General UI
+    
+    
     func setupUI () {
+        
+        configureButton()
+        
+        guard let auth = authType else {
+            return
+        }
+        switch auth {
+        case .login:
+            configureSignInUI()
+        case .registration:
+            configureRegistrationUI()
+        }
+    }
+    
+    func configureButton() {
+        
+        self.loginButton.backgroundColor = .clear
+    }
+    
+    
+    // MARK: - Auth Specific UI
+    
+    
+    func configureRegistrationUI() {
+        
+        configureRoleLabel()
+        print("registration")
+    }
+    
+    func configureSignInUI() {
+        
+        print("login")
+    }
+    
+    func configureRoleLabel() {
+        
+        guard let parameters = UserDefaults.standard.value(forKey: kParametersKey) as! [String:Any]?
+            else {
+                return
+        }
+        let role = parameters[kRole] as! String? ?? "undefined role"
+        self.roleLabel.text = role
+    }
+    
+    
+    // MARK: - Authentication
+    
+    
+    func signIn() {
+        
+        if (inputIsValid()) {
+            let email = emailTextField.text ?? ""
+            let password = passwordTextField.text ?? ""
+            signIn(withEmail: email,
+                   password: password)
+        }
+        else {
+            self.loginButton.blink(color: .red)
+            print("validation failed")
+        }
+    }
+    
+    func signIn(withEmail email: String, password: String) {
+        
+        PFAuthAdapter.signIn(withEmail: email,
+                             password: password) { (success) in
+                                if success
+                                {
+                                    print("signed in successful")
+                                    self.loginButton.blink(color: .blue)
+                                    let homeViewController = PFProjectsListViewController.storyboardInstance()!
+                                    self.navigationController?.present(homeViewController,
+                                                                       animated: true,
+                                                                       completion: {
+                                                                        
+                                    })
+                                }
+                                else
+                                {
+                                    self.loginButton.blink(color: .red)
+                                    print("signed in with error")
+                                }
+        }
         
     }
     
-    func configurateAuthType() {
+    func registration() {
         
+        if (inputIsValid()) {
+            let password = passwordTextField.text ?? ""
+            
+            PFAuthAdapter.registration(password: password,
+                                       completionHandler: { (success) in
+                                        if success
+                                        {
+                                            print("Registered successful")
+                                            let homeViewController = PFProjectsListViewController.storyboardInstance()!
+                                            self.navigationController?.present(homeViewController,
+                                                                               animated: true,
+                                                                               completion: {
+                                                                                
+                                            })
+                                        }
+                                        else
+                                        {
+                                            self.loginButton.blink(color: .red)
+                                            print("Registered with error")
+                                        }
+            })
+        }
+        else {
+            self.loginButton.blink(color: .red)
+            print("validation failed")
+        }
         
     }
     
@@ -69,28 +184,21 @@ class PFLoginViewController: UIViewController {
     
     @IBAction func loginButtonDidPressed(_ sender: Any) {
         
-        if (inputIsValid()) {
-            let email = emailTextField.text ?? ""
-            let password = passwordTextField.text ?? ""
-            authObject.signIn(withEmail: email,
-                              password: password) { (success) in
-                                if success
-                                {
-                                    print("signed in successful")
-                                    self.loginButton.blink(color: .blue)
-                                    self.performSegue(withIdentifier:"signInSuccesfulSegue", sender: nil)
-                                }
-                                else
-                                {
-                                    self.loginButton.blink(color: .red)
-                                    print("signed in with error")
-                                }
-            }
+        guard let auth = authType else {
+            return
         }
-        else {
-            self.loginButton.blink(color: .red)
-            print("validation failed")
+        switch auth {
+        case .login:
+            signIn()
+        case .registration:
+            registration()
         }
+        
+    }
+    
+    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
     }
     
     
@@ -99,14 +207,25 @@ class PFLoginViewController: UIViewController {
     
     func inputIsValid() -> Bool {
         
-        
-        let emailIsValid = validateEmail()
-        let passIsValid = validatePassword()
+        guard let auth = authType else {
+            return false
+        }
+        var emailIsValid: Bool = false
+        var passIsValid: Bool = false
+        switch auth {
+        case .login:
+            emailIsValid    = validateEmail()
+            passIsValid     = validatePassword()
+        case .registration:
+            emailIsValid    = true
+            passIsValid     = validatePassword()
+        }
         
         return emailIsValid && passIsValid
     }
     
     func validateEmail() -> Bool {
+        
         guard let emailText = emailTextField.text else {
             return false
         }
@@ -119,6 +238,7 @@ class PFLoginViewController: UIViewController {
     }
     
     func validatePassword() -> Bool {
+        
         guard let passwordText = passwordTextField.text else {
             return false
         }
