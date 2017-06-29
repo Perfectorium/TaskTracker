@@ -15,7 +15,7 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFCommentModel" inverseName="files" inverseEntity="PFCommentModel" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFUserModel" inverseName="files" inverseEntity="PFUserModel" syncable="YES"/>
-        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFProjectModel" inverseName="files" inverseEntity="PFProjectModel" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFTaskModel" inverseName="files" inverseEntity="PFTaskModel" syncable="YES"/>
     </entity>
     <entity name="PFOwnerModel" representedClassName="PFOwnerModel" parentEntity="PFUserModel" syncable="YES">
         <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,7 +29,6 @@
         <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalSpent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totatEstimated" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFFileModel" inverseName="project" inverseEntity="PFFileModel" syncable="YES"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFTaskModel" inverseName="project" inverseEntity="PFTaskModel" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFUserModel" inverseName="projects" inverseEntity="PFUserModel" syncable="YES"/>
     </entity>
@@ -51,9 +50,10 @@
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFCommentModel" inverseName="task" inverseEntity="PFCommentModel" syncable="YES"/>
+        <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFFileModel" inverseName="task" inverseEntity="PFFileModel" syncable="YES"/>
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFProjectModel" inverseName="tasks" inverseEntity="PFProjectModel" syncable="YES"/>
         <relationship name="taskGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFTaskGroupModel" inverseName="tasks" inverseEntity="PFTaskGroupModel" syncable="YES"/>
-        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFUserModel" inverseName="tasks" inverseEntity="PFUserModel" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFUserModel" inverseName="tasks" inverseEntity="PFUserModel" syncable="YES"/>
     </entity>
     <entity name="PFUserModel" representedClassName="PFUserModel" syncable="YES">
         <attribute name="adminId" optional="YES" attributeType="String" syncable="YES"/>
@@ -66,15 +66,15 @@
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFCommentModel" inverseName="author" inverseEntity="PFCommentModel" syncable="YES"/>
         <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFFileModel" inverseName="owner" inverseEntity="PFFileModel" syncable="YES"/>
         <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFProjectModel" inverseName="users" inverseEntity="PFProjectModel" syncable="YES"/>
-        <relationship name="tasks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PFTaskModel" inverseName="users" inverseEntity="PFTaskModel" syncable="YES"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PFTaskModel" inverseName="users" inverseEntity="PFTaskModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="PFCommentModel" positionX="-27" positionY="162" width="128" height="150"/>
         <element name="PFFileModel" positionX="-9" positionY="171" width="128" height="135"/>
         <element name="PFOwnerModel" positionX="9" positionY="180" width="128" height="60"/>
-        <element name="PFProjectModel" positionX="-54" positionY="45" width="128" height="210"/>
-        <element name="PFTaskModel" positionX="-36" positionY="108" width="128" height="240"/>
-        <element name="PFUserModel" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="PFProjectModel" positionX="-54" positionY="45" width="128" height="195"/>
         <element name="PFTaskGroupModel" positionX="-36" positionY="135" width="128" height="120"/>
+        <element name="PFTaskModel" positionX="-36" positionY="108" width="128" height="255"/>
+        <element name="PFUserModel" positionX="-63" positionY="-18" width="128" height="210"/>
     </elements>
 </model>

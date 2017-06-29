@@ -27,20 +27,22 @@
 		A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */; };
 		A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */; };
 		A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */; };
-		A2B9DB171F04F22300307AAC /* PFCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB151F04F22300307AAC /* PFCommentModel.swift */; };
-		A2B9DB181F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB161F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift */; };
-		A2B9DB1B1F04F23100307AAC /* PFFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB191F04F23100307AAC /* PFFileModel.swift */; };
-		A2B9DB1C1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB1A1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift */; };
-		A2B9DB1F1F04F23B00307AAC /* PFOwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB1D1F04F23B00307AAC /* PFOwnerModel.swift */; };
-		A2B9DB201F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB1E1F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift */; };
-		A2B9DB231F04F24500307AAC /* PFProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB211F04F24500307AAC /* PFProjectModel.swift */; };
-		A2B9DB241F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB221F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift */; };
-		A2B9DB271F04F24D00307AAC /* PFTaskGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB251F04F24D00307AAC /* PFTaskGroupModel.swift */; };
-		A2B9DB281F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB261F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift */; };
-		A2B9DB2B1F04F25800307AAC /* PFTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB291F04F25800307AAC /* PFTaskModel.swift */; };
-		A2B9DB2C1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB2A1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift */; };
-		A2B9DB2F1F04F26300307AAC /* PFUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB2D1F04F26300307AAC /* PFUserModel.swift */; };
-		A2B9DB301F04F26300307AAC /* PFUserModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB2E1F04F26300307AAC /* PFUserModel+CoreDataProperties.swift */; };
+		A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */; };
+		A2B9DB341F0500E400307AAC /* PFTaskFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */; };
+		A2B9DB371F05155900307AAC /* PFCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB351F05155900307AAC /* PFCommentModel.swift */; };
+		A2B9DB381F05155900307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB361F05155900307AAC /* PFCommentModel+CoreDataProperties.swift */; };
+		A2B9DB3B1F05156100307AAC /* PFFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB391F05156100307AAC /* PFFileModel.swift */; };
+		A2B9DB3C1F05156100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB3A1F05156100307AAC /* PFFileModel+CoreDataProperties.swift */; };
+		A2B9DB3F1F05156800307AAC /* PFOwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB3D1F05156800307AAC /* PFOwnerModel.swift */; };
+		A2B9DB401F05156800307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB3E1F05156800307AAC /* PFOwnerModel+CoreDataProperties.swift */; };
+		A2B9DB431F05157000307AAC /* PFProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB411F05157000307AAC /* PFProjectModel.swift */; };
+		A2B9DB441F05157000307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB421F05157000307AAC /* PFProjectModel+CoreDataProperties.swift */; };
+		A2B9DB471F05157700307AAC /* PFTaskGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB451F05157700307AAC /* PFTaskGroupModel.swift */; };
+		A2B9DB481F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB461F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift */; };
+		A2B9DB4B1F05157D00307AAC /* PFTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB491F05157D00307AAC /* PFTaskModel.swift */; };
+		A2B9DB4C1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB4A1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift */; };
+		A2B9DB4F1F05158200307AAC /* PFUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB4D1F05158200307AAC /* PFUserModel.swift */; };
+		A2B9DB501F05158200307AAC /* PFUserModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB4E1F05158200307AAC /* PFUserModel+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,20 +69,22 @@
 		A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListViewController.swift; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.swift; sourceTree = "<group>"; };
 		A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListCollectionViewCell.swift; path = Controllers/PFProjectsListViewController/PFProjectsListCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthFirebaseManager.swift; path = Managers/PFAuthFirebaseManager.swift; sourceTree = "<group>"; };
-		A2B9DB151F04F22300307AAC /* PFCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCommentModel.swift; path = Models/PFCommentModel/PFCommentModel.swift; sourceTree = "<group>"; };
-		A2B9DB161F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFCommentModel+CoreDataProperties.swift"; path = "Models/PFCommentModel/PFCommentModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A2B9DB191F04F23100307AAC /* PFFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFileModel.swift; path = Models/PFFileModel/PFFileModel.swift; sourceTree = "<group>"; };
-		A2B9DB1A1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFFileModel+CoreDataProperties.swift"; path = "Models/PFFileModel/PFFileModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A2B9DB1D1F04F23B00307AAC /* PFOwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFOwnerModel.swift; path = Models/PFOwnerModel/PFOwnerModel.swift; sourceTree = "<group>"; };
-		A2B9DB1E1F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFOwnerModel+CoreDataProperties.swift"; path = "Models/PFOwnerModel/PFOwnerModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A2B9DB211F04F24500307AAC /* PFProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectModel.swift; path = Models/PFProjectModel/PFProjectModel.swift; sourceTree = "<group>"; };
-		A2B9DB221F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFProjectModel+CoreDataProperties.swift"; path = "Models/PFProjectModel/PFProjectModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A2B9DB251F04F24D00307AAC /* PFTaskGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskGroupModel.swift; path = Models/PFTaskGroup/PFTaskGroupModel.swift; sourceTree = "<group>"; };
-		A2B9DB261F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskGroupModel+CoreDataProperties.swift"; path = "Models/PFTaskGroup/PFTaskGroupModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A2B9DB291F04F25800307AAC /* PFTaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskModel.swift; path = Models/PFTaskModel/PFTaskModel.swift; sourceTree = "<group>"; };
-		A2B9DB2A1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskModel+CoreDataProperties.swift"; path = "Models/PFTaskModel/PFTaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A2B9DB2D1F04F26300307AAC /* PFUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserModel.swift; path = Models/PFUserModel/PFUserModel.swift; sourceTree = "<group>"; };
-		A2B9DB2E1F04F26300307AAC /* PFUserModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFUserModel+CoreDataProperties.swift"; path = "Models/PFUserModel/PFUserModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectFirebaseManager.swift; path = Managers/PFProjectFirebaseManager.swift; sourceTree = "<group>"; };
+		A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskFirebaseManager.swift; path = Managers/PFTaskFirebaseManager.swift; sourceTree = "<group>"; };
+		A2B9DB351F05155900307AAC /* PFCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCommentModel.swift; path = Models/PFCommentModel/PFCommentModel.swift; sourceTree = "<group>"; };
+		A2B9DB361F05155900307AAC /* PFCommentModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFCommentModel+CoreDataProperties.swift"; path = "Models/PFCommentModel/PFCommentModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB391F05156100307AAC /* PFFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFileModel.swift; path = Models/PFFileModel/PFFileModel.swift; sourceTree = "<group>"; };
+		A2B9DB3A1F05156100307AAC /* PFFileModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFFileModel+CoreDataProperties.swift"; path = "Models/PFFileModel/PFFileModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB3D1F05156800307AAC /* PFOwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFOwnerModel.swift; path = Models/PFOwnerModel/PFOwnerModel.swift; sourceTree = "<group>"; };
+		A2B9DB3E1F05156800307AAC /* PFOwnerModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFOwnerModel+CoreDataProperties.swift"; path = "Models/PFOwnerModel/PFOwnerModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB411F05157000307AAC /* PFProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectModel.swift; path = Models/PFProjectModel/PFProjectModel.swift; sourceTree = "<group>"; };
+		A2B9DB421F05157000307AAC /* PFProjectModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFProjectModel+CoreDataProperties.swift"; path = "Models/PFProjectModel/PFProjectModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB451F05157700307AAC /* PFTaskGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskGroupModel.swift; path = Models/PFTaskGroup/PFTaskGroupModel.swift; sourceTree = "<group>"; };
+		A2B9DB461F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskGroupModel+CoreDataProperties.swift"; path = "Models/PFTaskGroup/PFTaskGroupModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB491F05157D00307AAC /* PFTaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskModel.swift; path = Models/PFTaskModel/PFTaskModel.swift; sourceTree = "<group>"; };
+		A2B9DB4A1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskModel+CoreDataProperties.swift"; path = "Models/PFTaskModel/PFTaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2B9DB4D1F05158200307AAC /* PFUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserModel.swift; path = Models/PFUserModel/PFUserModel.swift; sourceTree = "<group>"; };
+		A2B9DB4E1F05158200307AAC /* PFUserModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFUserModel+CoreDataProperties.swift"; path = "Models/PFUserModel/PFUserModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C1437242EC1604DC57E187A6 /* Pods-TaskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F11261E8B0D9751043C4CAE1 /* Pods-TaskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,8 +104,8 @@
 		3C3210831F014C02004A50BD /* PFOwnerModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB1D1F04F23B00307AAC /* PFOwnerModel.swift */,
-				A2B9DB1E1F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift */,
+				A2B9DB3D1F05156800307AAC /* PFOwnerModel.swift */,
+				A2B9DB3E1F05156800307AAC /* PFOwnerModel+CoreDataProperties.swift */,
 			);
 			name = PFOwnerModel;
 			sourceTree = "<group>";
@@ -109,8 +113,8 @@
 		3C3210841F014C0F004A50BD /* PFFileModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB191F04F23100307AAC /* PFFileModel.swift */,
-				A2B9DB1A1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift */,
+				A2B9DB391F05156100307AAC /* PFFileModel.swift */,
+				A2B9DB3A1F05156100307AAC /* PFFileModel+CoreDataProperties.swift */,
 			);
 			name = PFFileModel;
 			sourceTree = "<group>";
@@ -118,8 +122,8 @@
 		3C3210851F014C11004A50BD /* PFCommentModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB151F04F22300307AAC /* PFCommentModel.swift */,
-				A2B9DB161F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift */,
+				A2B9DB351F05155900307AAC /* PFCommentModel.swift */,
+				A2B9DB361F05155900307AAC /* PFCommentModel+CoreDataProperties.swift */,
 			);
 			name = PFCommentModel;
 			sourceTree = "<group>";
@@ -127,8 +131,8 @@
 		3C3210861F014C12004A50BD /* PFProjectModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB211F04F24500307AAC /* PFProjectModel.swift */,
-				A2B9DB221F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift */,
+				A2B9DB411F05157000307AAC /* PFProjectModel.swift */,
+				A2B9DB421F05157000307AAC /* PFProjectModel+CoreDataProperties.swift */,
 			);
 			name = PFProjectModel;
 			sourceTree = "<group>";
@@ -136,8 +140,8 @@
 		3C3210871F014C14004A50BD /* PFTaskModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB291F04F25800307AAC /* PFTaskModel.swift */,
-				A2B9DB2A1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift */,
+				A2B9DB491F05157D00307AAC /* PFTaskModel.swift */,
+				A2B9DB4A1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift */,
 			);
 			name = PFTaskModel;
 			sourceTree = "<group>";
@@ -145,8 +149,8 @@
 		3C3210881F014C15004A50BD /* PFUserModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB2D1F04F26300307AAC /* PFUserModel.swift */,
-				A2B9DB2E1F04F26300307AAC /* PFUserModel+CoreDataProperties.swift */,
+				A2B9DB4D1F05158200307AAC /* PFUserModel.swift */,
+				A2B9DB4E1F05158200307AAC /* PFUserModel+CoreDataProperties.swift */,
 			);
 			name = PFUserModel;
 			sourceTree = "<group>";
@@ -174,7 +178,6 @@
 			children = (
 				A2226A981F0246F6005ACC9F /* Managers */,
 				A25751611EFD516F0003E023 /* Controllers */,
-				3CD5D3651EFD4B9E008007BF /* TaskTracker.entitlements */,
 				3CD5D3501EFD48EA008007BF /* Adapters */,
 				3CD5D34F1EFD4876008007BF /* Constants */,
 				3CD5D34E1EFD4870008007BF /* Models */,
@@ -187,6 +190,7 @@
 		3CD5D34C1EFD483F008007BF /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				3CD5D3651EFD4B9E008007BF /* TaskTracker.entitlements */,
 				3CD5D3661EFD4CEE008007BF /* GoogleService-Info.plist */,
 				3CD5D3371EFD47F7008007BF /* AppDelegate.swift */,
 				3CD5D33B1EFD47F7008007BF /* Main.storyboard */,
@@ -276,6 +280,8 @@
 				A2226A991F024739005ACC9F /* PFFirebaseManager.swift */,
 				A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */,
 				A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */,
+				A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */,
+				A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -312,8 +318,8 @@
 		A2B9DB141F04F10100307AAC /* PFTaskGroupModel */ = {
 			isa = PBXGroup;
 			children = (
-				A2B9DB251F04F24D00307AAC /* PFTaskGroupModel.swift */,
-				A2B9DB261F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift */,
+				A2B9DB451F05157700307AAC /* PFTaskGroupModel.swift */,
+				A2B9DB461F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift */,
 			);
 			name = PFTaskGroupModel;
 			sourceTree = "<group>";
@@ -459,30 +465,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B9DB481F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */,
+				A2B9DB401F05156800307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */,
+				A2B9DB3C1F05156100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */,
 				A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */,
-				A2B9DB181F04F22300307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
+				A2B9DB341F0500E400307AAC /* PFTaskFirebaseManager.swift in Sources */,
+				A2B9DB3F1F05156800307AAC /* PFOwnerModel.swift in Sources */,
+				A2B9DB4B1F05157D00307AAC /* PFTaskModel.swift in Sources */,
+				A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */,
 				3CD5D3561EFD4995008007BF /* PFUserAdapter.swift in Sources */,
-				A2B9DB1F1F04F23B00307AAC /* PFOwnerModel.swift in Sources */,
-				A2B9DB1B1F04F23100307AAC /* PFFileModel.swift in Sources */,
-				A2B9DB1C1F04F23100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */,
 				3CD5D35A1EFD49A1008007BF /* PFAuthAdapter.swift in Sources */,
-				A2B9DB171F04F22300307AAC /* PFCommentModel.swift in Sources */,
+				A2B9DB4F1F05158200307AAC /* PFUserModel.swift in Sources */,
 				3CD5D3611EFD49C5008007BF /* Other Extensions.swift in Sources */,
-				A2B9DB241F04F24500307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */,
-				A2B9DB2F1F04F26300307AAC /* PFUserModel.swift in Sources */,
-				A2B9DB301F04F26300307AAC /* PFUserModel+CoreDataProperties.swift in Sources */,
-				A2B9DB271F04F24D00307AAC /* PFTaskGroupModel.swift in Sources */,
-				A2B9DB231F04F24500307AAC /* PFProjectModel.swift in Sources */,
-				A2B9DB281F04F24D00307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */,
 				3CD5D3641EFD49F5008007BF /* TaskTracker.xcdatamodeld in Sources */,
-				A2B9DB2B1F04F25800307AAC /* PFTaskModel.swift in Sources */,
 				3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */,
 				A2226A9C1F028557005ACC9F /* PFUserFirebaseManager.swift in Sources */,
-				A2B9DB2C1F04F25800307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */,
+				A2B9DB3B1F05156100307AAC /* PFFileModel.swift in Sources */,
+				A2B9DB371F05155900307AAC /* PFCommentModel.swift in Sources */,
+				A2B9DB441F05157000307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */,
+				A2B9DB501F05158200307AAC /* PFUserModel+CoreDataProperties.swift in Sources */,
 				3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */,
+				A2B9DB471F05157700307AAC /* PFTaskGroupModel.swift in Sources */,
+				A2B9DB381F05155900307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
+				A2B9DB431F05157000307AAC /* PFProjectModel.swift in Sources */,
 				3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */,
-				A2B9DB201F04F23B00307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */,
+				A2B9DB4C1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */,
 				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
 				A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */,
 				A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */,

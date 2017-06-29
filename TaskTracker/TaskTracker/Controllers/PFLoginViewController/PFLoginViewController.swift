@@ -93,16 +93,22 @@ class PFLoginViewController: UIViewController {
     func configureSignInUI() {
         
         print("login")
+        configureRoleLabel()
     }
     
     func configureRoleLabel() {
+        UserDefaults.standard.setValue([kUserID:"222",
+                                        kAdminID:"111"], forKey: kParametersKey)
         
         guard let parameters = UserDefaults.standard.value(forKey: kParametersKey) as! [String:Any]?
             else {
                 return
         }
-        let role = parameters[kRole] as! String? ?? "undefined role"
-        self.roleLabel.text = role
+        //let role = parameters[kRole] as! String? ?? "undefined role"
+        PFUserFirebaseManager.getEmail(withID: "222") { (email) in
+            self.roleLabel.text = email
+        }
+        //self.roleLabel.text = role
     }
     
     

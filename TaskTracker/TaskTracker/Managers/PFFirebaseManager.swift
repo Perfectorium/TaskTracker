@@ -13,6 +13,19 @@ import FirebaseAuth
 class PFFirebaseManager {
     
     
+    //MARK: - LifeCycle
+    
+    
+    class func buildPath(withComponents components:[String]) -> String {
+        var resultPath = ""
+        for word in components {
+            resultPath.append(word)
+            resultPath.append("/")
+        }
+        return resultPath
+    }
+    
+    
     // MARK: - References
     
     
@@ -61,9 +74,11 @@ class PFFirebaseManager {
         
         let targetReference = databaseReference().child(childPath)
         targetReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
             if let userDict = snapshot.value as? [String:Any] {
                 completionHandler(userDict)
             }
+            print("suck")
         })
         { (error) in
             self.printError("fetchDatabaseError: \(error)")

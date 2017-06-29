@@ -40,7 +40,39 @@ let kUsers          = "users"
 let kUndefined      = "undefined"
 let kPhone          = "phone"
 let kAvatarURL      = "avatarURL"
+let kUserBranch      = "users"
+let kMainInfo        = "mainInfo"
+let kProjects        = "projects"
+let kWorkingHours    = "workingHours"
 
-// MARK: - 
+let kProjectAvatarURL           = "avatar"
+let kProjectClient              = "client"
+let kProjectDescription         = "description"
+let kProjectName                = "name"
+let kProjectSpentTime           = "spentTime"
+let kProjectTotalEstimatedTime  = "totalEstimatedTime"
+let kProjectTasks               = "tasks"
+let kProjectUsers               = "users"
+
+let kTasks                  = "tasks"
+let kTaskAuthor             = "author"
+let kTaskDescription        = "description"
+let kTaskName               = "name"
+let kTaskPriority           = "priority"
+let kTaskStatus             = "status"
+let kTaskType               = "type"
+let kTaskStartTime          = "startDate"
+let kTaskEndTime            = "endDate"
+let kTaskEstimatedTime      = "estimateTime"
+let kTaskSpentTime          = "spentTime"
+let kTaskFiles              = "files"
+let kTaskUsers              = "users"
+
+
+let kFileURL                = "path"
+let kFileType               = "type"
+let kFileId                 = "id"
+
+// MARK: -
 
 

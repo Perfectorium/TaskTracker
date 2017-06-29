@@ -24,26 +24,8 @@ extension PFProjectModel {
     @NSManaged public var projectId: String?
     @NSManaged public var totalSpent: String?
     @NSManaged public var totatEstimated: String?
-    @NSManaged public var files: NSSet?
     @NSManaged public var tasks: NSSet?
     @NSManaged public var users: NSSet?
-
-}
-
-// MARK: Generated accessors for files
-extension PFProjectModel {
-
-    @objc(addFilesObject:)
-    @NSManaged public func addToFiles(_ value: PFFileModel)
-
-    @objc(removeFilesObject:)
-    @NSManaged public func removeFromFiles(_ value: PFFileModel)
-
-    @objc(addFiles:)
-    @NSManaged public func addToFiles(_ values: NSSet)
-
-    @objc(removeFiles:)
-    @NSManaged public func removeFromFiles(_ values: NSSet)
 
 }
 

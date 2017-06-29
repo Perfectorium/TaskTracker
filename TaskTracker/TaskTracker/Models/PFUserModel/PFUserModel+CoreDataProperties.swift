@@ -26,7 +26,7 @@ extension PFUserModel {
     @NSManaged public var comments: NSSet?
     @NSManaged public var files: NSSet?
     @NSManaged public var projects: NSSet?
-    @NSManaged public var tasks: PFTaskModel?
+    @NSManaged public var tasks: NSSet?
 
 }
 
@@ -78,5 +78,22 @@ extension PFUserModel {
 
     @objc(removeProjects:)
     @NSManaged public func removeFromProjects(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for tasks
+extension PFUserModel {
+
+    @objc(addTasksObject:)
+    @NSManaged public func addToTasks(_ value: PFTaskModel)
+
+    @objc(removeTasksObject:)
+    @NSManaged public func removeFromTasks(_ value: PFTaskModel)
+
+    @objc(addTasks:)
+    @NSManaged public func addToTasks(_ values: NSSet)
+
+    @objc(removeTasks:)
+    @NSManaged public func removeFromTasks(_ values: NSSet)
 
 }

@@ -21,6 +21,6 @@ extension PFFileModel {
     @NSManaged public var url: String?
     @NSManaged public var comment: PFCommentModel?
     @NSManaged public var owner: PFUserModel?
-    @NSManaged public var project: PFProjectModel?
+    @NSManaged public var task: PFTaskModel?
 
 }

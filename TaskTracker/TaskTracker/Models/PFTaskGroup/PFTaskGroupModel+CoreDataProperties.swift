@@ -16,10 +16,10 @@ extension PFTaskGroupModel {
         return NSFetchRequest<PFTaskGroupModel>(entityName: "PFTaskGroupModel")
     }
 
-    @NSManaged public var groupId: String?
-    @NSManaged public var startTime: String?
     @NSManaged public var endTime: String?
     @NSManaged public var estimatedTime: String?
+    @NSManaged public var groupId: String?
+    @NSManaged public var startTime: String?
     @NSManaged public var tasks: NSSet?
 
 }

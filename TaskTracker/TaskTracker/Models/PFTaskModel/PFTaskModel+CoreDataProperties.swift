@@ -27,8 +27,9 @@ extension PFTaskModel {
     @NSManaged public var type: String?
     @NSManaged public var comments: NSSet?
     @NSManaged public var project: PFProjectModel?
-    @NSManaged public var users: PFUserModel?
     @NSManaged public var taskGroup: PFTaskGroupModel?
+    @NSManaged public var users: NSSet?
+    @NSManaged public var files: NSSet?
 
 }
 
@@ -46,5 +47,39 @@ extension PFTaskModel {
 
     @objc(removeComments:)
     @NSManaged public func removeFromComments(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for users
+extension PFTaskModel {
+
+    @objc(addUsersObject:)
+    @NSManaged public func addToUsers(_ value: PFUserModel)
+
+    @objc(removeUsersObject:)
+    @NSManaged public func removeFromUsers(_ value: PFUserModel)
+
+    @objc(addUsers:)
+    @NSManaged public func addToUsers(_ values: NSSet)
+
+    @objc(removeUsers:)
+    @NSManaged public func removeFromUsers(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for files
+extension PFTaskModel {
+
+    @objc(addFilesObject:)
+    @NSManaged public func addToFiles(_ value: PFFileModel)
+
+    @objc(removeFilesObject:)
+    @NSManaged public func removeFromFiles(_ value: PFFileModel)
+
+    @objc(addFiles:)
+    @NSManaged public func addToFiles(_ values: NSSet)
+
+    @objc(removeFiles:)
+    @NSManaged public func removeFromFiles(_ values: NSSet)
 
 }
