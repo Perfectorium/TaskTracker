@@ -10,10 +10,15 @@ import Foundation
 
 class PFTaskFirebaseManager: PFFirebaseManager {
     
-    class func addTask(task: PFTaskModel,
-                       projectID: String,
-                       withcompletionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
+    class func add(task: PFTaskModel,
+                   projectID: String,
+                   completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
+        guard let taskId = task.taskId
+            else {
+                printError("addTask - taskID is nil")
+                return
+        }
         let taskMainInfo = [kTaskAuthor:        task.authorId,
                             kTaskDescription:   task.descriptionText,
                             kTaskName:          task.name,
@@ -33,11 +38,19 @@ class PFTaskFirebaseManager: PFFirebaseManager {
         
         let uploadPath = buildPath(withComponents: [kProjects,
                                                     projectID,
-                                                    kTasks])
+                                                    kTasks,
+                                                    taskId])
         setDatabase(value: taskToUpload,
                     forPath: uploadPath) { (success) in
                         
         }
+    }
+    
+    class func update(task: PFTaskModel,
+                      withValues: [String],
+                      completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
+        
+        
     }
     
     
@@ -75,7 +88,6 @@ class PFTaskFirebaseManager: PFFirebaseManager {
                 printError("addTaskError - users is nil")
                 return []
         }
-        
         for user in users {
             let userModel = user as! PFUserModel
             guard let id = userModel.userId
@@ -85,7 +97,6 @@ class PFTaskFirebaseManager: PFFirebaseManager {
             }
             taskUsers.append(id)
         }
-        
         return taskUsers
     }
     

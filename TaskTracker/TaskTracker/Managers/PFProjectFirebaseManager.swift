@@ -158,11 +158,11 @@ class PFProjectFirebaseManager: PFFirebaseManager {
                        projectID: String,
                        withCompletionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
-        PFTaskFirebaseManager.addTask(task: task,
-                                      projectID: projectID) { (success) in
-                                        outerHandler(success)
+        PFTaskFirebaseManager.add(task: task,
+                                  projectID: projectID) { (success) in
+                                    outerHandler(success)
         }
-
+        
     }
     
     class func addUser(user: PFUserModel,

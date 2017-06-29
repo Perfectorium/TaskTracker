@@ -17,6 +17,7 @@ extension PFTaskModel {
     }
 
     @NSManaged public var authorId: String?
+    @NSManaged public var taskId: String?
     @NSManaged public var descriptionText: String?
     @NSManaged public var endTime: String?
     @NSManaged public var estimatedTime: String?
