@@ -137,19 +137,6 @@ class PFProjectFirebaseManager: PFFirebaseManager {
     // MARK: - Setters
     
     
-    class func set(value: Any,
-                   forKey key: String,
-                   withID id: String,
-                   completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
-        
-        let path = buildPath(withComponents: [kUsers,id,key])
-        setDatabase(value: value,
-                    forPath: path) { (success) in
-                        
-                        outerHandler(success)
-        }
-    }
-    
     class func setMain(value: Any,
                        forKey key: String,
                        withID id: String,
