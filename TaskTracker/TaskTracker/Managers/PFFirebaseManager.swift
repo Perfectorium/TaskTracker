@@ -55,12 +55,12 @@ class PFFirebaseManager {
         return id
     }
     
-    static func databaseReference() -> DatabaseReference {
+    static func databaseReference() -> DatabaseReference? {
         let reference = Database.database().reference()
         guard let id = adminID()
             else {
                 printError("adminID is nil")
-                return reference
+                return nil
         }
         return reference.child(id)
     }
@@ -71,8 +71,12 @@ class PFFirebaseManager {
     
     class func fetchDatabase(withPath childPath: String,
                              completionHandler: @escaping (_ result: Any?) -> Void) {
-        
-        let targetReference = databaseReference().child(childPath)
+        guard let reference = databaseReference()
+            else {
+                printError("fetchDatabase error: DBReference is nil")
+                return
+        }
+        let targetReference = reference.child(childPath)
         targetReference.observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot)
             if let userDict = snapshot.value as? [String:Any] {
@@ -90,7 +94,12 @@ class PFFirebaseManager {
         forPath childPath: String,
         completionHandler outerHandler: @escaping (_ success:Bool) -> Void) {
         
-        let targetReference = databaseReference().child(childPath)
+        guard let reference = databaseReference()
+            else {
+                printError("fetchDatabase error: DBReference is nil")
+                return
+        }
+        let targetReference = reference.child(childPath)
         targetReference.setValue(value) { (error, ref) in
             if error != nil
             {
