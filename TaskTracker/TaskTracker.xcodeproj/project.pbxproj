@@ -28,6 +28,12 @@
 		A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */; };
 		A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */; };
 		A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */; };
+		A29323DB1F06233100EA1959 /* PFTaskAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29323DA1F06233100EA1959 /* PFTaskAdapter.swift */; };
+		A29323DE1F06259E00EA1959 /* PFTaskModel+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29323DD1F06259E00EA1959 /* PFTaskModel+Converter.swift */; };
+		A29323E01F06315100EA1959 /* PFCommentFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29323DF1F06315100EA1959 /* PFCommentFirebaseManager.swift */; };
+		A29323E21F0633E000EA1959 /* PFCommentModel+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29323E11F0633E000EA1959 /* PFCommentModel+Converter.swift */; };
+		A29323E61F06423E00EA1959 /* Heebo.otf in Resources */ = {isa = PBXBuildFile; fileRef = A29323E41F06423E00EA1959 /* Heebo.otf */; };
+		A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */ = {isa = PBXBuildFile; fileRef = A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */; };
 		A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */; };
 		A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */; };
 		A2B9DB341F0500E400307AAC /* PFTaskFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */; };
@@ -72,6 +78,12 @@
 		A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFProjectsListViewController.storyboard; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.storyboard; sourceTree = "<group>"; };
 		A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListViewController.swift; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.swift; sourceTree = "<group>"; };
 		A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectsListCollectionViewCell.swift; path = Controllers/PFProjectsListViewController/PFProjectsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		A29323DA1F06233100EA1959 /* PFTaskAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskAdapter.swift; path = Adapters/PFTaskAdapter/PFTaskAdapter.swift; sourceTree = "<group>"; };
+		A29323DD1F06259E00EA1959 /* PFTaskModel+Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskModel+Converter.swift"; path = "Extensions/PFTaskModel+Converter.swift"; sourceTree = "<group>"; };
+		A29323DF1F06315100EA1959 /* PFCommentFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCommentFirebaseManager.swift; path = Managers/PFCommentFirebaseManager.swift; sourceTree = "<group>"; };
+		A29323E11F0633E000EA1959 /* PFCommentModel+Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFCommentModel+Converter.swift"; path = "Extensions/PFCommentModel+Converter.swift"; sourceTree = "<group>"; };
+		A29323E41F06423E00EA1959 /* Heebo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Heebo.otf; path = Fonts/Heebo.otf; sourceTree = "<group>"; };
+		A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Condenced.otf"; path = "Fonts/Proxima Nova Condenced.otf"; sourceTree = "<group>"; };
 		A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthFirebaseManager.swift; path = Managers/PFAuthFirebaseManager.swift; sourceTree = "<group>"; };
 		A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectFirebaseManager.swift; path = Managers/PFProjectFirebaseManager.swift; sourceTree = "<group>"; };
 		A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskFirebaseManager.swift; path = Managers/PFTaskFirebaseManager.swift; sourceTree = "<group>"; };
@@ -194,6 +206,7 @@
 		3CD5D34C1EFD483F008007BF /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				A29323E31F06421500EA1959 /* Fonts */,
 				3CD5D3651EFD4B9E008007BF /* TaskTracker.entitlements */,
 				3CD5D3661EFD4CEE008007BF /* GoogleService-Info.plist */,
 				3CD5D3371EFD47F7008007BF /* AppDelegate.swift */,
@@ -209,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				3CD5D3601EFD49C5008007BF /* Other Extensions.swift */,
+				A29323DD1F06259E00EA1959 /* PFTaskModel+Converter.swift */,
+				A29323E11F0633E000EA1959 /* PFCommentModel+Converter.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +254,7 @@
 		3CD5D3501EFD48EA008007BF /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				A29323D81F06231500EA1959 /* PFTaskAdapter */,
 				3CD5D3531EFD491D008007BF /* PFUserAdapter */,
 				3CD5D3521EFD4915008007BF /* PFAuthAdapter */,
 				3CD5D3511EFD4905008007BF /* PFCloudStorageAdapter */,
@@ -288,6 +304,7 @@
 				A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */,
 				A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */,
 				A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */,
+				A29323DF1F06315100EA1959 /* PFCommentFirebaseManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -319,6 +336,23 @@
 				A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */,
 			);
 			name = PFProjectsListViewController;
+			sourceTree = "<group>";
+		};
+		A29323D81F06231500EA1959 /* PFTaskAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				A29323DA1F06233100EA1959 /* PFTaskAdapter.swift */,
+			);
+			name = PFTaskAdapter;
+			sourceTree = "<group>";
+		};
+		A29323E31F06421500EA1959 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A29323E41F06423E00EA1959 /* Heebo.otf */,
+				A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		A2B9DB141F04F10100307AAC /* PFTaskGroupModel */ = {
@@ -407,7 +441,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */,
 				3CD5D3451EFD47F7008007BF /* LaunchScreen.storyboard in Resources */,
+				A29323E61F06423E00EA1959 /* Heebo.otf in Resources */,
 				3CD5D3671EFD4CEE008007BF /* GoogleService-Info.plist in Resources */,
 				A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */,
 				3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */,
@@ -476,6 +512,8 @@
 				A2B9DB3C1F05156100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */,
 				A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */,
 				A2B9DB341F0500E400307AAC /* PFTaskFirebaseManager.swift in Sources */,
+				A29323DB1F06233100EA1959 /* PFTaskAdapter.swift in Sources */,
+				A29323DE1F06259E00EA1959 /* PFTaskModel+Converter.swift in Sources */,
 				A2B9DB3F1F05156800307AAC /* PFOwnerModel.swift in Sources */,
 				A2B9DB4B1F05157D00307AAC /* PFTaskModel.swift in Sources */,
 				A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */,
@@ -491,6 +529,7 @@
 				A20FAD921F052B2900DC0390 /* PFFileManager.swift in Sources */,
 				A2B9DB371F05155900307AAC /* PFCommentModel.swift in Sources */,
 				A2B9DB441F05157000307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */,
+				A29323E01F06315100EA1959 /* PFCommentFirebaseManager.swift in Sources */,
 				A2B9DB501F05158200307AAC /* PFUserModel+CoreDataProperties.swift in Sources */,
 				3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */,
 				A2B9DB471F05157700307AAC /* PFTaskGroupModel.swift in Sources */,
@@ -498,6 +537,7 @@
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
 				A2B9DB431F05157000307AAC /* PFProjectModel.swift in Sources */,
 				3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */,
+				A29323E21F0633E000EA1959 /* PFCommentModel+Converter.swift in Sources */,
 				A2B9DB4C1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */,
 				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
 				A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */,

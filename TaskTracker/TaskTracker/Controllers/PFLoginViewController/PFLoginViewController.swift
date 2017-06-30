@@ -15,6 +15,9 @@ enum AuthType {
 
 class PFLoginViewController: UIViewController {
     
+    let kRegisterConstant = -60
+    let kSignInConstant = -30
+    
     
     // MARK: - Properties
     
@@ -26,16 +29,26 @@ class PFLoginViewController: UIViewController {
     // MARK: - Outlets
     
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var emailLine: UIView!
     @IBOutlet weak var roleLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     
     // MARK: - LifeCycle
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     static func storyboardInstance() -> PFLoginViewController? {
         
@@ -47,7 +60,6 @@ class PFLoginViewController: UIViewController {
         
         super.viewDidLoad()
         setupUI()
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,7 +74,6 @@ class PFLoginViewController: UIViewController {
     
     func setupUI () {
         
-        configureButton()
         
         guard let auth = authType else {
             return
@@ -77,8 +88,9 @@ class PFLoginViewController: UIViewController {
     
     func configureButton() {
         
-        self.loginButton.backgroundColor = .clear
+        //self.loginButton.backgroundColor = .clear
     }
+    
     
     
     // MARK: - Auth Specific UI
@@ -86,29 +98,67 @@ class PFLoginViewController: UIViewController {
     
     func configureRegistrationUI() {
         
-        configureRoleLabel()
+        emailCenterConstraint.constant = CGFloat(kRegisterConstant)
+        emailTextField.isHidden = true
+        emailLine.isHidden = true
+        passwordTextField.placeholder = "Create a password"
+        descriptionLabel.text = "To complete the registration create a password.\nPassword must be at least 8 characters!"
+        nextButton.isHidden = false
+        loginButton.isHidden = true
+        forgotPasswordButton.isHidden = true
+        
+        
         print("registration")
     }
     
     func configureSignInUI() {
         
+        emailCenterConstraint.constant = CGFloat(kSignInConstant)
+        emailTextField.isHidden = false
+        emailLine.isHidden = false
+        nextButton.isHidden = true
+        loginButton.isHidden = false
+        forgotPasswordButton.isHidden = false
+        passwordTextField.placeholder = "Password"
+        emailTextField.placeholder = "Email"
+        
         print("login")
-        configureRoleLabel()
     }
     
-    func configureRoleLabel() {
-        UserDefaults.standard.setValue([kUserID:"222",
-                                        kAdminID:"111"], forKey: kParametersKey)
+    func configureRoleLabel(withRole: String) {
         
-        guard let parameters = UserDefaults.standard.value(forKey: kParametersKey) as! [String:Any]?
-            else {
-                return
+        let role = withRole
+        let font = UIFont(name: "ProximaNovaCond-Black", size: 36.0)
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
         }
-        //let role = parameters[kRole] as! String? ?? "undefined role"
-        PFUserFirebaseManager.getEmail(withID: "222") { (email) in
-            self.roleLabel.text = email
-        }
-        //self.roleLabel.text = role
+        let attributes = [NSFontAttributeName: font!,
+                          NSForegroundColorAttributeName: UIColor.init(red: 0.16,
+                                                                       green: 0.16,
+                                                                       blue: 0.16,
+                                                                       alpha: 1.0)
+            ] as [String : Any]
+        
+        let attributedRole = NSMutableAttributedString(string: role,
+                                                       attributes: attributes)
+        let purple = UIColor.init(red:0.55,
+                                  green:0.37,
+                                  blue:0.85,
+                                  alpha:1.0)
+        
+        let attributedDot = NSAttributedString(string: ".",
+                                               attributes: [NSForegroundColorAttributeName: purple])
+        let label = NSMutableAttributedString()
+        label.append(attributedRole)
+        label.append(attributedDot)
+        
+        self.roleLabel.attributedText = label
+        configureRegistrationUI()
     }
     
     
@@ -181,7 +231,6 @@ class PFLoginViewController: UIViewController {
             self.loginButton.blink(color: .red)
             print("validation failed")
         }
-        
     }
     
     

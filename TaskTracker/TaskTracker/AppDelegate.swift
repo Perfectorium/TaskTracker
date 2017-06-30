@@ -14,7 +14,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var rootVC: PFLoginViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       
@@ -30,14 +30,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = AppDelegate.createNavigationController(registration: true)
+//        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.rootViewController = AppDelegate.createNavigationController(registration: true)
         
         let url = userActivity.webpageURL!
         PFAuthAdapter.passActivityURL(url)
         
-        self.window?.makeKeyAndVisible()
+        //self.window?.makeKeyAndVisible()
+        guard let parameters = UserDefaults.standard.value(forKey: kParametersKey) as! [String:Any]?
+            else {
+                return true
+        }
+        let role = parameters[kRole] as! String? ?? ""
+        rootVC?.configureRoleLabel(withRole: role)
         return true
     }
     
@@ -46,8 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     class func createNavigationController(registration: Bool = false) -> UINavigationController {
-        let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
         
+        let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
         let navigationController: UINavigationController?
         if signedIn
         {
@@ -65,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             {
                 return UINavigationController()
             }
-            //let registration = UserDefaults.standard.value(forKey: kIsRegistered) as? Bool ?? false
+            let registration = UserDefaults.standard.value(forKey: kIsRegistered) as? Bool ?? false
             if registration
             {
                 root.authType = .registration
@@ -75,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 root.authType = .login
             }
             navigationController = UINavigationController(rootViewController: root)
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.rootVC = root
         }
         return navigationController!
         

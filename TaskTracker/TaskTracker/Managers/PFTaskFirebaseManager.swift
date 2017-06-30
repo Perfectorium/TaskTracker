@@ -10,39 +10,18 @@ import Foundation
 
 class PFTaskFirebaseManager: PFFirebaseManager {
     
-    class func add(task: PFTaskModel,
-                   projectID: String,
-                   completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
-        
-        guard let taskId = task.taskId
-            else {
-                printError("addTask - taskID is nil")
-                return
-        }
-        let taskMainInfo = [kTaskAuthor:        task.authorId,
-                            kTaskDescription:   task.descriptionText,
-                            kTaskName:          task.name,
-                            kTaskEstimatedTime: task.estimatedTime,
-                            kTaskStartTime:     task.startTime,
-                            kTaskEndTime:       task.endTime,
-                            kTaskStatus:        task.status,
-                            kTaskType:          task.type,
-                            kTaskPriority:      task.priority]
-        let taskFiles = fetchFiles(fromModel: task)
-        let taskUsers = fetchUsers(fromModel: task)
-        
-        
-        let taskToUpload = [kMainInfo:  taskMainInfo,
-                            kTaskFiles: taskFiles,
-                            kTaskUsers: taskUsers] as [String : Any]
+    class func add(task: [String:Any],
+                   withID taskId: String,//PFTaskModel,
+        toProjectID projectID: String,
+        completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
         let uploadPath = buildPath(withComponents: [kProjects,
                                                     projectID,
                                                     kTasks,
                                                     taskId])
-        setDatabase(value: taskToUpload,
+        setDatabase(value: task,
                     forPath: uploadPath) { (success) in
-                        
+                        outerHandler(success)
         }
     }
     
@@ -53,51 +32,62 @@ class PFTaskFirebaseManager: PFFirebaseManager {
         
     }
     
-    
-    // MARK: - Helpers
-    
-    
-    private class func fetchFiles(fromModel task: PFTaskModel) -> [String:Any] {
+    class func add(comment: [String:Any],
+                   withID commentId: String,
+                   toProjectID projectId: String,
+                   andTaskID taskId: String,
+                   completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
-        var taskFiles: [String:[String:String]] = [:]
-        
-        if task.files != nil
-        {
-            for file in task.files! {
-                let fileModel = file as! PFFileModel
-                guard
-                    let url = fileModel.url,
-                    let fileId = fileModel.fileId,
-                    let type = fileModel.type
-                    else {
-                        printError("addTaskError - file`s URL or type is nil")
-                        return [:]
-                }
-                taskFiles[fileId] = [kFileType: type,
-                                     kFileURL:  url]
-            }
+        let uploadPath = buildPath(withComponents: [kProjects,
+                                                    projectId,
+                                                    kTasks,
+                                                    taskId,
+                                                    kComments,
+                                                    commentId])
+        PFCommentFirebaseManager.add(comment: comment,
+                                     atPath: uploadPath) { (success) in
+                                        outerHandler(success)
+                                        
         }
-        return taskFiles
+        
     }
     
-    private class func fetchUsers(fromModel task: PFTaskModel) -> [String] {
-        
-        var taskUsers: [String] = []
-        guard let users = task.users
-            else {
-                printError("addTaskError - users is nil")
-                return []
-        }
-        for user in users {
-            let userModel = user as! PFUserModel
-            guard let id = userModel.userId
-                else {
-                    printError("addTaskError - userID is nil")
-                    return []
-            }
-            taskUsers.append(id)
-        }
-        return taskUsers
-    }
+    // Поменять пользователя, добавить пользователя позже? Удалить и переназначить пользователя на таску.
     
+    class func move(taskWithID: String,
+                    withProjectID projectID: String,
+                    fromUserID: String,
+                    toUserID: String,
+                    completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
+        
+        let uploadPath = buildPath(withComponents: [kProjects,
+                                                    projectID,
+                                                    kTasks,
+                                                    taskWithID,
+                                                    kUsers])
+        
+        let toPath = uploadPath.appending("/\(toUserID)")
+        setDatabase(value: true,
+                    forPath: toPath) { (success) in
+                        if(success)
+                        {
+                            let uploadPath = buildPath(withComponents: [kProjects,
+                                                                        projectID,
+                                                                        kTasks,
+                                                                        taskWithID,
+                                                                        kUsers])
+                            let path = uploadPath.appending("/\(fromUserID)")
+                            setDatabase(value: nil,
+                                        forPath: path,
+                                        completionHandler: { (success) in
+                                            outerHandler(success)
+                            })
+                        }
+                        else
+                        {
+                            outerHandler(success)
+                        }
+        }
+        
+    }
 }

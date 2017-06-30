@@ -33,6 +33,7 @@ class PFAuthAdapter {
             dict[pairArr[0]] = pairArr[1]
         }
         
+        
         let defaults = UserDefaults.standard
         defaults.set(dict, forKey: kParametersKey)
     }

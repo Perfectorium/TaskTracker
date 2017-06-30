@@ -154,12 +154,14 @@ class PFProjectFirebaseManager: PFFirebaseManager {
     // MARK: - Project related setters
     
     
-    class func addTask(task: PFTaskModel,
+    class func addTask(task: [String:Any],
+                       withID id: String, // PFTaskModel,
                        projectID: String,
                        withCompletionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
         PFTaskFirebaseManager.add(task: task,
-                                  projectID: projectID) { (success) in
+                                  withID: id,
+                                  toProjectID: projectID) { (success) in
                                     outerHandler(success)
         }
         

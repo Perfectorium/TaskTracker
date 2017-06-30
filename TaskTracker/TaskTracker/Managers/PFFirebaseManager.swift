@@ -90,7 +90,7 @@ class PFFirebaseManager {
         }
     }
     
-    class func setDatabase(value: Any, //[String:Any],
+    class func setDatabase(value: Any?, //[String:Any],
         forPath childPath: String,
         completionHandler outerHandler: @escaping (_ success:Bool) -> Void) {
         

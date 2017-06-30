@@ -69,8 +69,16 @@ let kTaskSpentTime          = "spentTime"
 let kTaskFiles              = "files"
 let kTaskUsers              = "users"
 
+let kComments               = "comments"
+let kCommentAuthor          = "author"
+let kCommentDate            = "date"
+let kCommentText            = "text"
+let kCommentTimeToAdd       = "timeToAdd"
+let kCommentFiles           = "files"
 
-let kFileURL                = "path"
+
+
+let kFileURL                = "url"
 let kFileType               = "type"
 let kFileId                 = "id"
 
