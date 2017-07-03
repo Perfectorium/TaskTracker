@@ -176,13 +176,14 @@ class PFProjectFirebaseManager: PFFirebaseManager {
                 printError("addUserError - userID is nil")
                 return
         }
-        let path = buildPath(withComponents: [kProjects,projectID,kProjectUsers])
-        assert(true, "Fix users rewriting")
-        setDatabase(value: userID,
+        let path = buildPath(withComponents: [kProjects,projectID,kProjectUsers,userID])
+        setDatabase(value: true,
                     forPath: path) { (success) in
                         outerHandler(success)
         }
+        
     }
+    
     
     
     
