@@ -78,11 +78,9 @@ class PFFirebaseManager {
         }
         let targetReference = reference.child(childPath)
         targetReference.observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot)
-            if let userDict = snapshot.value as? [String:Any] {
+            if let userDict = snapshot.value {
                 completionHandler(userDict)
             }
-            print("suck")
         })
         { (error) in
             self.printError("fetchDatabaseError: \(error)")

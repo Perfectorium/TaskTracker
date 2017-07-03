@@ -72,6 +72,9 @@ let kTaskFiles              = "files"
 let kTaskUsers              = "users"
 let kTaskComments           = "comments"
 
+let kTaskGroups             = "taskGroups"
+let kTaskGroupTasks         = "tasks"
+
 let kComments               = "comments"
 let kCommentAuthor          = "author"
 let kCommentDate            = "date"

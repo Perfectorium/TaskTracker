@@ -22,6 +22,7 @@
 		6F0A2D8A35FF5CAF85570326 /* Pods_TaskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */; };
 		A20FAD901F052B2300DC0390 /* PFCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FAD8F1F052B2300DC0390 /* PFCoreDataManager.swift */; };
 		A20FAD921F052B2900DC0390 /* PFFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FAD911F052B2900DC0390 /* PFFileManager.swift */; };
+		A21CAA8D1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21CAA8C1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift */; };
 		A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2226A991F024739005ACC9F /* PFFirebaseManager.swift */; };
 		A2226A9C1F028557005ACC9F /* PFUserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */; };
 		A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25751621EFD51910003E023 /* PFLoginViewController.swift */; };
@@ -84,6 +85,7 @@
 		909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20FAD8F1F052B2300DC0390 /* PFCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCoreDataManager.swift; path = Managers/PFCoreDataManager.swift; sourceTree = "<group>"; };
 		A20FAD911F052B2900DC0390 /* PFFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFileManager.swift; path = Managers/PFFileManager.swift; sourceTree = "<group>"; };
+		A21CAA8C1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskGroupFirebaseManager.swift; path = Managers/PFTaskGroupFirebaseManager.swift; sourceTree = "<group>"; };
 		A2226A991F024739005ACC9F /* PFFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFirebaseManager.swift; path = Managers/PFFirebaseManager.swift; sourceTree = "<group>"; };
 		A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserFirebaseManager.swift; path = Managers/PFUserFirebaseManager.swift; sourceTree = "<group>"; };
 		A25751621EFD51910003E023 /* PFLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFLoginViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		3CD5D3501EFD48EA008007BF /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				A21CAA8B1F0A854800BA6FE8 /* PFProjectAdapter */,
 				A29323D81F06231500EA1959 /* PFTaskAdapter */,
 				3CD5D3531EFD491D008007BF /* PFUserAdapter */,
 				3CD5D3521EFD4915008007BF /* PFAuthAdapter */,
@@ -327,6 +330,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A21CAA8B1F0A854800BA6FE8 /* PFProjectAdapter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PFProjectAdapter;
+			sourceTree = "<group>";
+		};
 		A2226A981F0246F6005ACC9F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +348,7 @@
 				A29323DF1F06315100EA1959 /* PFCommentFirebaseManager.swift */,
 				A20FAD911F052B2900DC0390 /* PFFileManager.swift */,
 				A20FAD8F1F052B2300DC0390 /* PFCoreDataManager.swift */,
+				A21CAA8C1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -568,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A21CAA8D1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift in Sources */,
 				A2B9DB481F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift in Sources */,
 				A2B9DB401F05156800307AAC /* PFOwnerModel+CoreDataProperties.swift in Sources */,
 				A2B9DB3C1F05156100307AAC /* PFFileModel+CoreDataProperties.swift in Sources */,
