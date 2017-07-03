@@ -49,7 +49,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
     // MARK: - Project related getters
     
     
-    class func getAvatar(withID id: String,
+    class func getAvatar(withProjectID id: String,
                          completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kProjectAvatarURL,
@@ -58,7 +58,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getClient(withID id: String,
+    class func getClient(withProjectID id: String,
                          completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kProjectClient,
@@ -67,7 +67,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getDescription(withID id: String,
+    class func getDescription(withProjectID id: String,
                               completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kProjectDescription,
@@ -76,7 +76,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getName(withID id: String,
+    class func getName(withProjectID id: String,
                        completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kProjectName,
@@ -85,7 +85,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getSpentTime(withID id: String,
+    class func getSpentTime(withProjectID id: String,
                             completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kProjectSpentTime,
@@ -94,7 +94,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getTotalEstimatedTime(withID id: String,
+    class func getTotalEstimatedTime(withProjectID id: String,
                                      completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kProjectTotalEstimatedTime,
@@ -103,7 +103,7 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getTasks(withID id: String,
+    class func getTasks(withProjectID id: String,
                         completionHandler: @escaping (_ tasks: [String:Any]) -> Void) {
         
         let path = buildPath(withComponents: [kProjects, id, kProjectTasks])
@@ -118,15 +118,64 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         }
     }
     
-    class func getUsersList(withID id: String,
+    class func getTask(withProjectID id: String,
+                       taskID: String,
+                       completionHandler: @escaping (_ tasks: [String:Any]) -> Void) {
+        
+        let path = buildPath(withComponents: [kProjects, id, kProjectTasks,taskID])
+        fetchDatabase(withPath: path) { (result) in
+            guard  let response = result as! [String:Any]?
+                else {
+                    printError("getTaskError: result is nil")
+                    completionHandler([:])
+                    return
+            }
+            completionHandler(response)
+        }
+    }
+    
+    class func getUsersList(withProjectID id: String,
                             completionHandler: @escaping (_ users: [String]) -> Void) {
         
         let path = buildPath(withComponents: [kProjects, id, kProjectUsers])
         fetchDatabase(withPath: path) { (result) in
-            guard  let response = result as! [String]?
+            guard  let response = result as! [String:Bool]?
                 else {
-                    printError("getTasksError: result is nil")
+                    printError("getUsersListError: result is nil")
                     completionHandler([])
+                    return
+            }
+            let users = Array(response.keys)
+            completionHandler(users)
+        }
+    }
+    
+    class func getFile(withProjectID id: String,
+                       fileID: String,
+                       completionHandler: @escaping (_ users: [String:Any]) -> Void) {
+        
+        let path = buildPath(withComponents: [kProjects, id, kProjectFiles, fileID])
+        fetchDatabase(withPath: path) { (result) in
+            guard  let response = result as! [String:Any]?
+                else {
+                    printError("getFilesListError: result is nil")
+                    completionHandler([:])
+                    return
+            }
+            completionHandler(response)
+        }
+    }
+    
+    class func getComment(withProjectID id: String,
+                          commentID: String,
+                          completionHandler: @escaping (_ users: [String:Any]) -> Void) {
+        
+        let path = buildPath(withComponents: [kProjects, id, kProjectComments, commentID])
+        fetchDatabase(withPath: path) { (result) in
+            guard  let response = result as! [String:Any]?
+                else {
+                    printError("getCommentsError: result is nil")
+                    completionHandler([:])
                     return
             }
             completionHandler(response)
@@ -156,8 +205,8 @@ class PFProjectFirebaseManager: PFFirebaseManager {
     
     class func addTask(task: [String:Any],
                        withID id: String, // PFTaskModel,
-                       projectID: String,
-                       withCompletionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
+        projectID: String,
+        withCompletionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
         PFTaskFirebaseManager.add(task: task,
                                   withID: id,

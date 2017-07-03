@@ -6,9 +6,10 @@ target 'TaskTracker' do
   use_frameworks!
 
   # Pods for TaskTracker
-pod 'Firebase/Core'
+  pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'SlideMenuControllerSwift'
 
 end

@@ -11,12 +11,12 @@ import Foundation
 // Model Converter
 extension PFTaskModel {
     
-    static func convertToDictionary(task: PFTaskModel) -> (info: [String:Any], id: String) {
+    static func convertToDictionary(task: PFTaskModel) -> (info: [String:Any], id: String, filesToUpload:[String:Any]) {
         
         guard let taskId = task.taskId
             else {
                 print("PFTaskAdapter: addTask - taskID is nil")
-                return ([:],"")
+                return ([:],"",[:])
         }
         let taskMainInfo = [kTaskAuthor:        task.authorId,
                             kTaskDescription:   task.descriptionText,
@@ -29,13 +29,12 @@ extension PFTaskModel {
                             kTaskPriority:      task.priority]
         let taskFiles = fetchFiles(fromModel: task)
         let taskUsers = fetchUsers(fromModel: task)
-        
-        
+        let filesIDs = Array(taskFiles.keys)
         let taskToUpload = [kMainInfo:  taskMainInfo,
-                            kTaskFiles: taskFiles,
+                            kTaskFiles: filesIDs,
                             kTaskUsers: taskUsers] as [String : Any]
         
-        return (taskToUpload, taskId)
+        return (taskToUpload, taskId, taskFiles)
         
     }
     

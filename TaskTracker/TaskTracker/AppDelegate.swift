@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         FirebaseApp.configure()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = AppDelegate.createNavigationController()
+        self.window?.rootViewController = AppDelegate.createRootController()
         self.window?.makeKeyAndVisible()
         
         return true
@@ -51,18 +52,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Navigation
     
     
-    class func createNavigationController(registration: Bool = false) -> UINavigationController {
+    class func createRootController(registration: Bool = false) -> UIViewController {
         
         let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
-        let navigationController: UINavigationController?
+        let rootController: UIViewController?
         if signedIn
         {
-            guard let root = PFProjectsListViewController.storyboardInstance()
-                else
-            {
-                return UINavigationController()
-            }
-            navigationController = UINavigationController(rootViewController: root)
+            
+            let homeViewController = PFProjectsListViewController.storyboardInstance()!
+            let leftController = PFLeftSlideMenuController.storyboardInstance()
+            let slideViewController = SlideMenuController(mainViewController: homeViewController,
+                                                          leftMenuViewController: leftController!)
+            rootController = slideViewController
         }
         else
         {
@@ -80,11 +81,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             {
                 root.authType = .login
             }
-            navigationController = UINavigationController(rootViewController: root)
+            rootController = UINavigationController(rootViewController: root)
             let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.rootVC = root
         }
-        return navigationController!
+        return rootController!
         
     }
     

@@ -8,26 +8,40 @@
 
 import Foundation
 
-class PFUserFirebaseManager : PFFirebaseManager {
-
+class PFUserFirebaseManager: PFFirebaseManager {
+    
     
     // MARK: - Getters
     
     
+    class func downloadUserInfo(userID: String,
+                                completionHandler: @escaping (_ success:Bool, _ userInfo: [String:Any]) -> Void) {
+        
+        let path = buildPath(withComponents: [kUsers, userID])
+        fetchDatabase(withPath: path) { (result) in
+            guard  let response = result as! [String:Any]?
+                else {
+                    print("PFUserFirebaseManager - downloadUserInfoError: result is nil")
+                    completionHandler(false, [:])
+                    return
+            }
+            completionHandler(true, response)
+        }
+    }
+    
     class func downloadMainInfo(userID: String,
                                 completionHandler: @escaping (_ success:Bool, _ userInfo: [String:Any]) -> Void) {
         let path = buildPath(withComponents: [kUsers, userID, kMainInfo])
-        PFFirebaseManager.fetchDatabase(withPath: path) { (result) in
+        fetchDatabase(withPath: path) { (result) in
             guard  let response = result as! [String:Any]?
                 else {
-                    print("PFAccountAdapter - downloadMainInfoError: result is nil")
+                    print("PFUserFirebaseManager - downloadMainInfoError: result is nil")
                     completionHandler(false, [:])
                     return
             }
             completionHandler(true,response)
         }
     }
-    
     
     class func getMain(value: String,
                        withID id: String,
@@ -41,7 +55,7 @@ class PFUserFirebaseManager : PFFirebaseManager {
                     outerHandler(kUndefined)
                     return
             }
-                outerHandler(result ?? "")
+            outerHandler(result ?? "")
         }
     }
     
@@ -49,7 +63,7 @@ class PFUserFirebaseManager : PFFirebaseManager {
     // MARK: - User related getters
     
     
-    class func getName(withID id: String,
+    class func getName(withUserID id: String,
                        completionHandler outerHandler: @escaping (_ name:String) -> Void) {
         
         getMain(value: kName,
@@ -58,7 +72,7 @@ class PFUserFirebaseManager : PFFirebaseManager {
         }
     }
     
-    class func getRole(withID id: String,
+    class func getRole(withUserID id: String,
                        completionHandler outerHandler: @escaping (_ role: String) -> Void) {
         
         getMain(value: kRole,
@@ -67,7 +81,7 @@ class PFUserFirebaseManager : PFFirebaseManager {
         }
     }
     
-    class func getPhone(withID id: String,
+    class func getPhone(withUserID id: String,
                         completionHandler outerHandler: @escaping (_ phone: String) -> Void) {
         
         getMain(value: kPhone,
@@ -76,7 +90,7 @@ class PFUserFirebaseManager : PFFirebaseManager {
         }
     }
     
-    class func getAvatarURL(withID id: String, completionHandler outerHandler: @escaping (_ avatarURL:String) -> Void) {
+    class func getAvatarURL(withUserID id: String, completionHandler outerHandler: @escaping (_ avatarURL:String) -> Void) {
         
         getMain(value: kAvatarURL,
                 withID: id) { (avatar) in
@@ -84,7 +98,7 @@ class PFUserFirebaseManager : PFFirebaseManager {
         }
     }
     
-    class func getEmail(withID id: String, completionHandler outerHandler: @escaping (_ email:String) -> Void) {
+    class func getEmail(withUserID id: String, completionHandler outerHandler: @escaping (_ email:String) -> Void) {
         
         getMain(value: kEmail,
                 withID: id) { (email) in
@@ -92,21 +106,50 @@ class PFUserFirebaseManager : PFFirebaseManager {
         }
     }
     
-    class func getProjects(withID id: String,
+    class func getProjects(withUserID id: String,
                            completionHandler outerHandler: @escaping (_ projects:[String]) -> Void) {
         
-        getMain(value: kProjects,
-                withID: id) { (array) in
-                    outerHandler(array as! [String])
+        let path = buildPath(withComponents: [kUsers,id,kProjects])
+        fetchDatabase(withPath: path) { (result) in
+            guard let response = result as! [String:Bool]?
+                else {
+                    printError("getProjectsError: result is nil")
+                    outerHandler([])
+                    return
+            }
+            let projects = Array(response.keys)
+            outerHandler(projects)
         }
     }
     
-    class func getWorkingHours(withID id: String,
+    class func getTasks(withUserID id: String,
+                           completionHandler outerHandler: @escaping (_ projects:[String]) -> Void) {
+        
+        let path = buildPath(withComponents: [kUsers,id,kTasks])
+        fetchDatabase(withPath: path) { (result) in
+            guard let response = result as! [String:Bool]?
+                else {
+                    printError("getProjectsError: result is nil")
+                    outerHandler([])
+                    return
+            }
+            let tasks = Array(response.keys)
+            outerHandler(tasks)
+        }
+    }
+    
+    class func getWorkingHours(withUserID id: String,
                                completionHandler outerHandler: @escaping (_ workingHours:[String:Any]) -> Void) {
         
-        getMain(value: kWorkingHours,
-                withID: id) { (dictionary) in
-                    outerHandler(dictionary as! [String:Any])
+        let path = buildPath(withComponents: [kUsers,id,kWorkingHours])
+        fetchDatabase(withPath: path) { (result) in
+            guard let response = result as! [String:Any]?
+                else {
+                    printError("getWorkingHoursError: result is nil")
+                    outerHandler([:])
+                    return
+            }
+            outerHandler(response)
         }
     }
     
@@ -122,7 +165,6 @@ class PFUserFirebaseManager : PFFirebaseManager {
         let path = buildPath(withComponents: [kUsers,id,key])
         PFFirebaseManager.setDatabase(value: value,
                                       forPath: path) { (success) in
-   
                                         outerHandler(success)
         }
     }
@@ -135,7 +177,6 @@ class PFUserFirebaseManager : PFFirebaseManager {
         let path = buildPath(withComponents: [kUsers,id,kMainInfo,key])
         PFFirebaseManager.setDatabase(value: value,
                                       forPath: path) { (success) in
-                                        
                                         outerHandler(success)
         }
     }
@@ -145,8 +186,8 @@ class PFUserFirebaseManager : PFFirebaseManager {
     
     
     class func set(name: String,
-             withID id: String,
-             completionHandler outerHandler: @escaping (_ name: Bool) -> Void) {
+                   withID id: String,
+                   completionHandler outerHandler: @escaping (_ name: Bool) -> Void) {
         
         setMain(value: name,
                 forKey: kName,

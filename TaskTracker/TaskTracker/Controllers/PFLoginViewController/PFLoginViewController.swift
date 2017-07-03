@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 enum AuthType {
     case login
@@ -60,6 +61,22 @@ class PFLoginViewController: UIViewController {
         
         super.viewDidLoad()
         setupUI()
+        addNotifications()
+    }
+    
+    func addNotifications()  {
+        
+        UITextField.connectFields(fields: [emailTextField, passwordTextField])
+        let center = NotificationCenter.default
+        center.addObserver(self,
+                           selector: #selector(keyboardWillShow(notification:)),
+                           name: .UIKeyboardWillShow,
+                           object: nil)
+        
+        center.addObserver(self,
+                           selector: #selector(keyboardWillHide(notification:)),
+                           name: .UIKeyboardWillHide,
+                           object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +85,33 @@ class PFLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK: - Notification Actions
+    
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        let value = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        if value == nil {
+            return
+        }
+        emailCenterConstraint.constant = -((value?.size.width)! / 3)
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        let value = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        if value == nil {
+            return
+        }
+        emailCenterConstraint.constant = 0
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
     
     // MARK: - General UI
     
@@ -187,7 +231,7 @@ class PFLoginViewController: UIViewController {
                                 {
                                     print("signed in successful")
                                     self.loginButton.blink(color: .blue)
-                                    let homeViewController = PFProjectsListViewController.storyboardInstance()!
+                                    let homeViewController = self.presentedController()
                                     self.navigationController?.present(homeViewController,
                                                                        animated: true,
                                                                        completion: {
@@ -201,6 +245,16 @@ class PFLoginViewController: UIViewController {
                                 }
         }
         
+    }
+    
+    func presentedController() -> SlideMenuController {
+        
+        let homeViewController = PFProjectsListViewController.storyboardInstance()!
+        let leftController = PFLeftSlideMenuController.storyboardInstance()
+        let slideViewController = SlideMenuController(mainViewController: homeViewController,
+                                                      leftMenuViewController: leftController!)
+        
+        return slideViewController
     }
     
     func registration() {
@@ -239,17 +293,17 @@ class PFLoginViewController: UIViewController {
     
     @IBAction func loginButtonDidPressed(_ sender: Any) {
         
-        guard let auth = authType else {
-            return
-        }
-        switch auth {
-        case .login:
-            signIn()
-        case .registration:
-            registration()
-        }
-        
+        let senderNew = sender as! UIButton
+        senderNew.blink(scale: 0.98)
+        signIn()
     }
+    
+    @IBAction func registrationButtonDidPressed(_ sender: UIButton) {
+        
+        sender.blink(scale: 0.98)
+        registration()
+    }
+    
     
     @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
         

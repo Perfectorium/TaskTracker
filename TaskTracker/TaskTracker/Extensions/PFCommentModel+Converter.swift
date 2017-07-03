@@ -10,25 +10,25 @@ import Foundation
 
 extension PFCommentModel {
     
-    static func convertToDictionary(comment: PFCommentModel) -> (info: [String:Any], id: String) {
+    static func convertToDictionary(comment: PFCommentModel) -> (info: [String:Any], id: String, commentFiles: [String:Any]) {
         
         guard let commentId = comment.commentId,
             let authorId = comment.author?.userId
             else {
                 print("PFCommentModel+Converter: convertToDictionary - commentId or authorId is nil")
-                return ([:],"")
+                return ([:],"",[:])
         }
         let commentFiles = fetchFiles(fromModel: comment)
-        
+        let filesIDs = Array(commentFiles.keys)
         let commentToUpload = [kCommentAuthor:  authorId,
                                kCommentDate:    comment.date,
                                kCommentText:    comment.text,
                                kCommentTimeToAdd: comment.timeToAdd,
-                               kCommentFiles:   commentFiles
+                               kCommentFiles:   filesIDs
         ] as [String : Any]
         
         
-        return (commentToUpload, commentId)
+        return (commentToUpload, commentId, commentFiles)
         
     }
     

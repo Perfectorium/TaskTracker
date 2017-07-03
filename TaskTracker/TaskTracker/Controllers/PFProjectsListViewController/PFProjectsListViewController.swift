@@ -78,7 +78,7 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
             if success
             {
                 let appdelegate = UIApplication.shared.delegate as! AppDelegate
-                let navigationVC = AppDelegate.createNavigationController()
+                let navigationVC = AppDelegate.createRootController()
                 appdelegate.window!.rootViewController = navigationVC
                 
                 UserDefaults.standard.setValue(false,

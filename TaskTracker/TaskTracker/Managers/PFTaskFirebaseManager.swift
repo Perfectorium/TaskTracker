@@ -11,7 +11,7 @@ import Foundation
 class PFTaskFirebaseManager: PFFirebaseManager {
     
     class func add(task: [String:Any],
-                   withID taskId: String,//PFTaskModel,
+                   withID taskId: String, //PFTaskModel,
         toProjectID projectID: String,
         completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
@@ -40,16 +40,30 @@ class PFTaskFirebaseManager: PFFirebaseManager {
         
         let uploadPath = buildPath(withComponents: [kProjects,
                                                     projectId,
-                                                    kTasks,
-                                                    taskId,
                                                     kComments,
                                                     commentId])
         PFCommentFirebaseManager.add(comment: comment,
                                      atPath: uploadPath) { (success) in
-                                        outerHandler(success)
-                                        
+                                        if success
+                                        {
+                                            let uploadPath = buildPath(withComponents: [kProjects,
+                                                                                        projectId,
+                                                                                        kTasks,
+                                                                                        taskId,
+                                                                                        kTaskComments,
+                                                                                        commentId])
+                                            setDatabase(value: true,
+                                                        forPath: uploadPath,
+                                                        completionHandler: { (success) in
+                                                            outerHandler(success)
+                                            })
+                                            
+                                        }
+                                        else
+                                        {
+                                            outerHandler(false)
+                                        }
         }
-        
     }
     
     // Поменять пользователя, добавить пользователя позже? Удалить и переназначить пользователя на таску.
@@ -85,7 +99,7 @@ class PFTaskFirebaseManager: PFFirebaseManager {
                         }
                         else
                         {
-                            outerHandler(success)
+                            outerHandler(false)
                         }
         }
         
