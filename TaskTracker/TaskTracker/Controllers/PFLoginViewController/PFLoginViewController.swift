@@ -250,10 +250,7 @@ class PFLoginViewController: UIViewController {
     func presentedController() -> SlideMenuController {
         
         let homeViewController = PFProjectsListViewController.storyboardInstance()!
-        let leftController = PFLeftSlideMenuController.storyboardInstance()
-        let slideViewController = SlideMenuController(mainViewController: homeViewController,
-                                                      leftMenuViewController: leftController!)
-        
+        let slideViewController = PFSlideMenuController.newRigthController(with: homeViewController)
         return slideViewController
     }
     

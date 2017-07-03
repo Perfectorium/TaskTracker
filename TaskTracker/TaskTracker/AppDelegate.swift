@@ -60,9 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             
             let homeViewController = PFProjectsListViewController.storyboardInstance()!
-            let leftController = PFLeftSlideMenuController.storyboardInstance()
-            let slideViewController = SlideMenuController(mainViewController: homeViewController,
-                                                          leftMenuViewController: leftController!)
+            let slideViewController = PFSlideMenuController.newRigthController(with: homeViewController)
             rootController = slideViewController
         }
         else
