@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
 
 class PFTaskFirebaseManager: PFFirebaseManager {
     
@@ -32,38 +34,93 @@ class PFTaskFirebaseManager: PFFirebaseManager {
         
     }
     
-    class func add(comment: [String:Any],
-                   withID commentId: String,
+    class func add(comment aComment: [String:Any],
+                   withID aCommentId: String,
                    toProjectID projectId: String,
                    andTaskID taskId: String,
                    completionHandler outerHandler: @escaping (_ success: Bool) -> Void) {
         
+        //        let uploadPath = buildPath(withComponents: [kProjects,
+        //                                                    projectId,
+        //                                                    kComments,
+        //                                                    commentId])
+        
         let uploadPath = buildPath(withComponents: [kProjects,
-                                                    projectId,
-                                                    kComments,
-                                                    commentId])
-        PFCommentFirebaseManager.add(comment: comment,
-                                     atPath: uploadPath) { (success) in
-                                        if success
-                                        {
-                                            let uploadPath = buildPath(withComponents: [kProjects,
-                                                                                        projectId,
-                                                                                        kTasks,
-                                                                                        taskId,
-                                                                                        kTaskComments,
-                                                                                        commentId])
-                                            setDatabase(value: true,
-                                                        forPath: uploadPath,
-                                                        completionHandler: { (success) in
-                                                            outerHandler(success)
-                                            })
-                                            
-                                        }
-                                        else
-                                        {
-                                            outerHandler(false)
-                                        }
-        }
+                                                    projectId])
+        let ref = databaseReference()?.child(uploadPath)
+        ref?.runTransactionBlock({ (currentData) -> TransactionResult in
+            if var projectData = currentData.value as? [String:AnyObject] {
+                guard var comments = projectData[kProjectComments] as! [String:Any]?
+                    else {
+                        printError("addComment - comments is nil")
+                        return TransactionResult.abort()
+                }
+                comments[aCommentId] = aComment
+                projectData[kProjectComments] = comments as AnyObject
+                
+                guard var tasks = projectData[kProjectTasks] as! [String:Any]?
+                    else {
+                        printError("addComment - tasks is nil")
+                        return TransactionResult.abort()
+                }
+                guard var currentTask = tasks[taskId] as! [String:Any]?
+                    else {
+                        printError("addComment - currentTask is nil")
+                        return TransactionResult.abort()
+                }
+                guard var taskComments = currentTask[kTaskComments] as! [String:Any]?
+                    else {
+                        printError("addComment - taskComments is nil")
+                        return TransactionResult.abort()
+                }
+                
+                taskComments[aCommentId] = true
+                currentTask[kTaskComments] = taskComments
+                tasks[taskId] = currentTask
+                tasks[kProjectTasks] = tasks
+                projectData[kProjectTasks] = tasks as AnyObject
+                currentData.value = projectData
+                return TransactionResult.success(withValue: currentData)
+            }
+            else {
+                print("null")
+                return TransactionResult.success(withValue: currentData)
+            }
+            
+        }, andCompletionBlock: { (error, success, snapshot) in
+            if success
+            {
+                outerHandler(true)
+                print(error ?? snapshot)
+            }
+            else
+            {
+                printError("AddComment: transaction failed??")
+                print(error ?? snapshot)
+            }
+        })
+        //        PFCommentFirebaseManager.add(comment: comment,
+        //                                     atPath: uploadPath) { (success) in
+        //                                        if success
+        //                                        {
+        //                                            let uploadPath = buildPath(withComponents: [kProjects,
+        //                                                                                        projectId,
+        //                                                                                        kTasks,
+        //                                                                                        taskId,
+        //                                                                                        kTaskComments,
+        //                                                                                        commentId])
+        //                                            setDatabase(value: true,
+        //                                                        forPath: uploadPath,
+        //                                                        completionHandler: { (success) in
+        //                                                            outerHandler(success)
+        //                                            })
+        //
+        //                                        }
+        //                                        else
+        //                                        {
+        //                                            outerHandler(false)
+        //                                        }
+        //        }
     }
     
     // Поменять пользователя, добавить пользователя позже? Удалить и переназначить пользователя на таску.
