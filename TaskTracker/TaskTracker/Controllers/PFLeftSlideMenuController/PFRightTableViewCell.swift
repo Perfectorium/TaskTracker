@@ -7,7 +7,7 @@
 //
 import UIKit
 
-open class PFLeftTableViewCell : UITableViewCell {
+open class PFRightTableViewCell : UITableViewCell {
     class var identifier: String { return String.className(self) }
     
     public required init?(coder aDecoder: NSCoder) {

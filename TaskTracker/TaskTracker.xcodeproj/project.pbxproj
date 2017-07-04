@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C8A8AD91F0A7B0F00255BE1 /* PFSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A8AD81F0A7B0F00255BE1 /* PFSlideMenuController.swift */; };
 		3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3371EFD47F7008007BF /* AppDelegate.swift */; };
 		3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D33B1EFD47F7008007BF /* Main.storyboard */; };
 		3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3411EFD47F7008007BF /* Assets.xcassets */; };
@@ -35,8 +36,8 @@
 		A29323E21F0633E000EA1959 /* PFCommentModel+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29323E11F0633E000EA1959 /* PFCommentModel+Converter.swift */; };
 		A29323E61F06423E00EA1959 /* Heebo.otf in Resources */ = {isa = PBXBuildFile; fileRef = A29323E41F06423E00EA1959 /* Heebo.otf */; };
 		A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */ = {isa = PBXBuildFile; fileRef = A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */; };
-		A2B8EC4D1F0A355E00EFE194 /* PFLeftSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC4C1F0A355E00EFE194 /* PFLeftSlideMenuController.swift */; };
-		A2B8EC4F1F0A379900EFE194 /* PFLeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC4E1F0A379900EFE194 /* PFLeftTableViewCell.swift */; };
+		A2B8EC4D1F0A355E00EFE194 /* PFRightSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC4C1F0A355E00EFE194 /* PFRightSlideMenuController.swift */; };
+		A2B8EC4F1F0A379900EFE194 /* PFRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC4E1F0A379900EFE194 /* PFRightTableViewCell.swift */; };
 		A2B8EC591F0A387600EFE194 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC511F0A387600EFE194 /* String.swift */; };
 		A2B8EC5A1F0A387600EFE194 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC521F0A387600EFE194 /* UIApplication.swift */; };
 		A2B8EC5B1F0A387600EFE194 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC531F0A387600EFE194 /* UIColor.swift */; };
@@ -45,7 +46,7 @@
 		A2B8EC5E1F0A387600EFE194 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC561F0A387600EFE194 /* UITableViewExtension.swift */; };
 		A2B8EC5F1F0A387600EFE194 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC571F0A387600EFE194 /* UIView.swift */; };
 		A2B8EC601F0A387600EFE194 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC581F0A387600EFE194 /* UIViewController.swift */; };
-		A2B8EC621F0A3CBF00EFE194 /* PFLeftSlideMenuController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B8EC611F0A3CBF00EFE194 /* PFLeftSlideMenuController.storyboard */; };
+		A2B8EC621F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B8EC611F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard */; };
 		A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */; };
 		A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */; };
 		A2B9DB341F0500E400307AAC /* PFTaskFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C8A8AD81F0A7B0F00255BE1 /* PFSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFSlideMenuController.swift; sourceTree = "<group>"; };
 		3CD5D3341EFD47F7008007BF /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD5D3371EFD47F7008007BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CD5D33C1EFD47F7008007BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,8 +99,8 @@
 		A29323E11F0633E000EA1959 /* PFCommentModel+Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFCommentModel+Converter.swift"; path = "Extensions/PFCommentModel+Converter.swift"; sourceTree = "<group>"; };
 		A29323E41F06423E00EA1959 /* Heebo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Heebo.otf; path = Fonts/Heebo.otf; sourceTree = "<group>"; };
 		A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Condenced.otf"; path = "Fonts/Proxima Nova Condenced.otf"; sourceTree = "<group>"; };
-		A2B8EC4C1F0A355E00EFE194 /* PFLeftSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFLeftSlideMenuController.swift; path = Controllers/PFLeftSlideMenuController/PFLeftSlideMenuController.swift; sourceTree = "<group>"; };
-		A2B8EC4E1F0A379900EFE194 /* PFLeftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFLeftTableViewCell.swift; path = Controllers/PFLeftSlideMenuController/PFLeftTableViewCell.swift; sourceTree = "<group>"; };
+		A2B8EC4C1F0A355E00EFE194 /* PFRightSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFRightSlideMenuController.swift; path = Controllers/PFLeftSlideMenuController/PFRightSlideMenuController.swift; sourceTree = "<group>"; };
+		A2B8EC4E1F0A379900EFE194 /* PFRightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFRightTableViewCell.swift; path = Controllers/PFLeftSlideMenuController/PFRightTableViewCell.swift; sourceTree = "<group>"; };
 		A2B8EC511F0A387600EFE194 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/SlideMenuControllerSwiftExtensions/String.swift; sourceTree = "<group>"; };
 		A2B8EC521F0A387600EFE194 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIApplication.swift; sourceTree = "<group>"; };
 		A2B8EC531F0A387600EFE194 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIColor.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		A2B8EC561F0A387600EFE194 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UITableViewExtension.swift; sourceTree = "<group>"; };
 		A2B8EC571F0A387600EFE194 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIView.swift; sourceTree = "<group>"; };
 		A2B8EC581F0A387600EFE194 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIViewController.swift; sourceTree = "<group>"; };
-		A2B8EC611F0A3CBF00EFE194 /* PFLeftSlideMenuController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFLeftSlideMenuController.storyboard; path = Controllers/PFLeftSlideMenuController/PFLeftSlideMenuController.storyboard; sourceTree = "<group>"; };
+		A2B8EC611F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFRightSlideMenuController.storyboard; path = Controllers/PFLeftSlideMenuController/PFRightSlideMenuController.storyboard; sourceTree = "<group>"; };
 		A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthFirebaseManager.swift; path = Managers/PFAuthFirebaseManager.swift; sourceTree = "<group>"; };
 		A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectFirebaseManager.swift; path = Managers/PFProjectFirebaseManager.swift; sourceTree = "<group>"; };
 		A2B9DB331F0500E400307AAC /* PFTaskFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskFirebaseManager.swift; path = Managers/PFTaskFirebaseManager.swift; sourceTree = "<group>"; };
@@ -193,6 +195,14 @@
 				A2B9DB4E1F05158200307AAC /* PFUserModel+CoreDataProperties.swift */,
 			);
 			name = PFUserModel;
+			sourceTree = "<group>";
+		};
+		3C8A8AD51F0A7A5D00255BE1 /* PFSlideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				3C8A8AD81F0A7B0F00255BE1 /* PFSlideMenuController.swift */,
+			);
+			name = PFSlideMenuController;
 			sourceTree = "<group>";
 		};
 		3CD5D32B1EFD47F7008007BF = {
@@ -346,7 +356,8 @@
 		A25751611EFD516F0003E023 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A2B8EC481F0A2EEC00EFE194 /* PFLeftSlideMenuController */,
+				3C8A8AD51F0A7A5D00255BE1 /* PFSlideMenuController */,
+				A2B8EC481F0A2EEC00EFE194 /* PFRightSlideMenuController */,
 				A25751671EFD54D40003E023 /* PFProjectsListViewController */,
 				A25751641EFD528B0003E023 /* PFLoginViewController */,
 			);
@@ -390,14 +401,14 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		A2B8EC481F0A2EEC00EFE194 /* PFLeftSlideMenuController */ = {
+		A2B8EC481F0A2EEC00EFE194 /* PFRightSlideMenuController */ = {
 			isa = PBXGroup;
 			children = (
-				A2B8EC4E1F0A379900EFE194 /* PFLeftTableViewCell.swift */,
-				A2B8EC4C1F0A355E00EFE194 /* PFLeftSlideMenuController.swift */,
-				A2B8EC611F0A3CBF00EFE194 /* PFLeftSlideMenuController.storyboard */,
+				A2B8EC4E1F0A379900EFE194 /* PFRightTableViewCell.swift */,
+				A2B8EC4C1F0A355E00EFE194 /* PFRightSlideMenuController.swift */,
+				A2B8EC611F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard */,
 			);
-			name = PFLeftSlideMenuController;
+			name = PFRightSlideMenuController;
 			sourceTree = "<group>";
 		};
 		A2B8EC501F0A380A00EFE194 /* SlideMenuControllerSwiftExtensions */ = {
@@ -501,7 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2B8EC621F0A3CBF00EFE194 /* PFLeftSlideMenuController.storyboard in Resources */,
+				A2B8EC621F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard in Resources */,
 				A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */,
 				3CD5D3451EFD47F7008007BF /* LaunchScreen.storyboard in Resources */,
 				A29323E61F06423E00EA1959 /* Heebo.otf in Resources */,
@@ -603,14 +614,15 @@
 				A2B9DB381F05155900307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
 				A2B8EC591F0A387600EFE194 /* String.swift in Sources */,
 				A2B8EC5B1F0A387600EFE194 /* UIColor.swift in Sources */,
-				A2B8EC4D1F0A355E00EFE194 /* PFLeftSlideMenuController.swift in Sources */,
-				A2B8EC4F1F0A379900EFE194 /* PFLeftTableViewCell.swift in Sources */,
+				A2B8EC4D1F0A355E00EFE194 /* PFRightSlideMenuController.swift in Sources */,
+				A2B8EC4F1F0A379900EFE194 /* PFRightTableViewCell.swift in Sources */,
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
 				A2B9DB431F05157000307AAC /* PFProjectModel.swift in Sources */,
 				3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */,
 				A29323E21F0633E000EA1959 /* PFCommentModel+Converter.swift in Sources */,
 				A2B9DB4C1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */,
 				A2B8EC5D1F0A387600EFE194 /* UIImageView.swift in Sources */,
+				3C8A8AD91F0A7B0F00255BE1 /* PFSlideMenuController.swift in Sources */,
 				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
 				A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */,
 				A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */,
