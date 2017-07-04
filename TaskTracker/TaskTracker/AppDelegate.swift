@@ -13,17 +13,14 @@ import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var rootVC: PFLoginViewController?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      
-        FirebaseApp.configure()
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = AppDelegate.createRootController()
-        self.window?.makeKeyAndVisible()
         
+        FirebaseApp.configure()
+        createRootController()
         return true
     }
     
@@ -31,9 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
-//        
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window?.rootViewController = AppDelegate.createNavigationController(registration: true)
+        //
+        //        self.window = UIWindow(frame: UIScreen.main.bounds)
+        //        self.window?.rootViewController = AppDelegate.createNavigationController(registration: true)
         
         let url = userActivity.webpageURL!
         PFAuthAdapter.passActivityURL(url)
@@ -52,23 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Navigation
     
     
-    class func createRootController(registration: Bool = false) -> UIViewController {
+    func createRootController(registration: Bool = false)  {
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         let signedIn = UserDefaults.standard.value(forKey: kIsSignedIn) as? Bool ?? false
-        let rootController: UIViewController?
+        var rootController: UIViewController?
         if signedIn
         {
-            
             let homeViewController = PFProjectsListViewController.storyboardInstance()!
-            let slideViewController = PFSlideMenuController.newRigthController(with: homeViewController)
-            rootController = slideViewController
+            let root = PFSlideMenuController.newRigthController(with: homeViewController)
+            self.window?.rootViewController = root
         }
         else
         {
             guard let root = PFLoginViewController.storyboardInstance()
                 else
             {
-                return UINavigationController()
+                self.window?.rootViewController = UINavigationController()
+                self.window?.makeKeyAndVisible()
+                return
             }
             let registration = UserDefaults.standard.value(forKey: kIsRegistered) as? Bool ?? false
             if registration
@@ -82,41 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootController = UINavigationController(rootViewController: root)
             let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.rootVC = root
+            self.window?.rootViewController = rootController!
         }
-        return rootController!
-        
+        self.window?.makeKeyAndVisible()
     }
-    
-
-    // MARK: - Core Data stack
-
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        
-        let container = NSPersistentContainer(name: "TaskTracker")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-
-    
-    // MARK: - Core Data Saving support
-
-    
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-    
 }
 

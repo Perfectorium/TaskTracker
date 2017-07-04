@@ -224,7 +224,7 @@ class PFLoginViewController: UIViewController {
     }
     
     func signIn(withEmail email: String, password: String) {
-        
+        loginButton.blinkAndRepeatStart()
         PFAuthAdapter.signIn(withEmail: email,
                              password: password) { (success) in
                                 if success
@@ -235,6 +235,7 @@ class PFLoginViewController: UIViewController {
                                     self.navigationController?.present(homeViewController,
                                                                        animated: true,
                                                                        completion: {
+                                                                        self.loginButton.blinkAndRepeatFinish()
                                                                         
                                     })
                                 }
@@ -258,16 +259,18 @@ class PFLoginViewController: UIViewController {
         
         if (inputIsValid()) {
             let password = passwordTextField.text ?? ""
-            
+            nextButton.blinkAndRepeatStart()
             PFAuthAdapter.registration(password: password,
                                        completionHandler: { (success) in
                                         if success
                                         {
+                                            self.nextButton.blinkAndRepeatFinish()
                                             print("Registered successful")
-                                            let homeViewController = PFProjectsListViewController.storyboardInstance()!
+                                            let homeViewController = self.presentedController()
                                             self.navigationController?.present(homeViewController,
                                                                                animated: true,
                                                                                completion: {
+
                                                                                 
                                             })
                                         }

@@ -29,12 +29,12 @@ class PFRightSlideMenuController : UIViewController {
     var menus = ["Projects",
                  "Tasks",
                  "Settings"]
-
-   // var imageHeaderView: ImageHeaderView!
     
     static func storyboardInstance() -> PFRightSlideMenuController? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? PFRightSlideMenuController
+        let controller = storyboard.instantiateInitialViewController() as? PFRightSlideMenuController
+        return controller
+
     }
     
     required init?(coder aDecoder: NSCoder) {

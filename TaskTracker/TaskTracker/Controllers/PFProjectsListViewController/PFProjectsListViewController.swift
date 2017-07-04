@@ -13,17 +13,24 @@ private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
 class PFProjectsListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    
+    // MARK: - Vars & constants
+    
+    
     static func storyboardInstance() -> PFProjectsListViewController? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
         return storyboard.instantiateInitialViewController() as? PFProjectsListViewController
     }
     
+    
+    // MARK: - LifeCycle
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,8 +84,7 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
             if success
             {
                 let appdelegate = UIApplication.shared.delegate as! AppDelegate
-                let navigationVC = AppDelegate.createRootController()
-                appdelegate.window!.rootViewController = navigationVC
+                appdelegate.createRootController()
                 
                 UserDefaults.standard.setValue(false,
                                                forKey: kIsSignedIn)
