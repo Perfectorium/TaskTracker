@@ -29,6 +29,9 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let adapter = PFProjectAdapter()
+        adapter.createObserverForChildAdded()
+        
     }
     
     override func didReceiveMemoryWarning() {

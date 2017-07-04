@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1088721F0B964B00DDBDF7 /* PFProjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */; };
 		3C8A8AD91F0A7B0F00255BE1 /* PFSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A8AD81F0A7B0F00255BE1 /* PFSlideMenuController.swift */; };
 		3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3371EFD47F7008007BF /* AppDelegate.swift */; };
 		3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D33B1EFD47F7008007BF /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectAdapter.swift; path = Adapters/PFProjectAdapter/PFProjectAdapter.swift; sourceTree = "<group>"; };
 		3C8A8AD81F0A7B0F00255BE1 /* PFSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFSlideMenuController.swift; sourceTree = "<group>"; };
 		3CD5D3341EFD47F7008007BF /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD5D3371EFD47F7008007BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		A21CAA8B1F0A854800BA6FE8 /* PFProjectAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */,
 			);
 			name = PFProjectAdapter;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				A2B8EC5B1F0A387600EFE194 /* UIColor.swift in Sources */,
 				A2B8EC4D1F0A355E00EFE194 /* PFRightSlideMenuController.swift in Sources */,
 				A2B8EC4F1F0A379900EFE194 /* PFRightTableViewCell.swift in Sources */,
+				3C1088721F0B964B00DDBDF7 /* PFProjectAdapter.swift in Sources */,
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
 				A2B9DB431F05157000307AAC /* PFProjectModel.swift in Sources */,
 				3CD5D35F1EFD49BB008007BF /* Constants.swift in Sources */,

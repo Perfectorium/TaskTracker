@@ -56,11 +56,11 @@ class PFFirebaseManager {
     }
     
     static func databaseReference() -> DatabaseReference? {
-        let reference = Database.database().reference()
+        let reference = Database.database().reference().child("111")
         guard let id = adminID()
             else {
                 printError("adminID is nil")
-                return nil
+                return reference //nil
         }
         return reference.child(id)
     }
@@ -120,6 +120,23 @@ class PFFirebaseManager {
         print("\(String.init(describing: self)) - \(String(describing: error))")
     }
     
+    
+    // MARK: - Observers
+    
+    class func createObserver(of event:DataEventType,
+                              path:String,
+                              completionHandler: @escaping (_ success:Bool, _ snapshot:DataSnapshot?) -> Void) {
+    
+        let ref = databaseReference()?.child(path)
+ 
+        ref?.observe(event, with: { (snap) in
+            completionHandler(true, snap)
+        }, withCancel: { (error) in
+            completionHandler(false, nil)
+            printError(error.localizedDescription)
+        })
+        
+    }   
     
 }
 
