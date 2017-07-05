@@ -17,11 +17,12 @@ class PFProjectsListViewController: UIViewController {
     // MARK: - Vars & constants
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noProjectsLabel: UILabel!
     
     var searchString: String = ""
     var allData: [String] = []
     var searchData: [String] = []
-
+    
     
     
     // MARK: - LifeCycle
@@ -31,7 +32,7 @@ class PFProjectsListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-
+        setupData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +49,7 @@ class PFProjectsListViewController: UIViewController {
             allData.append(labelText)
         }
         searchData = allData
+        noProjectsLabel.isHidden = !(searchData.count < 1)
     }
     
     static func storyboardInstance() -> PFProjectsListViewController? {
@@ -76,8 +78,8 @@ class PFProjectsListViewController: UIViewController {
     }
     
     
-      // MARK: - Actions
-
+    // MARK: - Actions
+    
     
     @IBAction func hideKeyBoardSwipeDidSwope(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -179,7 +181,13 @@ extension PFProjectsListViewController: UITextFieldDelegate {
         else
         {
             searchData = []
+            if searchString.isEmpty
+            {
+                searchData = allData
+            }
+            
         }
+        noProjectsLabel.isHidden = !(searchData.count < 1)
         collectionView.reloadData()
         return true
     }

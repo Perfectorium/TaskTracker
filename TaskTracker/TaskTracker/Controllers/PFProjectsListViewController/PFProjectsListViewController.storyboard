@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K5j-gD-erL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K5j-gD-erL">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,6 +33,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ymv-X0-B9W">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Projects" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-8O-p7t">
+                                <rect key="frame" x="16" y="273" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WTT-8U-jdU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Heebo-Regular" family="Heebo" pointSize="17"/>
+                                <color key="textColor" red="0.76076412199999999" green="0.76078313590000002" blue="0.78776603940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Q7-e6s">
                                 <rect key="frame" x="30" y="82" width="260" height="481"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,12 +124,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Kuj-8O-p7t" firstAttribute="leading" secondItem="6QM-5G-9cj" secondAttribute="leadingMargin" id="4jD-aG-v4n"/>
                             <constraint firstItem="bpx-AL-hoQ" firstAttribute="top" secondItem="9zG-Im-pXd" secondAttribute="bottom" constant="19" id="4oP-I4-8hJ"/>
                             <constraint firstAttribute="trailing" secondItem="ymv-X0-B9W" secondAttribute="trailing" id="6bw-4S-Tp2"/>
                             <constraint firstItem="eC7-Nc-YoK" firstAttribute="trailing" secondItem="6QM-5G-9cj" secondAttribute="trailingMargin" id="7EU-a6-cck"/>
                             <constraint firstItem="dfZ-Q7-e6s" firstAttribute="top" secondItem="eC7-Nc-YoK" secondAttribute="bottom" constant="8" symbolic="YES" id="8ZA-nn-x9e"/>
                             <constraint firstItem="dfZ-Q7-e6s" firstAttribute="trailing" secondItem="bpx-AL-hoQ" secondAttribute="trailing" id="AYs-sG-HS9"/>
+                            <constraint firstItem="Kuj-8O-p7t" firstAttribute="top" secondItem="eC7-Nc-YoK" secondAttribute="bottom" constant="199" id="Frs-Mr-Lf1"/>
                             <constraint firstItem="bpx-AL-hoQ" firstAttribute="leading" secondItem="57W-gU-d05" secondAttribute="trailing" constant="6" id="HxP-0B-cjo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kuj-8O-p7t" secondAttribute="trailing" id="Jd6-3m-g2O"/>
                             <constraint firstItem="QFd-eV-9kt" firstAttribute="top" secondItem="ymv-X0-B9W" secondAttribute="bottom" id="P0k-jX-GP8"/>
                             <constraint firstItem="QFd-eV-9kt" firstAttribute="top" secondItem="dfZ-Q7-e6s" secondAttribute="bottom" constant="5" id="Vh6-ja-YCs"/>
                             <constraint firstAttribute="trailing" secondItem="bpx-AL-hoQ" secondAttribute="trailing" constant="30" id="X1w-RO-e73"/>
@@ -135,6 +147,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="dfZ-Q7-e6s" id="kbt-xf-Za1"/>
+                        <outlet property="noProjectsLabel" destination="Kuj-8O-p7t" id="bcf-Pd-eGY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wU5-8v-2tS" userLabel="First Responder" sceneMemberID="firstResponder"/>
