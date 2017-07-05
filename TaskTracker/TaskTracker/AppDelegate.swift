@@ -58,7 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             let homeViewController = PFProjectsListViewController.storyboardInstance()!
             let root = PFSlideMenuController.newRigthController(with: homeViewController)
-            self.window?.rootViewController = root
+            let navRoot = UINavigationController(rootViewController: root)
+            self.window?.rootViewController = navRoot
         }
         else
         {
