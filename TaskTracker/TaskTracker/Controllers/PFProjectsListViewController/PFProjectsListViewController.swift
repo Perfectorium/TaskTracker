@@ -11,17 +11,17 @@ import UIKit
 
 private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
-class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
+class PFProjectsListViewController: UIViewController {
     
     
     // MARK: - Vars & constants
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    static func storyboardInstance() -> PFProjectsListViewController? {
-        let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? PFProjectsListViewController
-    }
+    var searchString: String = ""
+    var allData: [String] = []
+    var searchData: [String] = []
+
     
     
     // MARK: - LifeCycle
@@ -30,6 +30,8 @@ class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupData()
+        
         //let project = PFProjectAdapter()
         //let tasks = PFTaskAdapter(withProjectID: "ProjectName1")
     }
@@ -41,6 +43,19 @@ class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
     
     func setupUI() {
         
+    }
+    
+    func setupData() {
+        for i in 1..<30 {
+            let labelText = "P\(i)"
+            allData.append(labelText)
+        }
+        searchData = allData
+    }
+    
+    static func storyboardInstance() -> PFProjectsListViewController? {
+        let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
+        return storyboard.instantiateInitialViewController() as? PFProjectsListViewController
     }
     
     func signOut()
@@ -73,6 +88,9 @@ class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
 }
 
 
+// MARK: - Data Source
+
+
 extension PFProjectsListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -81,10 +99,11 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
         let cell    = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                          for: indexPath) as! PFProjectsListCollectionViewCell
         
-        let labelText = "P\(indexPath.item)"
+        let labelText = searchData[indexPath.item]
         cell.addBorderView(width: CGFloat(1.0),
                            color: kPFPurpleColor.cgColor)
         cell.setupCell(withLabel: labelText)
+        
         
         return cell
     }
@@ -96,10 +115,13 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return searchData.count
     }
     
 }
+
+
+// MARK: - Delegate Flow Layout
 
 
 extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
@@ -120,8 +142,50 @@ extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
+
+// MARK: - Gesture Recognizer
+
+
 extension PFProjectsListViewController:UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }
+
+
+// MARK: - Text Field Delegate
+
+
+extension PFProjectsListViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        if string.isEmpty
+        {
+            searchString = String(searchString.characters.dropLast())
+        }
+        else
+        {
+            searchString = textField.text!+string
+        }
+        print(searchString)
+        let predicate = NSPredicate(format: "SELF CONTAINS[cd] %@", searchString)
+        let arr = (allData as NSArray).filtered(using: predicate)
+        
+        if arr.count > 0
+        {
+            searchData.removeAll(keepingCapacity: true)
+            searchData = arr as! [String]
+        }
+        else
+        {
+            searchData = []
+        }
+        collectionView.reloadData()
+        return true
+    }
+    
+}
+
