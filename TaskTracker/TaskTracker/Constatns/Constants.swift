@@ -6,7 +6,7 @@
 //  Copyright © 2017 Alex Tsonev. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 // MARK: - Temporary API Keys
@@ -89,6 +89,13 @@ let kFileURL                = "url"
 let kFileType               = "type"
 let kFileId                 = "id"
 
-// MARK: -
+// MARK: - Colors
+
+
+let kPFPurpleColor  = UIColor(red:0.55, green:0.37, blue:0.85, alpha:1.0)
+let kPFGreyColor    = UIColor(red:0.77, green:0.77, blue:0.78, alpha:1.0)
+let kPFBlackColor   = UIColor(red:0.16, green:0.16, blue:0.16, alpha:1.0)
+let kPFWhiteColor   = UIColor.white
+let kPFRedColor     = UIColor(red:0.76, green:0.20, blue:0.31, alpha:1.0)
 
 

@@ -20,10 +20,7 @@ class PFProjectsListCollectionViewCell: UICollectionViewCell {
     //MARK: - Actions
     
     
-    func setupCell(withLabel labelText: String, color: UIColor)  {
-        projectLabel.text = labelText
-        self.backgroundColor = color
-        self.cornerRadius = 15.0
-        
+    func setupCell(withLabel labelText: String)  {
+        projectLabel.text = labelText        
     }
 }

@@ -11,11 +11,12 @@ import UIKit
 
 private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
-class PFProjectsListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: - Vars & constants
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
     static func storyboardInstance() -> PFProjectsListViewController? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
@@ -39,72 +40,8 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
     }
     
     func setupUI() {
-        setupHeaderView()
-    }
-    
-    func setupHeaderView() {
         
-        self.collectionView?.register(PFProjectsListHeaderView.self,
-                                      forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
-                                      withReuseIdentifier: PFProjectsListHeaderView.reuseIdentifier!)
     }
-    
-    
-    // MARK: - UICollectionViewDataSource
-    
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 numberOfItemsInSection section: Int) -> Int {
-        return 12
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = collectionView.frame.size.width/5.2
-        return CGSize(width: width,
-                      height: width)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell    = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
-                                                         for: indexPath) as! PFProjectsListCollectionViewCell
-        
-        let labelText = "P\(indexPath.item)"
-        cell.setupCell(withLabel: labelText, color: UIColor.randomColor())
-        
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-        case UICollectionElementKindSectionHeader:
-            let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader,
-                                                                               withReuseIdentifier: PFProjectsListHeaderView.reuseIdentifier!,
-                                                                               for: indexPath) as! PFProjectsListHeaderView
-            reusableView.delegate = self
-            //do other header related calls or settups
-            return reusableView
-            
-            
-        default:  fatalError("Unexpected element kind")
-        }
-    }
-    
-    
-    
     
     func signOut()
     {
@@ -124,6 +61,60 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
                 print("not succesful sign out")
             }
         }
+    }
+    
+}
+
+
+extension PFProjectsListViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell    = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
+                                                         for: indexPath) as! PFProjectsListCollectionViewCell
+        
+        let labelText = "P\(indexPath.item)"
+        cell.addBorderView(width: CGFloat(1.0),
+                           color: kPFPurpleColor.cgColor)
+        cell.setupCell(withLabel: labelText)
+        
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
+    
+}
+
+
+extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let insets = UIEdgeInsetsMake(15,
+                                      10,
+                                      15,
+                                      10)
+        return insets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = collectionView.frame.size.width/3.8
+        return CGSize(width: width,
+                      height: width)
     }
     
 }

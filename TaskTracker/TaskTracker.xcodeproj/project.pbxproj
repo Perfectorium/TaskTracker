@@ -28,8 +28,6 @@
 		A21CAA8D1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21CAA8C1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift */; };
 		A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2226A991F024739005ACC9F /* PFFirebaseManager.swift */; };
 		A2226A9C1F028557005ACC9F /* PFUserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */; };
-		A236ABB91F0CBD3300DB0904 /* PFProjectsListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A236ABB81F0CBD3300DB0904 /* PFProjectsListHeaderView.xib */; };
-		A236ABBD1F0CC0CD00DB0904 /* PFProjectsListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A236ABBC1F0CC0CD00DB0904 /* PFProjectsListHeaderView.swift */; };
 		A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25751621EFD51910003E023 /* PFLoginViewController.swift */; };
 		A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */; };
 		A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */; };
@@ -96,8 +94,6 @@
 		A21CAA8C1F0A8B1800BA6FE8 /* PFTaskGroupFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTaskGroupFirebaseManager.swift; path = Managers/PFTaskGroupFirebaseManager.swift; sourceTree = "<group>"; };
 		A2226A991F024739005ACC9F /* PFFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFirebaseManager.swift; path = Managers/PFFirebaseManager.swift; sourceTree = "<group>"; };
 		A2226A9B1F028557005ACC9F /* PFUserFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserFirebaseManager.swift; path = Managers/PFUserFirebaseManager.swift; sourceTree = "<group>"; };
-		A236ABB81F0CBD3300DB0904 /* PFProjectsListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFProjectsListHeaderView.xib; sourceTree = "<group>"; };
-		A236ABBC1F0CC0CD00DB0904 /* PFProjectsListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFProjectsListHeaderView.swift; sourceTree = "<group>"; };
 		A25751621EFD51910003E023 /* PFLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFLoginViewController.swift; sourceTree = "<group>"; };
 		A25751651EFD52AD0003E023 /* PFLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFLoginViewController.storyboard; sourceTree = "<group>"; };
 		A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFProjectsListViewController.storyboard; path = Controllers/PFProjectsListViewController/PFProjectsListViewController.storyboard; sourceTree = "<group>"; };
@@ -370,19 +366,8 @@
 		A236ABBA1F0CBD4300DB0904 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A236ABBB1F0CC0A000DB0904 /* PFProjectsListHeaderView */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		A236ABBB1F0CC0A000DB0904 /* PFProjectsListHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				A236ABB81F0CBD3300DB0904 /* PFProjectsListHeaderView.xib */,
-				A236ABBC1F0CC0CD00DB0904 /* PFProjectsListHeaderView.swift */,
-			);
-			name = PFProjectsListHeaderView;
-			path = Views/PFProjectsListHeaderView;
 			sourceTree = "<group>";
 		};
 		A25751611EFD516F0003E023 /* Controllers */ = {
@@ -547,7 +532,6 @@
 				A2B8EC621F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard in Resources */,
 				A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */,
 				3CD5D3451EFD47F7008007BF /* LaunchScreen.storyboard in Resources */,
-				A236ABB91F0CBD3300DB0904 /* PFProjectsListHeaderView.xib in Resources */,
 				A29323E61F06423E00EA1959 /* Heebo.otf in Resources */,
 				3CD5D3671EFD4CEE008007BF /* GoogleService-Info.plist in Resources */,
 				A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */,
@@ -644,7 +628,6 @@
 				3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */,
 				A2B9DB471F05157700307AAC /* PFTaskGroupModel.swift in Sources */,
 				A2B8EC5E1F0A387600EFE194 /* UITableViewExtension.swift in Sources */,
-				A236ABBD1F0CC0CD00DB0904 /* PFProjectsListHeaderView.swift in Sources */,
 				A2B8EC5C1F0A387600EFE194 /* UIImage.swift in Sources */,
 				A2B9DB381F05155900307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
 				A2B8EC591F0A387600EFE194 /* String.swift in Sources */,
