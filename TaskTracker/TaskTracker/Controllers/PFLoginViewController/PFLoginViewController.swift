@@ -51,6 +51,13 @@ class PFLoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+
+    }
+    
     static func storyboardInstance() -> PFLoginViewController? {
         
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
@@ -234,12 +241,8 @@ class PFLoginViewController: UIViewController {
                                     print("signed in successful")
                                     self.loginButton.blink(color: .blue)
                                     let homeViewController = self.presentedController()
-                                    self.navigationController?.present(homeViewController,
-                                                                       animated: true,
-                                                                       completion: {
-                                                                        self.loginButton.blinkAndRepeatFinish()
-                                                                        
-                                    })
+                                    self.loginButton.blinkAndRepeatFinish()
+                                    self.navigationController?.pushViewController(homeViewController, animated: true)
                                 }
                                 else
                                 {
@@ -270,18 +273,14 @@ class PFLoginViewController: UIViewController {
                                             self.nextButton.blinkAndRepeatFinish()
                                             print("Registered successful")
                                             let homeViewController = self.presentedController()
-                                            self.navigationController?.present(homeViewController,
-                                                                               animated: true,
-                                                                               completion: {
-
-                                                                                
-                                            })
+                                            self.navigationController?.pushViewController(homeViewController, animated: true)
                                         }
                                         else
                                         {
                                             self.loginButton.blink(color: .red)
                                             print("Registered with error")
                                         }
+                                        self.nextButton.blinkAndRepeatFinish()
             })
         }
         else {

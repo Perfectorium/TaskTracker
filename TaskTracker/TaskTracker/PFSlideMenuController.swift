@@ -51,9 +51,8 @@ class PFSlideMenuController : SlideMenuController {
     }
     
     func setupNavigationBar() {
-
         
-        
+        self.navigationItem.hidesBackButton                             = true
         self.navigationController?.navigationBar.barTintColor           = kPFWhiteColor
         self.navigationController?.navigationBar.isTranslucent          = false
         self.navigationController?.navigationBar.backgroundColor        = kPFWhiteColor
@@ -64,11 +63,22 @@ class PFSlideMenuController : SlideMenuController {
         image                                   = image.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         let item                                = UIBarButtonItem(image: image,
                                                                   style: .plain,
-                                                                  target: nil,
-                                                                  action: nil)
+                                                                  target: self,
+                                                                  action: #selector(hamburgerDidPress(_:)))
         item.tintColor                          = kPFPurpleColor
         self.navigationItem.rightBarButtonItem  = item
         self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    @objc func hamburgerDidPress(_ : Any)  {
+        if isRightOpen()
+        {
+            self.closeRight()
+        }
+        else
+        {
+            openRight()
+        }
     }
 }
 

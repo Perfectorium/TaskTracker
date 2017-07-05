@@ -29,14 +29,12 @@ class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
-        //let project = PFProjectAdapter()
-        //let tasks = PFTaskAdapter(withProjectID: "ProjectName1")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupUI() {
