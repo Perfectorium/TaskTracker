@@ -91,12 +91,12 @@ class PFTaskFirebaseManager: PFFirebaseManager {
             if success
             {
                 outerHandler(true)
-                print(error ?? snapshot)
+                print(error ?? snapshot ?? [:])
             }
             else
             {
                 printError("AddComment: transaction failed??")
-                print(error ?? snapshot)
+                print(error ?? snapshot ?? [:])
             }
         })
         //        PFCommentFirebaseManager.add(comment: comment,

@@ -99,3 +99,10 @@ let kPFWhiteColor   = UIColor.white
 let kPFRedColor     = UIColor(red:0.76, green:0.20, blue:0.31, alpha:1.0)
 
 
+// MARK: - Fonts
+
+
+let kPFFontTitles   = UIFont(name: "ProximaNovaCond-Black", size: 25.0)
+
+
+

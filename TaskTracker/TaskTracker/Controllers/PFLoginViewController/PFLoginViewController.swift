@@ -245,6 +245,7 @@ class PFLoginViewController: UIViewController {
                                 {
                                     self.loginButton.blink(color: .red)
                                     print("signed in with error")
+                                    self.loginButton.blinkAndRepeatFinish()
                                 }
         }
         
