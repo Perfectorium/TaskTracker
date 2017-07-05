@@ -63,6 +63,13 @@ class PFProjectsListViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+      // MARK: - Actions
+
+    
+    @IBAction func hideKeyBoardSwipeDidSwope(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
 }
 
 
@@ -75,7 +82,7 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
                                                          for: indexPath) as! PFProjectsListCollectionViewCell
         
         let labelText = "P\(indexPath.item)"
-        cell.addBorderView(width: CGFloat(2.0),
+        cell.addBorderView(width: CGFloat(1.0),
                            color: kPFPurpleColor.cgColor)
         cell.setupCell(withLabel: labelText)
         
@@ -97,16 +104,6 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
 
 extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
     
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        insetForSectionAt section: Int) -> UIEdgeInsets {
-//        
-//        let insets = UIEdgeInsetsMake(5,
-//                                      15,
-//                                      5,
-//                                      15)
-//        return insets
-//    }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -121,4 +118,10 @@ extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
         return CGFloat(15)
     }
     
+}
+
+extension PFProjectsListViewController:UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
