@@ -75,7 +75,7 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
                                                          for: indexPath) as! PFProjectsListCollectionViewCell
         
         let labelText = "P\(indexPath.item)"
-        cell.addBorderView(width: CGFloat(1.0),
+        cell.addBorderView(width: CGFloat(2.0),
                            color: kPFPurpleColor.cgColor)
         cell.setupCell(withLabel: labelText)
         
@@ -89,7 +89,7 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 30
     }
     
 }
@@ -97,16 +97,16 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
 
 extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        let insets = UIEdgeInsetsMake(15,
-                                      10,
-                                      15,
-                                      10)
-        return insets
-    }
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//        
+//        let insets = UIEdgeInsetsMake(5,
+//                                      15,
+//                                      5,
+//                                      15)
+//        return insets
+//    }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -115,6 +115,10 @@ extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.size.width/3.8
         return CGSize(width: width,
                       height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(15)
     }
     
 }

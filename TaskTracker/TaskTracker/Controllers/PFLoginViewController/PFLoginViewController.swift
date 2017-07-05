@@ -62,6 +62,7 @@ class PFLoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         addNotifications()
+        
     }
     
     func addNotifications()  {
@@ -165,7 +166,8 @@ class PFLoginViewController: UIViewController {
         forgotPasswordButton.isHidden = false
         passwordTextField.placeholder = "Password"
         emailTextField.placeholder = "Email"
-        
+        let font = UIFont(name: "ProximaNovaCond-Black", size: 36.0)
+        roleLabel.font = font
         print("login")
     }
     
