@@ -11,12 +11,12 @@ import Foundation
 // Model Converter
 extension PFTaskModel {
     
-    static func convertToDictionary(task: PFTaskModel) -> (info: [String:Any], id: String, filesToUpload:[String:Any]) {
+    static func convertToDictionary(task: PFTaskModel) -> (info: [String:Any], id: String, filesToUpload:(filesIDs:[String:Bool], files:[[String:Any]])) {
         
         guard let taskId = task.taskId
             else {
                 print("PFTaskAdapter: addTask - taskID is nil")
-                return ([:],"",[:])
+                return ([:],"",([:],[]))
         }
         let taskMainInfo = [kTaskAuthor:        task.authorId,
                             kTaskDescription:   task.descriptionText,
@@ -27,14 +27,13 @@ extension PFTaskModel {
                             kTaskStatus:        task.status,
                             kTaskType:          task.type,
                             kTaskPriority:      task.priority]
-        let taskFiles = fetchFiles(fromModel: task)
+        let filesTuple = fetchFiles(fromModel: task)
         let taskUsers = fetchUsers(fromModel: task)
-        let filesIDs = Array(taskFiles.keys)
         let taskToUpload = [kMainInfo:  taskMainInfo,
-                            kTaskFiles: filesIDs,
+                            kTaskFiles: filesTuple.filesIDs,
                             kTaskUsers: taskUsers] as [String : Any]
         
-        return (taskToUpload, taskId, taskFiles)
+        return (taskToUpload, taskId, filesTuple)
         
     }
     
@@ -43,9 +42,10 @@ extension PFTaskModel {
     // MARK: - Helpers
     
     
-    private class func fetchFiles(fromModel task: PFTaskModel) -> [String:Any] {
+    private class func fetchFiles(fromModel task: PFTaskModel) -> (filesIDs:[String:Bool], files:[[String:Any]]) {
         
-        var taskFiles: [String:[String:String]] = [:]
+        var taskFiles: [[String:String]] = []
+        var filesIDs: [String:Bool] = [:]
         
         if task.files != nil
         {
@@ -57,13 +57,14 @@ extension PFTaskModel {
                     let type = fileModel.type
                     else {
                         print("PFTaskModel+Converter: addTaskError - file`s URL or type is nil")
-                        return [:]
+                        return ([:],[])
                 }
-                taskFiles[fileId] = [kFileType: type,
-                                     kFileURL:  url]
+                taskFiles.append([kFileType: type,
+                                  kFileURL:  url])
+                filesIDs[fileId] = true
             }
         }
-        return taskFiles
+        return (filesIDs,taskFiles)
     }
     
     private class func fetchUsers(fromModel task: PFTaskModel) -> [String:Any] {

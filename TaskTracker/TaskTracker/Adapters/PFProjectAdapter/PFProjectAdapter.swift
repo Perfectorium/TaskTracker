@@ -17,6 +17,8 @@ class PFProjectAdapter {
     
     init() {
         createObserverForChildAdded()
+        createObserverForChildChanged()
+        createObserverForChildRemoved()
     }
     
     
@@ -25,14 +27,48 @@ class PFProjectAdapter {
     
     func createObserverForChildAdded() {
     
-        let path = PFFirebaseManager.buildPath(withComponents: [])
+        let path = PFFirebaseManager.buildPath(withComponents: [kProjects])
         PFFirebaseManager.createObserver(of: .childAdded,
-                                         path: path) { (success, snap) in
+                                         path: path) { (success, snapshot) in
+                                            guard let project = snapshot?.value as! [String:Any]?
+                                                else {
+                                                    return
+                                            }
                                             if success
                                             {
+                                                print(project)
                                             }
         }
     }
     
+    func createObserverForChildRemoved() {
+        let path = PFFirebaseManager.buildPath(withComponents: [kProjects])
+        PFFirebaseManager.createObserver(of: .childRemoved,
+                                         path: path) { (success, snapshot) in
+                                            guard let project = snapshot?.value as! [String:Any]?
+                                                else {
+                                                    return
+                                            }
+                                            if success
+                                            {
+                                                print(project)
+                                            }
+        }
+    }
+    
+    func createObserverForChildChanged() {
+        let path = PFFirebaseManager.buildPath(withComponents: [kProjects])
+        PFFirebaseManager.createObserver(of: .childChanged,
+                                         path: path) { (success, snapshot) in
+                                            guard let project = snapshot?.value as! [String:Any]?
+                                                else {
+                                                    return
+                                            }
+                                            if success
+                                            {
+                                                print(project)
+                                            }
+        }
+    }
     
 }

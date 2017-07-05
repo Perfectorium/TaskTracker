@@ -10,49 +10,38 @@ import Foundation
 
 extension PFCommentModel {
     
-    static func convertToDictionary(comment: PFCommentModel) -> (info: [String:Any], id: String, commentFiles: [String:Any]) {
+    static func convertToDictionary(comment: PFCommentModel) -> (info: [String:Any], id: String, commentFiles: [[String:Any]]) {
         
         guard let commentId = comment.commentId,
             let authorId = comment.author?.userId
             else {
                 print("PFCommentModel+Converter: convertToDictionary - commentId or authorId is nil")
-                return ([:],"",[:])
+                return ([:],"",[])
         }
-        let commentFiles = fetchFiles(fromModel: comment)
-        let filesIDs = Array(commentFiles.keys)
+        var files: [[String:Any]]? = nil
+        var filesIDs:[String:Bool]? = nil
+        if let _ = comment.files {
+            files = []
+            filesIDs = [:]
+            for file in comment.files! {
+                let fileModel = file as! PFFileModel
+                let fileTuple = PFFileModel.convertToDictionary(file: fileModel)
+                files?.append(fileTuple.info)
+                filesIDs?[fileTuple.id] = true
+            }
+        }
         let commentToUpload = [kCommentAuthor:  authorId,
                                kCommentDate:    comment.date,
                                kCommentText:    comment.text,
                                kCommentTimeToAdd: comment.timeToAdd,
                                kCommentFiles:   filesIDs
-        ] as [String : Any]
+            ] as [String : Any]
         
-        
-        return (commentToUpload, commentId, commentFiles)
-        
-    }
-    
-    private class func fetchFiles(fromModel comment: PFCommentModel) -> [String:Any] {
-        
-        var commentFiles: [String:[String:String]] = [:]
-        
-        if comment.files != nil
-        {
-            for file in comment.files! {
-                let fileModel = file as! PFFileModel
-                guard
-                    let url = fileModel.url,
-                    let fileId = fileModel.fileId,
-                    let type = fileModel.type
-                    else {
-                        print("PFCommentModel+Converter: addTaskError - file`s URL, type or ID is nil")
-                        return [:]
-                }
-                commentFiles[fileId] = [kFileType: type,
-                                        kFileURL:  url]
-            }
+        guard files != nil
+            else {
+                return (commentToUpload, commentId, [])
         }
-        return commentFiles
+        return (commentToUpload, commentId, files!)
     }
     
 }

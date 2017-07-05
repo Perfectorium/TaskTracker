@@ -56,6 +56,7 @@ let kProjectTasks               = "tasks"
 let kProjectUsers               = "users"
 let kProjectFiles               = "files"
 let kProjectComments            = "comments"
+let kProjectsList               = "projectsList"
 
 let kTasks                  = "tasks"
 let kTaskAuthor             = "author"

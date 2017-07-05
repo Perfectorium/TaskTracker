@@ -10,22 +10,32 @@ import Foundation
 
 class PFTaskAdapter {
     
-    static func add(task: PFTaskModel) {
+    
+    // MARK: - LifeCycle
+    
+    
+    init(withProjectID: String) {
+        createObserverForChildAdded(toProjectID: withProjectID)
+    }
+    
+    
+    // MARK: - Observers
+    
+    
+    func createObserverForChildAdded(toProjectID projectID: String) {
         
-        let taskTuple = PFTaskModel.convertToDictionary(task: task)
-        PFProjectFirebaseManager.addTask(task: taskTuple.info,
-                                         withID: taskTuple.id,
-                                         projectID: "") { (success) in
+        let path = PFFirebaseManager.buildPath(withComponents: [kProjects,projectID,kProjectTasks])
+        PFFirebaseManager.createObserver(of: .childAdded,
+                                         path: path) { (success, snapshot) in
+                                            guard let task = snapshot?.value as! [String:Any]?
+                                                else {
+                                                    return
+                                            }
                                             if success
                                             {
-                                                print("some code")
-                                            }
-                                            else
-                                            {
-                                                print("some sad code")
+                                                print(task)
                                             }
         }
-        
     }
     
 }
