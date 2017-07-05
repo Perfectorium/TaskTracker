@@ -11,7 +11,7 @@ import UIKit
 
 private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
-class PFProjectsListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class PFProjectsListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     
     // MARK: - Vars & constants
@@ -28,14 +28,25 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let project = PFProjectAdapter()
+        setupUI()
+        //let project = PFProjectAdapter()
         //let tasks = PFTaskAdapter(withProjectID: "ProjectName1")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupUI() {
+        setupHeaderView()
+    }
+    
+    func setupHeaderView() {
+        
+        self.collectionView?.register(PFProjectsListHeaderView.self,
+                                      forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                      withReuseIdentifier: PFProjectsListHeaderView.reuseIdentifier!)
     }
     
     
@@ -74,7 +85,23 @@ class PFProjectsListViewController: UICollectionViewController, UICollectionView
         return cell
     }
     
-    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader,
+                                                                               withReuseIdentifier: PFProjectsListHeaderView.reuseIdentifier!,
+                                                                               for: indexPath) as! PFProjectsListHeaderView
+            reusableView.delegate = self
+            //do other header related calls or settups
+            return reusableView
+            
+            
+        default:  fatalError("Unexpected element kind")
+        }
+    }
     
     
     
