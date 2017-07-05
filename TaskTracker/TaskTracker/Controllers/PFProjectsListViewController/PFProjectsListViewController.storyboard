@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K5j-gD-erL">
-    <device id="retina5_5" orientation="landscape">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,14 +27,14 @@
                         <viewControllerLayoutGuide type="bottom" id="QFd-eV-9kt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6QM-5G-9cj">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ymv-X0-B9W">
-                                <rect key="frame" x="0.0" y="20" width="736" height="394"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Q7-e6s">
-                                <rect key="frame" x="30" y="92" width="676" height="317"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Q7-e6s">
+                                <rect key="frame" x="30" y="92" width="260" height="471"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QhX-fb-9by">
                                     <size key="itemSize" width="50" height="50"/>
@@ -58,7 +58,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="JoO-9x-b3l" firstAttribute="leading" secondItem="FBo-C9-7Au" secondAttribute="leading" constant="5" id="PXN-Ae-Vqh"/>
                                             <constraint firstAttribute="bottom" secondItem="JoO-9x-b3l" secondAttribute="bottom" constant="5" id="Tgj-QZ-fEV"/>
@@ -78,14 +78,16 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search  " translatesAutoresizingMaskIntoConstraints="NO" id="eC7-Nc-YoK">
-                                <rect key="frame" x="30" y="24" width="676" height="60"/>
+                                <rect key="frame" x="30" y="24" width="260" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="TUF-cG-tSL"/>
                                     <constraint firstAttribute="width" priority="750" constant="354" id="juv-Rg-M1c"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpx-AL-hoQ">
-                                <rect key="frame" x="210" y="39" width="337.66666666666663" height="30"/>
+                                <rect key="frame" x="105.5" y="39" width="129.5" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VwG-2V-459"/>
                                 </constraints>
@@ -129,6 +131,6 @@
     </scenes>
     <resources>
         <image name="LoginBackground" width="750" height="1334"/>
-        <image name="search  " width="212" height="30"/>
+        <image name="search  " width="321" height="47"/>
     </resources>
 </document>
