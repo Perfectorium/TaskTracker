@@ -11,22 +11,106 @@ import Foundation
 
 class PFProjectAdapter {
     
-    
     // MARK: - LifeCycle
     
     
     init() {
-//        createObserverForChildAdded()
-//        createObserverForChildChanged()
-//        createObserverForChildRemoved()
-        //let project = PFCoreDataManager.shared.newEntity(ofype: .project) as! PFProjectModel
-        //project.projectId = "ProjectName3"
-        //project.name = "ProjectName3"
-        //PFCoreDataManager.shared.saveContext()
-        //print(project)
-        let projectsController = PFCoreDataManager.shared.fetchedResultsControllerForProjects()
-        let fetchedProjects = projectsController?.fetchedObjects
-        print(fetchedProjects)
+
+    }
+    
+    
+    // MARK: - Projects Management
+    
+    // Provides projects from Core Data to completionHandler, then updates projects
+    // from a network, and transfers to completionHandler again
+    func fetchProjects(completionHandler: @escaping (_ projects:[PFProjectModel]) -> Void) {
+        self.projectsFromStorage(completionHandler: { (projects) in
+            completionHandler(projects)
+        })
+        self.refreshProjectsList {
+            self.projectsFromStorage(completionHandler: { (projects) in
+                completionHandler(projects)
+            })
+        }
+    }
+    
+    // Provides projects from Core Data to completionHandler
+    private func projectsFromStorage(completionHandler: @escaping (_ projects:[PFProjectModel]) -> Void) {
+        PFCoreDataManager.shared.saveContext()
+        if let projectsController = PFCoreDataManager.shared.fetchedResultsControllerForProjects()
+        {
+            guard let fetchedProjects = projectsController.fetchedObjects
+                else {
+                    print("PFProjectAdapter: lazyVarProjects - nil")
+                    return
+            }
+            completionHandler(fetchedProjects)
+        }
+    }
+    
+    // Returns a new NSManagedObject entity filled with provided values
+    func newProject(withID projectId: String,
+                    mainInfo: [String:String]) -> PFProjectModel {
+        let entity = PFCoreDataManager.shared.newEntity(ofype: .project) as! PFProjectModel
+        //        guard let mainInfo = projectDict[kProjectMainInfo] as! [String:String]?,
+        //            let users = projectDict[kProjectUsers] as! [String:Bool]?,
+        //            let tasks = projectDict[kProjectTasks] as! [String:Any]?,
+        //            let files = projectDict[kProjectFiles] as! [String:Any]?,
+        //            let comments = projectDict[kProjectComments] as! [String:Any]?
+        //            else {
+        //                return PFProjectModel()
+        //        }
+        
+        entity.name = mainInfo[kProjectName]
+        entity.avatarUrl = mainInfo[kProjectAvatarURL]
+        entity.client = mainInfo[kProjectClient]
+        entity.descriptionText = mainInfo[kProjectDescription]
+        entity.totalSpent = mainInfo[kProjectSpentTime]
+        entity.totatEstimated = mainInfo[kProjectTotalEstimatedTime]
+        entity.projectId = projectId
+        return entity
+    }
+    
+    // Updates an existing entity with provided values
+    func update(project entity: PFProjectModel, withMainInfo mainInfo: [String:String]) {
+        entity.name = mainInfo[kProjectName]
+        entity.avatarUrl = mainInfo[kProjectAvatarURL]
+        entity.client = mainInfo[kProjectClient]
+        entity.descriptionText = mainInfo[kProjectDescription]
+        entity.totalSpent = mainInfo[kProjectSpentTime]
+        entity.totatEstimated = mainInfo[kProjectTotalEstimatedTime]
+    }
+    
+    // Updates a projects list from a network
+    func refreshProjectsList(completionHandler: @escaping () -> Void) {
+        PFProjectFirebaseManager.getProjectList { (projectList) in
+            var i = 0 // Needed to define, when to call completionHandler. Only at last iteration.
+            for projectID in projectList {
+                let predicate = NSPredicate(format: "projectId == %@", projectID)
+                
+                // If projectID exists - returns an object
+                if var project = PFCoreDataManager.shared.fetchRecords(forEntity: .project,
+                                                                       predicate: predicate).first
+                {
+                    PFProjectFirebaseManager.downloadMainInfo(projectID: projectID) { (success, result) in
+                        self.update(project: project as! PFProjectModel, withMainInfo: result as! [String:String])
+                        if i == projectList.count {
+                            completionHandler()
+                        }
+                    }
+                }
+                else // Else - creates a new entity
+                {
+                    PFProjectFirebaseManager.downloadMainInfo(projectID: projectID) { (success, result) in
+                        let entity = self.newProject(withID: projectID, mainInfo: result as! [String:String])
+                        if i == projectList.count {
+                            completionHandler()
+                        }
+                    }
+                }
+                i += 1
+            }
+        }
     }
     
     
@@ -34,7 +118,7 @@ class PFProjectAdapter {
     
     
     func createObserverForChildAdded() {
-    
+        
         let path = PFFirebaseManager.buildPath(withComponents: [kProjects])
         PFFirebaseManager.createObserver(of: .childAdded,
                                          path: path) { (success, snapshot) in

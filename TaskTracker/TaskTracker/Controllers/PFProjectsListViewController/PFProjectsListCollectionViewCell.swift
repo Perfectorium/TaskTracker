@@ -20,7 +20,11 @@ class PFProjectsListCollectionViewCell: UICollectionViewCell {
     //MARK: - Actions
     
     
-    func setupCell(withLabel labelText: String)  {
-        projectLabel.text = labelText        
+    func setupCell(withProject project: PFProjectModel)  {
+        projectLabel.text = project.name!
+    }
+    
+    func setupCell(withLabel label: String)  {
+        projectLabel.text = label
     }
 }

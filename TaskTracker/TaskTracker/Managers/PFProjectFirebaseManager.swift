@@ -182,6 +182,21 @@ class PFProjectFirebaseManager: PFFirebaseManager {
         
     }
     
+    class func project(withID: String, completionHandler: @escaping (_ project: [String:Any]) -> Void) {
+        
+        let path = buildPath(withComponents: [kProjects,withID])
+        fetchDatabase(withPath: path) { (result) in
+            guard let response = result as! [String:Any]?
+                else {
+                    printError("projectWithID: projects is nil")
+                    completionHandler([:])
+                    return
+            }
+            completionHandler(response)
+        }
+        
+    }
+    
     class func getComment(withProjectID id: String,
                           commentID: String,
                           completionHandler: @escaping (_ users: [String:Any]) -> Void) {

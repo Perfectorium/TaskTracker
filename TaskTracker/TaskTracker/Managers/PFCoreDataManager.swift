@@ -92,33 +92,40 @@ class PFCoreDataManager: NSObject  {
     }
     
     private func fetchRequest(forEntity entity:EntitiesObjects) -> NSFetchRequest<NSFetchRequestResult> {
-        var fetchRequest    = NSFetchRequest<NSFetchRequestResult>()
+        var result    = NSFetchRequest<NSManagedObject>()
         
         switch entity {
         case .comment:
-            fetchRequest    = PFCommentModel.fetchRequest()
+            result = NSFetchRequest<PFCommentModel>(entityName: String.className(PFCommentModel.self)) as! NSFetchRequest<NSManagedObject>
+            result.sortDescriptors = [NSSortDescriptor.init(key: kPFCommentDate, ascending: true)]
             break
         case .file:
-            fetchRequest    = PFFileModel.fetchRequest()
+            result = NSFetchRequest<PFFileModel>(entityName: String.className(PFFileModel.self)) as! NSFetchRequest<NSManagedObject>
+            result.sortDescriptors = [NSSortDescriptor.init(key: kPFFileID, ascending: true)]
             break
         case .owner:
-            fetchRequest    = PFOwnerModel.fetchRequest()
+            result = NSFetchRequest<PFOwnerModel>(entityName: String.className(PFOwnerModel.self)) as! NSFetchRequest<NSManagedObject>
+            result.sortDescriptors = [NSSortDescriptor.init(key: kPFUserName, ascending: true)]
             break
         case .project:
-            fetchRequest    = PFProjectModel.fetchRequest()
-            fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: kName, ascending: true)]
+            result = NSFetchRequest<PFProjectModel>(entityName: String.className(PFProjectModel.self)) as! NSFetchRequest<NSManagedObject>
+            result.sortDescriptors = [NSSortDescriptor.init(key: kPFProjectName, ascending: true)]
             break
         case .task:
-            fetchRequest    = PFTaskModel.fetchRequest()
+            result = NSFetchRequest<PFTaskModel>(entityName: String.className(PFTaskModel.self)) as! NSFetchRequest<NSManagedObject>
+            result.sortDescriptors = [NSSortDescriptor.init(key: kPriority, ascending: true)]
+
             break
         case .taskGroup:
-            fetchRequest    = PFTaskGroupModel.fetchRequest()
+            result = NSFetchRequest<PFTaskGroupModel>(entityName: String.className(PFTaskGroupModel.self)) as! NSFetchRequest<NSManagedObject>
+            //result.sortDescriptors = [NSSortDescriptor.init(key: kPFCommentDate, ascending: true)]
             break
         case .user:
-            fetchRequest    = PFUserModel.fetchRequest()
+            result = NSFetchRequest<PFUserModel>(entityName: String.className(PFUserModel.self)) as! NSFetchRequest<NSManagedObject>
+            result.sortDescriptors = [NSSortDescriptor.init(key: kPFUserName, ascending: true)]
             break
         }
-        return fetchRequest
+        return  result as! NSFetchRequest<NSFetchRequestResult>
     }
     
     
@@ -127,6 +134,7 @@ class PFCoreDataManager: NSObject  {
     
     private func fetchedResultsController(forEntity entity:EntitiesObjects) -> NSFetchedResultsController<NSFetchRequestResult> {
         let fetchRequest                = PFCoreDataManager.shared.fetchRequest(forEntity: entity)
+        fetchRequest.returnsObjectsAsFaults = false
         let fetchedResultsController    = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                      managedObjectContext: PFCoreDataManager.shared.context(),
                                                                      sectionNameKeyPath: nil,
@@ -143,15 +151,15 @@ class PFCoreDataManager: NSObject  {
                                                                                       ascending: ascending)]
             break
         case .status:
-            fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kPriority,
+            fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kStatus,
                                                                                       ascending: ascending)]
             break
         case .time:
-            fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kPriority,
+            fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kTime,
                                                                                       ascending: ascending)]
             break
         case .type:
-            fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kPriority,
+            fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kType,
                                                                                       ascending: ascending)]
             break
             

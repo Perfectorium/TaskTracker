@@ -57,6 +57,7 @@ let kProjectUsers               = "users"
 let kProjectFiles               = "files"
 let kProjectComments            = "comments"
 let kProjectsList               = "projectsList"
+let kProjectMainInfo            = "mainInfo"
 
 let kTasks                  = "tasks"
 let kTaskAuthor             = "author"
@@ -106,3 +107,7 @@ let kPFFontTitles   = UIFont(name: "ProximaNovaCond-Black", size: 25.0)
 
 
 
+let kPFCommentDate = "date"
+let kPFFileID      = "fileId"
+let kPFProjectName = "name"
+let kPFUserName   = "name"

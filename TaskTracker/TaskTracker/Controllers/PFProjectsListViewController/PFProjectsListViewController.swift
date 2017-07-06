@@ -19,10 +19,10 @@ class PFProjectsListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noProjectsLabel: UILabel!
     
+    var projectAdapter = PFProjectAdapter()
     var searchString: String = ""
     var allData: [String] = []
     var searchData: [String] = []
-    
     
     
     // MARK: - LifeCycle
@@ -33,7 +33,6 @@ class PFProjectsListViewController: UIViewController {
         
         setupUI()
         setupData()
-        let projectsAdapter = PFProjectAdapter()
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,12 +44,14 @@ class PFProjectsListViewController: UIViewController {
     }
     
     func setupData() {
-        for i in 1..<30 {
-            let labelText = "P\(i)"
-            allData.append(labelText)
+        projectAdapter.fetchProjects { (projects) in
+            self.allData = projects.map({ (project) -> String in
+                return project.name!
+            })
+            self.searchData = self.allData
+            self.noProjectsLabel.isHidden = !(self.searchData.count < 1)
+            self.collectionView.reloadData()
         }
-        searchData = allData
-        noProjectsLabel.isHidden = !(searchData.count < 1)
     }
     
     static func storyboardInstance() -> PFProjectsListViewController? {
@@ -99,11 +100,10 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
         let cell    = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                          for: indexPath) as! PFProjectsListCollectionViewCell
         
-        let labelText = searchData[indexPath.item]
+        let project = searchData[indexPath.item]
         cell.addBorderView(width: CGFloat(1.0),
                            color: kPFPurpleColor.cgColor)
-        cell.setupCell(withLabel: labelText)
-        
+        cell.setupCell(withLabel: project)
         
         return cell
     }
