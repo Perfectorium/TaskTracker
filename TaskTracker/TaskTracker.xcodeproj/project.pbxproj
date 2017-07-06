@@ -67,6 +67,7 @@
 		A2B9DB4C1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB4A1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift */; };
 		A2B9DB4F1F05158200307AAC /* PFUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB4D1F05158200307AAC /* PFUserModel.swift */; };
 		A2B9DB501F05158200307AAC /* PFUserModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB4E1F05158200307AAC /* PFUserModel+CoreDataProperties.swift */; };
+		A2CAEEEF1F0E7C7000995C9B /* PFProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CAEEEE1F0E7C7000995C9B /* PFProjectDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		A2B9DB4A1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFTaskModel+CoreDataProperties.swift"; path = "Models/PFTaskModel/PFTaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A2B9DB4D1F05158200307AAC /* PFUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFUserModel.swift; path = Models/PFUserModel/PFUserModel.swift; sourceTree = "<group>"; };
 		A2B9DB4E1F05158200307AAC /* PFUserModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PFUserModel+CoreDataProperties.swift"; path = "Models/PFUserModel/PFUserModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2CAEEEE1F0E7C7000995C9B /* PFProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectDetailsViewController.swift; path = Controllers/PFProjectDetailsViewController/PFProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		C1437242EC1604DC57E187A6 /* Pods-TaskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F11261E8B0D9751043C4CAE1 /* Pods-TaskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -381,6 +383,7 @@
 		A25751611EFD516F0003E023 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A2CAEEED1F0E7C1800995C9B /* PFProjectDetailsViewController */,
 				3C8A8AD51F0A7A5D00255BE1 /* PFSlideMenuController */,
 				A2B8EC481F0A2EEC00EFE194 /* PFRightSlideMenuController */,
 				A25751671EFD54D40003E023 /* PFProjectsListViewController */,
@@ -458,6 +461,14 @@
 				A2B9DB461F05157700307AAC /* PFTaskGroupModel+CoreDataProperties.swift */,
 			);
 			name = PFTaskGroupModel;
+			sourceTree = "<group>";
+		};
+		A2CAEEED1F0E7C1800995C9B /* PFProjectDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A2CAEEEE1F0E7C7000995C9B /* PFProjectDetailsViewController.swift */,
+			);
+			name = PFProjectDetailsViewController;
 			sourceTree = "<group>";
 		};
 		FAE742150BCAE34E6B8CDDDE /* Pods */ = {
@@ -638,6 +649,7 @@
 				A2B9DB471F05157700307AAC /* PFTaskGroupModel.swift in Sources */,
 				A2B8EC5E1F0A387600EFE194 /* UITableViewExtension.swift in Sources */,
 				A2B8EC5C1F0A387600EFE194 /* UIImage.swift in Sources */,
+				A2CAEEEF1F0E7C7000995C9B /* PFProjectDetailsViewController.swift in Sources */,
 				3C4F61221F0DEED7008C6953 /* PFSlideMenuController.swift in Sources */,
 				A2B9DB381F05155900307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
 				A2B8EC591F0A387600EFE194 /* String.swift in Sources */,

@@ -8,6 +8,8 @@
 
 
 import UIKit
+import PeekPop
+
 
 private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
@@ -23,7 +25,8 @@ class PFProjectsListViewController: UIViewController {
     var searchString: String = ""
     var allData: [String] = []
     var searchData: [String] = []
-    
+    var peekPop: PeekPop? 
+    var projects: [PFProjectModel]!
     
     // MARK: - LifeCycle
     
@@ -40,11 +43,13 @@ class PFProjectsListViewController: UIViewController {
     }
     
     func setupUI() {
-        
+        peekPop = PeekPop(viewController: self)
+        peekPop?.registerForPreviewingWithDelegate(self, sourceView: collectionView)
     }
     
     func setupData() {
         projectAdapter.fetchProjects { (projects) in
+            self.projects = projects
             self.allData = projects.map({ (project) -> String in
                 return project.name!
             })
@@ -86,6 +91,38 @@ class PFProjectsListViewController: UIViewController {
     @IBAction func hideKeyBoardSwipeDidSwope(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
+}
+
+
+// MARK: - PeekPopPreviewingDelegate
+
+
+extension PFProjectsListViewController: PeekPopPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: PreviewingContext,
+                           viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if let indexPath = collectionView.indexPathForItem(at: location),
+            let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
+            previewingContext.sourceRect = cellAttributes.frame
+            return projectViewControllerFor(indexPath)
+        }
+        return nil
+    }
+    
+    func previewingContext(_ previewingContext: PreviewingContext,
+                           commitViewController viewControllerToCommit: UIViewController) {
+        present(viewControllerToCommit, animated: true, completion: nil)
+    }
+
+    
+    func projectViewControllerFor(_ indexPath: IndexPath) -> UIViewController {
+        let projectVC = PFProjectDetailsViewController()
+        let project = projects[indexPath.item]
+        projectVC.configureWith(projectModel: project)
+        return projectVC
+    }
+
+    
 }
 
 

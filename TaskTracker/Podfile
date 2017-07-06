@@ -11,5 +11,6 @@ target 'TaskTracker' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'SlideMenuControllerSwift'
+  pod 'PeekPop', '~> 1.0'
 
 end
