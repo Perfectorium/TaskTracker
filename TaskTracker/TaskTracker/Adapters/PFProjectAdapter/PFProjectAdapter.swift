@@ -16,9 +16,17 @@ class PFProjectAdapter {
     
     
     init() {
-        createObserverForChildAdded()
-        createObserverForChildChanged()
-        createObserverForChildRemoved()
+//        createObserverForChildAdded()
+//        createObserverForChildChanged()
+//        createObserverForChildRemoved()
+        //let project = PFCoreDataManager.shared.newEntity(ofype: .project) as! PFProjectModel
+        //project.projectId = "ProjectName3"
+        //project.name = "ProjectName3"
+        //PFCoreDataManager.shared.saveContext()
+        //print(project)
+        let projectsController = PFCoreDataManager.shared.fetchedResultsControllerForProjects()
+        let fetchedProjects = projectsController?.fetchedObjects
+        print(fetchedProjects)
     }
     
     

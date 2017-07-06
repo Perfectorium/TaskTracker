@@ -84,7 +84,7 @@ class PFCoreDataManager: NSObject  {
     //MARK: - LifeCycle
     
     
-    override init() {}
+    override init() { super.init() }
     
     func ownerUnique() -> PFOwnerModel {
         let owner           = self.fetchRecords(forEntity: .owner, predicate: nil).first as! PFOwnerModel
@@ -106,6 +106,7 @@ class PFCoreDataManager: NSObject  {
             break
         case .project:
             fetchRequest    = PFProjectModel.fetchRequest()
+            fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: kName, ascending: true)]
             break
         case .task:
             fetchRequest    = PFTaskModel.fetchRequest()
@@ -169,8 +170,6 @@ class PFCoreDataManager: NSObject  {
     
     func fetchedResultsControllerForProjects() -> NSFetchedResultsController<PFProjectModel>?   {
         let fetchedResultsController = self.fetchedResultsController(forEntity: .project)
-        fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: kName,
-                                                                                  ascending: true)]
         do
         {
             try fetchedResultsController.performFetch()

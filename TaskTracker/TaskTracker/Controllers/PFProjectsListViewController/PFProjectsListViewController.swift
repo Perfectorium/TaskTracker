@@ -33,6 +33,7 @@ class PFProjectsListViewController: UIViewController {
         
         setupUI()
         setupData()
+        let projectsAdapter = PFProjectAdapter()
     }
     
     override func didReceiveMemoryWarning() {
