@@ -21,7 +21,7 @@ extension PFFileModel {
                 return ([:],"")
         }
         
-        return (fileDictionary ?? [:] , fileID)
+        return (fileDictionary , fileID)
         
     }
     

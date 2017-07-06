@@ -38,20 +38,26 @@ class PFSlideMenuController : SlideMenuController {
     
     class func newRigthController(with home:UIViewController) -> PFSlideMenuController {
         
-        let right  = PFRightSlideMenuController.storyboardInstance()
-        let controller = PFSlideMenuController(mainViewController: home, rightMenuViewController: right!)
-        right?.delegate = controller
+        let right                       = PFRightSlideMenuController.storyboardInstance()
+        let controller                  = PFSlideMenuController(mainViewController: home,
+                                                                rightMenuViewController: right!)
+        right?.delegate                 = controller
+        controller.view.backgroundColor = kPFWhiteColor
         controller.setupUI()
         return controller
     }
     
     func setupUI() {
         
-        SlideMenuOptions.contentViewScale = 1
+        SlideMenuOptions.contentViewScale = 0.98
+        self.opacityView.backgroundColor = kPFWhiteColor
+        SlideMenuOptions.rightBezelWidth = 100.0
     }
     
     func setupNavigationBar() {
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage            = UIImage()
         self.navigationItem.hidesBackButton                             = true
         self.navigationController?.navigationBar.barTintColor           = kPFWhiteColor
         self.navigationController?.navigationBar.isTranslucent          = false

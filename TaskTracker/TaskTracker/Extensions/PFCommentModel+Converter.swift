@@ -31,10 +31,10 @@ extension PFCommentModel {
             }
         }
         let commentToUpload = [kCommentAuthor:  authorId,
-                               kCommentDate:    comment.date,
-                               kCommentText:    comment.text,
-                               kCommentTimeToAdd: comment.timeToAdd,
-                               kCommentFiles:   filesIDs
+                               kCommentDate:    comment.date ?? "",
+                               kCommentText:    comment.text ?? "",
+                               kCommentTimeToAdd: comment.timeToAdd ?? "",
+                               kCommentFiles:   filesIDs  ?? [:]
             ] as [String : Any]
         
         guard files != nil

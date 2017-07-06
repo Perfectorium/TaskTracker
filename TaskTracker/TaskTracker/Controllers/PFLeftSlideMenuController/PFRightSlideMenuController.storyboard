@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9wI-dC-uOP">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Heebo.otf">
+            <string>Heebo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Right Slide Menu Controller-->
         <scene sceneID="ewY-av-V0s">
@@ -17,37 +23,115 @@
                         <viewControllerLayoutGuide type="top" id="m1S-YM-Pxh"/>
                         <viewControllerLayoutGuide type="bottom" id="I2C-oJ-cra"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.89999997615814209" contentMode="scaleToFill" id="7Op-kJ-wWc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="7Op-kJ-wWc">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="599"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rag-BZ-Hna">
-                                <rect key="frame" x="0.0" y="160" width="600" height="440"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rag-BZ-Hna">
+                                <rect key="frame" x="0.0" y="205" width="300" height="394"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.0" blue="0.0093617555427760735" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PFRightTableViewCell" rowHeight="62" id="hL4-5P-A3j" customClass="PFRightTableViewCell" customModule="TaskTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="300" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hL4-5P-A3j" id="0KG-OJ-2DL">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="62"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkz-Kl-V5Q">
+                                                    <rect key="frame" x="28" y="53" width="224" height="1"/>
+                                                    <color key="backgroundColor" red="0.8871748096446701" green="0.8871748096446701" blue="0.8871748096446701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="PTm-vl-jfT"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awY-dz-atY">
+                                                    <rect key="frame" x="28" y="14" width="224" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="IZY-ES-97b"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Heebo-Regular" family="Heebo" pointSize="17"/>
+                                                    <color key="textColor" red="0.94229854060913709" green="0.94229854060913709" blue="0.94229854060913709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="awY-dz-atY" secondAttribute="trailing" constant="40" id="5UH-0n-YrR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kkz-Kl-V5Q" secondAttribute="trailing" constant="40" id="BPO-TD-O8f"/>
+                                                <constraint firstItem="awY-dz-atY" firstAttribute="centerY" secondItem="0KG-OJ-2DL" secondAttribute="centerY" constant="-5" id="F9B-AL-rpT"/>
+                                                <constraint firstItem="kkz-Kl-V5Q" firstAttribute="leading" secondItem="0KG-OJ-2DL" secondAttribute="leadingMargin" constant="20" id="Kxj-dn-kYZ"/>
+                                                <constraint firstItem="awY-dz-atY" firstAttribute="leading" secondItem="0KG-OJ-2DL" secondAttribute="leadingMargin" constant="20" id="MrC-MW-dA0"/>
+                                                <constraint firstItem="kkz-Kl-V5Q" firstAttribute="bottom" secondItem="0KG-OJ-2DL" secondAttribute="bottomMargin" id="QpM-jy-QBE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="menuLabel" destination="awY-dz-atY" id="VEi-pi-VEn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="9wI-dC-uOP" id="aJb-ld-A97"/>
                                     <outlet property="delegate" destination="9wI-dC-uOP" id="5vH-WT-WqS"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wromb " translatesAutoresizingMaskIntoConstraints="NO" id="bKU-l1-uRU">
+                                <rect key="frame" x="75" y="28" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="18Q-Lt-EMr"/>
+                                    <constraint firstAttribute="width" constant="140" id="l3u-Bt-7K9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romb " translatesAutoresizingMaskIntoConstraints="NO" id="eKj-HD-wsm">
+                                <rect key="frame" x="75" y="28" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="0GJ-np-140"/>
+                                    <constraint firstAttribute="width" constant="140" id="bsZ-5B-1tO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProjectName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-Ud-5lz">
+                                <rect key="frame" x="21" y="176" width="258" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="XDJ-9X-2rO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Heebo-Regular" family="Heebo" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.94509803920000002" green="0.97254901959999995" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.72847425939999999" green="0.52363365890000002" blue="0.9685258269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I2C-oJ-cra" firstAttribute="top" secondItem="Rag-BZ-Hna" secondAttribute="bottom" id="99X-E0-ikf"/>
+                            <constraint firstItem="L3I-Ud-5lz" firstAttribute="top" secondItem="eKj-HD-wsm" secondAttribute="bottom" constant="8" id="Dcm-aL-yfV"/>
+                            <constraint firstItem="Rag-BZ-Hna" firstAttribute="top" secondItem="L3I-Ud-5lz" secondAttribute="bottom" constant="8" id="Dhn-r9-ybg"/>
+                            <constraint firstItem="eKj-HD-wsm" firstAttribute="centerX" secondItem="7Op-kJ-wWc" secondAttribute="centerX" constant="-5" id="Gq7-B7-JKf"/>
+                            <constraint firstItem="bKU-l1-uRU" firstAttribute="centerX" secondItem="7Op-kJ-wWc" secondAttribute="centerX" constant="-5" id="IRk-5t-rfT"/>
                             <constraint firstAttribute="trailing" secondItem="Rag-BZ-Hna" secondAttribute="trailing" id="LQO-dt-ruf"/>
                             <constraint firstItem="Rag-BZ-Hna" firstAttribute="leading" secondItem="7Op-kJ-wWc" secondAttribute="leading" id="PYR-rv-1H9"/>
-                            <constraint firstItem="Rag-BZ-Hna" firstAttribute="top" secondItem="7Op-kJ-wWc" secondAttribute="top" constant="160" id="k2B-FH-KMV"/>
+                            <constraint firstItem="L3I-Ud-5lz" firstAttribute="leading" secondItem="7Op-kJ-wWc" secondAttribute="leadingMargin" constant="5" id="Qb6-wN-c0X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L3I-Ud-5lz" secondAttribute="trailing" constant="5" id="YvP-ww-lln"/>
+                            <constraint firstItem="bKU-l1-uRU" firstAttribute="top" secondItem="m1S-YM-Pxh" secondAttribute="bottom" constant="8" id="ch0-zv-sDq"/>
+                            <constraint firstItem="L3I-Ud-5lz" firstAttribute="centerX" secondItem="7Op-kJ-wWc" secondAttribute="centerX" id="k5g-wv-OSV"/>
+                            <constraint firstItem="eKj-HD-wsm" firstAttribute="top" secondItem="m1S-YM-Pxh" secondAttribute="bottom" constant="8" id="sty-VQ-06S"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
+                    <size key="freeformSize" width="300" height="599"/>
                     <connections>
-                        <outlet property="tableView" destination="Rag-BZ-Hna" id="N3A-9g-wLR"/>
+                        <outlet property="projectAvatarImageView" destination="eKj-HD-wsm" id="Itd-C8-sg8"/>
+                        <outlet property="projectNameLabel" destination="L3I-Ud-5lz" id="3fp-pO-sc2"/>
+                        <outlet property="tableView" destination="Rag-BZ-Hna" id="ziV-Dh-m4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4N-LB-PeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-538"/>
+            <point key="canvasLocation" x="136.875" y="-540.31690140845069"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Wromb " width="219" height="246"/>
+        <image name="romb " width="109" height="123"/>
+    </resources>
 </document>
