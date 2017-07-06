@@ -28,6 +28,7 @@ class PFProjectAdapter {
             completionHandler(projects)
         })
         self.refreshProjectsList {
+            PFCoreDataManager.shared.saveContext()
             self.projectsFromStorage(completionHandler: { (projects) in
                 completionHandler(projects)
             })
@@ -36,7 +37,6 @@ class PFProjectAdapter {
     
     // Provides projects from Core Data to completionHandler
     private func projectsFromStorage(completionHandler: @escaping (_ projects:[PFProjectModel]) -> Void) {
-        PFCoreDataManager.shared.saveContext()
         if let projectsController = PFCoreDataManager.shared.fetchedResultsControllerForProjects()
         {
             guard let fetchedProjects = projectsController.fetchedObjects

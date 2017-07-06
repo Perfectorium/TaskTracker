@@ -11,11 +11,30 @@ import Foundation
 class PFTaskAdapter {
     
     
+    // MARK: - Properties 
+    
+    
+    let projectID: String!
+    
+    
     // MARK: - LifeCycle
     
     
     init(withProjectID: String) {
-        createObserverForChildAdded(toProjectID: withProjectID)
+        projectID = withProjectID
+    }
+    
+    private func tasksFromStorage(completionHandler: @escaping (_ projects:[PFTaskModel]) -> Void) {
+        PFCoreDataManager.shared.saveContext()
+//        if let projectsController = PFCoreDataManager.shared.fetch)
+//        {
+//            guard let fetchedTasks = projectsController.fetchedObjects
+//                else {
+//                    print("PFProjectAdapter: lazyVarProjects - nil")
+//                    return
+//            }
+//            completionHandler(fetchedTasks)
+//        }
     }
     
     
