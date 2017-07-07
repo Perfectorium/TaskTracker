@@ -130,7 +130,7 @@ extension CircularTransition:UIViewControllerAnimatedTransitioning {
         let yLength         = fmax(startPoint.y,
                                    viewSize.height - startPoint.y)
         
-        let offestVector    = sqrt(xLength * xLength + yLength * yLength) * 2
+        let offestVector    = sqrt(xLength * xLength + yLength * yLength) * 10
         let size            = CGSize(width: offestVector,
                                      height: offestVector)
         

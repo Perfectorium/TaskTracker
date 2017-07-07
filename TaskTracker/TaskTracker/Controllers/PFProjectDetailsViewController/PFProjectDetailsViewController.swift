@@ -11,6 +11,15 @@ import UIKit
 class PFProjectDetailsViewController: UIViewController {
 
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var projectAvatarImageView: UIImageView!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var clientLabel: UILabel!
+    @IBOutlet weak var estimatedTimeLabel: UILabel!
+    
+    
     // MARK: - Properties
     
     var name: String?
@@ -42,15 +51,26 @@ class PFProjectDetailsViewController: UIViewController {
     }
     
     func configureWith(projectModel: PFProjectModel) {
-        name = projectModel.name
-        projectDescription = projectModel.descriptionText
-        estimetedTime = projectModel.totatEstimated
+        projectNameLabel.text = projectModel.name
+        textView.text = projectModel.descriptionText ?? ""
+        estimatedTimeLabel.text = projectModel.totatEstimated
         spentTime = projectModel.totalSpent
-        client = projectModel.client
+        clientLabel.text = projectModel.client
     }
     
     
-  // MARK: - IBActions
+    // MARK: - Logo masking
+    
+    
+    private func maskProjectAvatarWith(image:UIImage) {
+        let projectMask = #imageLiteral(resourceName: "romb black@1x-1")
+        projectAvatarImageView.image = image
+        projectAvatarImageView.mask = UIImageView(image: projectMask)
+        projectAvatarImageView.mask?.frame = projectAvatarImageView.bounds
+    }
+    
+    
+    // MARK: - IBActions
     
     
     @IBAction func BackButtonDidPress(_ sender: UIButton) {

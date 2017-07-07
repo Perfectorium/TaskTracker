@@ -181,8 +181,10 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
         
         let project = searchData[indexPath.item]
         cell.setupCell(withLabel: project)
-        cell.addGestureRecognizer( UILongPressGestureRecognizer(target: self,
-                                                                action: #selector(self.handleLongPress)))
+        let recogniser = UILongPressGestureRecognizer(target: self,
+                                                      action: #selector(self.handleLongPress))
+        recogniser.minimumPressDuration = CFTimeInterval(0.5)
+        cell.addGestureRecognizer(recogniser)
         return cell
     }
     

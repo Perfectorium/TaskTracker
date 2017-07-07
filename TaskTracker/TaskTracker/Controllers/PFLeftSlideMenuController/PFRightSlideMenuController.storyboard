@@ -77,13 +77,6 @@
                                     <outlet property="delegate" destination="9wI-dC-uOP" id="5vH-WT-WqS"/>
                                 </connections>
                             </tableView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romb black@1x-1" translatesAutoresizingMaskIntoConstraints="NO" id="bKU-l1-uRU">
-                                <rect key="frame" x="75" y="28" width="140" height="140"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="18Q-Lt-EMr"/>
-                                    <constraint firstAttribute="width" constant="140" id="l3u-Bt-7K9"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romb black@1x-1" translatesAutoresizingMaskIntoConstraints="NO" id="eKj-HD-wsm">
                                 <rect key="frame" x="75" y="28" width="140" height="140"/>
                                 <constraints>
@@ -101,18 +94,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.72847425939999999" green="0.52363365890000002" blue="0.9685258269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.5450980392" green="0.37254901959999998" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="I2C-oJ-cra" firstAttribute="top" secondItem="Rag-BZ-Hna" secondAttribute="bottom" id="99X-E0-ikf"/>
                             <constraint firstItem="L3I-Ud-5lz" firstAttribute="top" secondItem="eKj-HD-wsm" secondAttribute="bottom" constant="8" id="Dcm-aL-yfV"/>
                             <constraint firstItem="Rag-BZ-Hna" firstAttribute="top" secondItem="L3I-Ud-5lz" secondAttribute="bottom" constant="8" id="Dhn-r9-ybg"/>
                             <constraint firstItem="eKj-HD-wsm" firstAttribute="centerX" secondItem="7Op-kJ-wWc" secondAttribute="centerX" constant="-5" id="Gq7-B7-JKf"/>
-                            <constraint firstItem="bKU-l1-uRU" firstAttribute="centerX" secondItem="7Op-kJ-wWc" secondAttribute="centerX" constant="-5" id="IRk-5t-rfT"/>
                             <constraint firstAttribute="trailing" secondItem="Rag-BZ-Hna" secondAttribute="trailing" id="LQO-dt-ruf"/>
                             <constraint firstItem="Rag-BZ-Hna" firstAttribute="leading" secondItem="7Op-kJ-wWc" secondAttribute="leading" id="PYR-rv-1H9"/>
                             <constraint firstItem="L3I-Ud-5lz" firstAttribute="leading" secondItem="7Op-kJ-wWc" secondAttribute="leadingMargin" constant="5" id="Qb6-wN-c0X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L3I-Ud-5lz" secondAttribute="trailing" constant="5" id="YvP-ww-lln"/>
-                            <constraint firstItem="bKU-l1-uRU" firstAttribute="top" secondItem="m1S-YM-Pxh" secondAttribute="bottom" constant="8" id="ch0-zv-sDq"/>
                             <constraint firstItem="L3I-Ud-5lz" firstAttribute="centerX" secondItem="7Op-kJ-wWc" secondAttribute="centerX" id="k5g-wv-OSV"/>
                             <constraint firstItem="eKj-HD-wsm" firstAttribute="top" secondItem="m1S-YM-Pxh" secondAttribute="bottom" constant="8" id="sty-VQ-06S"/>
                         </constraints>
