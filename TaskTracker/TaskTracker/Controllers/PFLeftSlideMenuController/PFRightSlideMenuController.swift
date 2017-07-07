@@ -39,9 +39,7 @@ class PFRightSlideMenuController : UIViewController {
     static func storyboardInstance() -> PFRightSlideMenuController? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as? PFRightSlideMenuController
-        //controller?.view.backgroundColor = kPFPurpleColor
         return controller
-        
     }
     
     
@@ -77,7 +75,9 @@ class PFRightSlideMenuController : UIViewController {
                                 bitsPerComponent: maskReference!.bitsPerComponent,
                                 bitsPerPixel: maskReference!.bitsPerPixel,
                                 bytesPerRow: maskReference!.bytesPerRow,
-                                provider: maskReference!.dataProvider!, decode: nil, shouldInterpolate: true)
+                                provider: maskReference!.dataProvider!,
+                                decode: nil,
+                                shouldInterpolate: true)
         
         let maskedReference = imageReference!.masking(imageMask!)
         

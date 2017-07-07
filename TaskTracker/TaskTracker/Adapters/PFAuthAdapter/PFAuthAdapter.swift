@@ -78,6 +78,8 @@ class PFAuthAdapter {
                                     if success
                                     {
                                         UserDefaults.standard.set(true, forKey: kIsSignedIn)
+                                        let userID = email.replacingOccurrences(of: ".", with: "")
+                                        UserDefaults.standard.set(userID, forKey: kUserID)
                                         outerHandler(success)
                                         return
                                     }

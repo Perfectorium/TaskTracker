@@ -10,6 +10,8 @@
 		3C1088721F0B964B00DDBDF7 /* PFProjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */; };
 		3C4F61201F0DEE98008C6953 /* PFRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F611F1F0DEE98008C6953 /* PFRightTableViewCell.swift */; };
 		3C4F61221F0DEED7008C6953 /* PFSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F61211F0DEED7008C6953 /* PFSlideMenuController.swift */; };
+		3CAE56C71F0F27C6004639D1 /* PFCircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */; };
+		3CAE56C91F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAE56C81F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard */; };
 		3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3371EFD47F7008007BF /* AppDelegate.swift */; };
 		3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D33B1EFD47F7008007BF /* Main.storyboard */; };
 		3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3411EFD47F7008007BF /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectAdapter.swift; path = Adapters/PFProjectAdapter/PFProjectAdapter.swift; sourceTree = "<group>"; };
 		3C4F611F1F0DEE98008C6953 /* PFRightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFRightTableViewCell.swift; path = Controllers/PFLeftSlideMenuController/PFRightTableViewCell/PFRightTableViewCell.swift; sourceTree = "<group>"; };
 		3C4F61211F0DEED7008C6953 /* PFSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFSlideMenuController.swift; path = Controllers/PFSlideMenuController/PFSlideMenuController.swift; sourceTree = "<group>"; };
+		3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCircularTransition.swift; path = Transitions/PFCircularTransition.swift; sourceTree = "<group>"; };
+		3CAE56C81F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFProjectDetailsViewController.storyboard; path = Controllers/PFProjectDetailsViewController/PFProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
 		3CD5D3341EFD47F7008007BF /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD5D3371EFD47F7008007BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CD5D33C1EFD47F7008007BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +225,14 @@
 			name = PFSlideMenuController;
 			sourceTree = "<group>";
 		};
+		3CAE56C51F0F2748004639D1 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
 		3CD5D32B1EFD47F7008007BF = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +254,7 @@
 		3CD5D3361EFD47F7008007BF /* TaskTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3CAE56C51F0F2748004639D1 /* Transitions */,
 				A236ABBA1F0CBD4300DB0904 /* Views */,
 				A2226A981F0246F6005ACC9F /* Managers */,
 				A25751611EFD516F0003E023 /* Controllers */,
@@ -467,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				A2CAEEEE1F0E7C7000995C9B /* PFProjectDetailsViewController.swift */,
+				3CAE56C81F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard */,
 			);
 			name = PFProjectDetailsViewController;
 			sourceTree = "<group>";
@@ -556,6 +570,7 @@
 				A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */,
 				3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */,
 				3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */,
+				3CAE56C91F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard in Resources */,
 				A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +645,7 @@
 				A2B9DB4B1F05157D00307AAC /* PFTaskModel.swift in Sources */,
 				A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */,
 				3CD5D3561EFD4995008007BF /* PFUserAdapter.swift in Sources */,
+				3CAE56C71F0F27C6004639D1 /* PFCircularTransition.swift in Sources */,
 				3CD5D35A1EFD49A1008007BF /* PFAuthAdapter.swift in Sources */,
 				A2B9DB4F1F05158200307AAC /* PFUserModel.swift in Sources */,
 				3CD5D3611EFD49C5008007BF /* Other Extensions.swift in Sources */,

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "romb black-violet@1x.png",
+      "filename" : "close rastr.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "romb black-violet@1x-1.png",
+      "filename" : "close rastr @2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "romb black-violet@1x-2.png",
+      "filename" : "close rastr @3x.png",
       "scale" : "3x"
     }
   ],

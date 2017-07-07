@@ -57,12 +57,12 @@ class PFFirebaseManager {
     
     static func databaseReference() -> DatabaseReference? {
         let reference = Database.database().reference()
-        guard let id = adminID()
-            else {
-                printError("adminID is nil")
-                return reference.child("111")//nil
-        }
-        return reference.child(id)
+//        guard let id = adminID()
+//            else {
+//                printError("adminID is nil")
+//                return reference.child("111")//nil
+//        }
+        return reference //.child(id)
     }
     
     

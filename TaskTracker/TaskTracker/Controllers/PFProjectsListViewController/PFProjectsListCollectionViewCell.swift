@@ -19,6 +19,9 @@ class PFProjectsListCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Actions
     
+    func cellHeigth() -> CGFloat {
+        return self.frame.height
+    }
     
     func setupCell(withProject project: PFProjectModel)  {
         projectLabel.text = project.name!
@@ -26,5 +29,7 @@ class PFProjectsListCollectionViewCell: UICollectionViewCell {
     
     func setupCell(withLabel label: String)  {
         projectLabel.text = label
+        self.addBorderView(width: CGFloat(1.0),
+                           color: kPFPurpleColor.cgColor)
     }
 }

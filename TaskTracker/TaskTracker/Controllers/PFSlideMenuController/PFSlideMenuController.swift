@@ -10,8 +10,6 @@ import UIKit
 import SlideMenuControllerSwift
 
 
-
-
 class PFSlideMenuController : SlideMenuController {
     
     

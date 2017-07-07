@@ -21,11 +21,14 @@ class PFProjectsListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noProjectsLabel: UILabel!
     
+    var controllerToPresent = PFProjectDetailsViewController()
+    
+    var transitionOptions : [String:Any] = [:]
     var projectAdapter = PFProjectAdapter()
     var searchString: String = ""
     var allData: [String] = []
     var searchData: [String] = []
-    var peekPop: PeekPop? 
+    var peekPop: PeekPop?
     var projects: [PFProjectModel]!
     
     // MARK: - LifeCycle
@@ -42,9 +45,13 @@ class PFProjectsListViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
+    // MARK: - Actions
+    
+    
     func setupUI() {
-        peekPop = PeekPop(viewController: self)
-        peekPop?.registerForPreviewingWithDelegate(self, sourceView: collectionView)
+        //peekPop = PeekPop(viewController: self)
+        // peekPop?.registerForPreviewingWithDelegate(self, sourceView: collectionView)
     }
     
     func setupData() {
@@ -84,12 +91,56 @@ class PFProjectsListViewController: UIViewController {
         }
     }
     
+    func projectViewController(indexPath:IndexPath) -> UIViewController {
+        let projectVC = PFProjectDetailsViewController.storyboardInstance()
+        let project = projects[indexPath.item]
+        projectVC?.configureWith(projectModel: project)
+        return projectVC!
+    }
     
-    // MARK: - Actions
+    // MARK: - IBActions
     
     
     @IBAction func hideKeyBoardSwipeDidSwope(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    
+    // MARK: - Handling
+    
+    
+    @objc func handleLongPress(gesture : UILongPressGestureRecognizer!) {
+        if gesture.state != .ended {
+            return
+        }
+        let p = gesture.location(in: self.collectionView)
+        
+        if let indexPath = self.collectionView.indexPathForItem(at: p)
+        {
+            let cell                            = self.collectionView.cellForItem(at: indexPath) as! PFProjectsListCollectionViewCell
+            let startingPoint                   = gesture.location(in: self.view)
+            let navigationBarHeight: CGFloat    = self.navigationController!.navigationBar.frame.height
+            let point                           = CGPoint(x: startingPoint.x,
+                                                          y: startingPoint.y + navigationBarHeight + cell.cellHeigth() / 3)
+            
+            transitionOptions = [kDuration : 0.3,
+                                 kStartPoint : point,
+                                 kCircleColor : kPFPurpleColor
+                ] as [String : Any]
+            
+            controllerToPresent = projectViewController(indexPath: indexPath) as! PFProjectDetailsViewController
+            controllerToPresent.transitioningDelegate    = self
+            controllerToPresent.modalPresentationStyle   = .custom
+            
+            self.present(controllerToPresent, animated: true, completion: {
+                
+            })
+            
+            
+        }
+        else
+        {            print("couldn't find index path")
+        }
     }
 }
 
@@ -97,33 +148,24 @@ class PFProjectsListViewController: UIViewController {
 // MARK: - PeekPopPreviewingDelegate
 
 
-extension PFProjectsListViewController: PeekPopPreviewingDelegate {
-    
-    func previewingContext(_ previewingContext: PreviewingContext,
-                           viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let indexPath = collectionView.indexPathForItem(at: location),
-            let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
-            previewingContext.sourceRect = cellAttributes.frame
-            return projectViewControllerFor(indexPath)
-        }
-        return nil
-    }
-    
-    func previewingContext(_ previewingContext: PreviewingContext,
-                           commitViewController viewControllerToCommit: UIViewController) {
-        present(viewControllerToCommit, animated: true, completion: nil)
-    }
+//extension PFProjectsListViewController: PeekPopPreviewingDelegate {
 
-    
-    func projectViewControllerFor(_ indexPath: IndexPath) -> UIViewController {
-        let projectVC = PFProjectDetailsViewController()
-        let project = projects[indexPath.item]
-        projectVC.configureWith(projectModel: project)
-        return projectVC
-    }
+//    func previewingContext(_ previewingContext: PreviewingContext,
+//                           viewControllerForLocation location: CGPoint) -> UIViewController? {
+//        if let indexPath = collectionView.indexPathForItem(at: location),
+//            let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
+//            previewingContext.sourceRect = cellAttributes.frame
+//            return projectViewControllerFor(indexPath)
+//        }
+//        return nil
+//    }
+//
+//    func previewingContext(_ previewingContext: PreviewingContext,
+//                           commitViewController viewControllerToCommit: UIViewController) {
+//        present(viewControllerToCommit, animated: true, completion: nil)
+//    }
 
-    
-}
+//}
 
 
 // MARK: - Data Source
@@ -138,10 +180,9 @@ extension PFProjectsListViewController: UICollectionViewDataSource {
                                                          for: indexPath) as! PFProjectsListCollectionViewCell
         
         let project = searchData[indexPath.item]
-        cell.addBorderView(width: CGFloat(1.0),
-                           color: kPFPurpleColor.cgColor)
         cell.setupCell(withLabel: project)
-        
+        cell.addGestureRecognizer( UILongPressGestureRecognizer(target: self,
+                                                                action: #selector(self.handleLongPress)))
         return cell
     }
     
@@ -232,3 +273,19 @@ extension PFProjectsListViewController: UITextFieldDelegate {
     
 }
 
+extension PFProjectsListViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = PFTransitionHelper.setCustomOptions(options:transitionOptions)
+        transition.transitionMode = .present
+        return transition
+    }
+    
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = PFTransitionHelper.setCustomOptions(options:transitionOptions)
+        transition.transitionMode = .dismiss
+        dismissed.view.backgroundColor = UIColor.clear
+        return transition
+    }
+}
