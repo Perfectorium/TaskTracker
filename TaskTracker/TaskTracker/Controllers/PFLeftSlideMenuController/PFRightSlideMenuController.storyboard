@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9wI-dC-uOP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9wI-dC-uOP">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,14 +77,14 @@
                                     <outlet property="delegate" destination="9wI-dC-uOP" id="5vH-WT-WqS"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wromb " translatesAutoresizingMaskIntoConstraints="NO" id="bKU-l1-uRU">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romb black@1x-1" translatesAutoresizingMaskIntoConstraints="NO" id="bKU-l1-uRU">
                                 <rect key="frame" x="75" y="28" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="18Q-Lt-EMr"/>
                                     <constraint firstAttribute="width" constant="140" id="l3u-Bt-7K9"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romb " translatesAutoresizingMaskIntoConstraints="NO" id="eKj-HD-wsm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romb black@1x-1" translatesAutoresizingMaskIntoConstraints="NO" id="eKj-HD-wsm">
                                 <rect key="frame" x="75" y="28" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="0GJ-np-140"/>
@@ -131,7 +131,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Wromb " width="219" height="246"/>
-        <image name="romb " width="109" height="123"/>
+        <image name="romb black@1x-1" width="192" height="223"/>
     </resources>
 </document>

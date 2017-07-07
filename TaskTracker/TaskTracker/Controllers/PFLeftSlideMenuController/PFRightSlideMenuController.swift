@@ -53,7 +53,7 @@ class PFRightSlideMenuController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        maskProjectAvatarWith(image: #imageLiteral(resourceName: "logoexmpl"))
+        maskProjectAvatarWith(image: #imageLiteral(resourceName: "romb+logo "))
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -65,32 +65,12 @@ class PFRightSlideMenuController : UIViewController {
     
   // MARK: - Masking
     
-    private func maskImage(image:UIImage, mask:(UIImage))->UIImage{
-        
-        let imageReference = image.cgImage
-        let maskReference = mask.cgImage
-        
-        let imageMask = CGImage(maskWidth: maskReference!.width,
-                                height: maskReference!.height,
-                                bitsPerComponent: maskReference!.bitsPerComponent,
-                                bitsPerPixel: maskReference!.bitsPerPixel,
-                                bytesPerRow: maskReference!.bytesPerRow,
-                                provider: maskReference!.dataProvider!,
-                                decode: nil,
-                                shouldInterpolate: true)
-        
-        let maskedReference = imageReference!.masking(imageMask!)
-        
-        let maskedImage = UIImage(cgImage:maskedReference!)
-        
-        return maskedImage
-    }
     
     private func maskProjectAvatarWith(image:UIImage) {
-        let projectAvatar = #imageLiteral(resourceName: "romb ")
-        let maskedAvatar = maskImage(image: projectAvatar, mask: image)
-        //let maskedTwise = maskImage(image: maskedAvatar, withMask: image)
-        projectAvatarImageView.image = maskedAvatar
+        let projectMask = #imageLiteral(resourceName: "romb black@1x-1")
+        projectAvatarImageView.image = image
+        projectAvatarImageView.mask = UIImageView(image: projectMask)
+        projectAvatarImageView.mask?.frame = projectAvatarImageView.bounds
     }
     
 }
