@@ -110,7 +110,7 @@ class PFProjectsListViewController: UIViewController {
     
     
     @objc func handleLongPress(gesture : UILongPressGestureRecognizer!) {
-        if gesture.state != .ended {
+        if gesture.state != .began {
             return
         }
         let p = gesture.location(in: self.collectionView)
