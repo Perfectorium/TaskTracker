@@ -39,7 +39,7 @@ extension CircularTransition:UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        
+
         if transitionMode == .present {
             if let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to) {
                 self.presentedView = presentedView
@@ -61,7 +61,7 @@ extension CircularTransition:UIViewControllerAnimatedTransitioning {
                 presentedView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
                 presentedView.alpha = 0
                 containerView.addSubview(presentedView)
-                
+
                 UIView.animate(withDuration: duration, animations: {
                     self.circle.transform = CGAffineTransform.identity
                     presentedView.transform = CGAffineTransform.identity
@@ -90,7 +90,7 @@ extension CircularTransition:UIViewControllerAnimatedTransitioning {
                 
                 circle.layer.cornerRadius   = circle.frame.size.height / 2
                 circle.center               = startingPoint
-                
+
                 UIView.animate(withDuration: duration, animations: {
                     self.circle.transform   = CGAffineTransform(scaleX: 0.001,
                                                                 y: 0.001)
@@ -98,7 +98,8 @@ extension CircularTransition:UIViewControllerAnimatedTransitioning {
                                                                 y: 0.001)
                     returningView.center    = self.startingPoint
                     returningView.alpha     = 0
-                    
+                    containerView.subviews[0].transform = CGAffineTransform(scaleX: 0.001,
+                                                                           y: 0.001)
                     if self.transitionMode == .pop
                     {
                         containerView.insertSubview(returningView,
@@ -113,6 +114,7 @@ extension CircularTransition:UIViewControllerAnimatedTransitioning {
                     returningView.removeFromSuperview()
                     self.circle.removeFromSuperview()
                     
+
                     transitionContext.completeTransition(success)
                     
                 })

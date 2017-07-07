@@ -130,7 +130,7 @@ class PFProjectsListViewController: UIViewController {
             
             controllerToPresent = projectViewController(indexPath: indexPath) as! PFProjectDetailsViewController
             controllerToPresent.transitioningDelegate    = self
-            controllerToPresent.modalPresentationStyle   = .custom
+            controllerToPresent.modalPresentationStyle   = .overCurrentContext
             
             self.present(controllerToPresent, animated: true, completion: {
                 
