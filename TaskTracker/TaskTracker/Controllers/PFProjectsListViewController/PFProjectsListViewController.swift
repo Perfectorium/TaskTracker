@@ -8,12 +8,11 @@
 
 
 import UIKit
-import PeekPop
 
 
 private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
-class PFProjectsListViewController: UIViewController {
+class PFProjectsListViewController: UIViewController{
     
     
     // MARK: - Vars & constants
@@ -22,13 +21,11 @@ class PFProjectsListViewController: UIViewController {
     @IBOutlet weak var noProjectsLabel: UILabel!
     
     var controllerToPresent = PFProjectDetailsViewController()
-    
     var transitionOptions : [String:Any] = [:]
     var projectAdapter = PFProjectAdapter()
     var searchString: String = ""
     var allData: [String] = []
     var searchData: [String] = []
-    var peekPop: PeekPop?
     var projects: [PFProjectModel]!
     
     // MARK: - LifeCycle
@@ -37,9 +34,11 @@ class PFProjectsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
         setupData()
+        self.navigationController?.navigationBar.isHidden = true
     }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,11 +47,6 @@ class PFProjectsListViewController: UIViewController {
     
     // MARK: - Actions
     
-    
-    func setupUI() {
-        //peekPop = PeekPop(viewController: self)
-        // peekPop?.registerForPreviewingWithDelegate(self, sourceView: collectionView)
-    }
     
     func setupData() {
         projectAdapter.fetchProjects { (projects) in
@@ -101,11 +95,6 @@ class PFProjectsListViewController: UIViewController {
     // MARK: - IBActions
     
     
-    @IBAction func hideKeyBoardSwipeDidSwope(_ sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
-    
-    
     // MARK: - Handling
     
     
@@ -123,7 +112,7 @@ class PFProjectsListViewController: UIViewController {
             let point                           = CGPoint(x: startingPoint.x,
                                                           y: startingPoint.y + navigationBarHeight + cell.cellHeigth() / 3)
             
-            transitionOptions = [kDuration : 0.3,
+            transitionOptions = [kDuration : 0.5,
                                  kStartPoint : point,
                                  kCircleColor : kPFPurpleColor
                 ] as [String : Any]
@@ -145,33 +134,15 @@ class PFProjectsListViewController: UIViewController {
 }
 
 
-// MARK: - PeekPopPreviewingDelegate
-
-
-//extension PFProjectsListViewController: PeekPopPreviewingDelegate {
-
-//    func previewingContext(_ previewingContext: PreviewingContext,
-//                           viewControllerForLocation location: CGPoint) -> UIViewController? {
-//        if let indexPath = collectionView.indexPathForItem(at: location),
-//            let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
-//            previewingContext.sourceRect = cellAttributes.frame
-//            return projectViewControllerFor(indexPath)
-//        }
-//        return nil
-//    }
-//
-//    func previewingContext(_ previewingContext: PreviewingContext,
-//                           commitViewController viewControllerToCommit: UIViewController) {
-//        present(viewControllerToCommit, animated: true, completion: nil)
-//    }
-
-//}
-
-
 // MARK: - Data Source
 
 
-extension PFProjectsListViewController: UICollectionViewDataSource {
+extension PFProjectsListViewController: UICollectionViewDataSource,UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let slideMenuController = self.slideMenuController() as! PFSlideMenuController
+//        slideMenuController.changeViewController(.tasks)
+    }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -228,7 +199,7 @@ extension PFProjectsListViewController: UICollectionViewDelegateFlowLayout {
 
 extension PFProjectsListViewController:UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+        return false
     }
 }
 
@@ -278,9 +249,12 @@ extension PFProjectsListViewController: UITextFieldDelegate {
 extension PFProjectsListViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transition = PFTransitionHelper.setCustomOptions(options:transitionOptions)
-        transition.transitionMode = .present
-        return transition
+        if presented  is PFProjectDetailsViewController {
+            let transition = PFTransitionHelper.setCustomOptions(options:transitionOptions)
+            transition.transitionMode = .present
+            return transition
+        }
+        return nil
     }
     
     

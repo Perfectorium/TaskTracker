@@ -7,50 +7,48 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
+import SideMenuController
 
 
-class PFSlideMenuController : SlideMenuController {
+class PFSlideMenuController:SideMenuController  {
+    
+    
+    // MARK: - Vars & constants
+
+    
+    var rightSideController: PFRightSlideMenuController?
+    var taskListController:PFTasksViewController?
+    var projectListController:PFProjectsListViewController?
     
     
     // MARK: - LifeCycle
     
     
+    public convenience init(mainViewController: UIViewController) {
+        self.init()
+        
+        rightSideController = PFRightSlideMenuController.storyboardInstance()
+        if mainViewController is PFProjectsListViewController {
+            self.projectListController = mainViewController as? PFProjectsListViewController
+        }
+        taskListController = PFTasksViewController.storyboardInstance()
+        
+        self.embed(centerViewController: mainViewController)
+        self.embed(centerViewController: taskListController!)
+        self.embed(sideViewController: rightSideController!)
+
+        
+        setupNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        setupNavigationBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        setupNavigationBar()
     }
     
     
-    // MARK: - Actions
+    // MARK: - NavigationBar
     
-    
-    class func newRigthController(with home:UIViewController) -> PFSlideMenuController {
-        
-        let right                       = PFRightSlideMenuController.storyboardInstance()
-        let controller                  = PFSlideMenuController(mainViewController: home,
-                                                                rightMenuViewController: right!)
-        right?.delegate                 = controller
-        controller.view.backgroundColor = kPFWhiteColor
-        controller.setupUI()
-        return controller
-    }
-    
-    func setupUI() {
-        
-        SlideMenuOptions.contentViewScale = 0.98
-        self.opacityView.backgroundColor = kPFWhiteColor
-        SlideMenuOptions.rightBezelWidth = 100.0
-    }
     
     func setupNavigationBar() {
         
@@ -62,7 +60,7 @@ class PFSlideMenuController : SlideMenuController {
         self.navigationController?.navigationBar.backgroundColor        = kPFWhiteColor
         self.navigationController?.navigationBar.topItem?.title         = "Projects"
         self.navigationController?.navigationBar.titleTextAttributes    = [NSFontAttributeName:kPFFontTitles!,
-                                                                        NSForegroundColorAttributeName:kPFBlackColor]
+                                                                           NSForegroundColorAttributeName:kPFBlackColor]
         var image                               = #imageLiteral(resourceName: "Burger menu ")
         image                                   = image.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         let item                                = UIBarButtonItem(image: image,
@@ -72,23 +70,33 @@ class PFSlideMenuController : SlideMenuController {
         item.tintColor                          = kPFPurpleColor
         self.navigationItem.rightBarButtonItem  = item
         self.navigationItem.rightBarButtonItem?.isEnabled = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func hamburgerDidPress(_ : Any)  {
-        if isRightOpen()
-        {
-            self.closeRight()
-        }
-        else
-        {
-            openRight()
-        }
+       
     }
 }
 
 extension PFSlideMenuController : RightMenuProtocol {
     func changeViewController(_ menu: RightMenu) {
-        
+        switch menu {
+        case .projects:
+            self.navigationController?.navigationBar.topItem?.title = "Projects"
+            self.navigationController?.navigationBar.isHidden = true
+            break
+        case .tasks:
+            self.navigationController?.navigationBar.topItem?.title = "Tasks"
+            self.navigationController?.navigationBar.isHidden = false
+            break
+            
+        case .chats:
+            self.navigationController?.navigationBar.topItem?.title = "Chats"
+            break
+            
+        default:
+            break
+        }
     }
     
     

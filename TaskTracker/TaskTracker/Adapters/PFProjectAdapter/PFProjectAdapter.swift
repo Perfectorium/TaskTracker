@@ -89,7 +89,7 @@ class PFProjectAdapter {
                 let predicate = NSPredicate(format: "projectId == %@", projectID)
                 
                 // If projectID exists - returns an object
-                if var project = PFCoreDataManager.shared.fetchRecords(forEntity: .project,
+                if let project = PFCoreDataManager.shared.fetchRecords(forEntity: .project,
                                                                        predicate: predicate).first
                 {
                     PFProjectFirebaseManager.downloadMainInfo(projectID: projectID) { (success, result) in
@@ -102,7 +102,7 @@ class PFProjectAdapter {
                 else // Else - creates a new entity
                 {
                     PFProjectFirebaseManager.downloadMainInfo(projectID: projectID) { (success, result) in
-                        let entity = self.newProject(withID: projectID, mainInfo: result as! [String:String])
+                        _ = self.newProject(withID: projectID, mainInfo: result as! [String:String])
                         if i == projectList.count {
                             completionHandler()
                         }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
+import SideMenuController
 
 enum AuthType {
     case login
@@ -254,10 +254,11 @@ class PFLoginViewController: UIViewController {
         
     }
     
-    func presentedController() -> SlideMenuController {
+    func presentedController() -> PFSlideMenuController {
         
         let homeViewController = PFProjectsListViewController.storyboardInstance()!
-        let slideViewController = PFSlideMenuController.newRigthController(with: homeViewController)
+        let slideViewController = PFSlideMenuController.init(mainViewController: homeViewController)
+        slideViewController.projectListController = homeViewController
         return slideViewController
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
-import SlideMenuControllerSwift
+//import SlideMenuController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,14 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
-        //
-        //        self.window = UIWindow(frame: UIScreen.main.bounds)
-        //        self.window?.rootViewController = AppDelegate.createNavigationController(registration: true)
         
         let url = userActivity.webpageURL!
         PFAuthAdapter.passActivityURL(url)
-        
-        //self.window?.makeKeyAndVisible()
+ 
         guard let parameters = UserDefaults.standard.value(forKey: kParametersKey) as! [String:Any]?
             else {
                 return true
@@ -57,9 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if signedIn
         {
             let homeViewController = PFProjectsListViewController.storyboardInstance()!
-            let root = PFSlideMenuController.newRigthController(with: homeViewController)
+            let root = PFSlideMenuController.init(mainViewController: homeViewController)
             let navRoot = UINavigationController(rootViewController: root)
             self.window?.rootViewController = navRoot
+            self.window?.backgroundColor = kPFWhiteColor
         }
         else
         {
@@ -83,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.rootVC = root
             self.window?.rootViewController = rootController!
+            self.window?.backgroundColor = kPFWhiteColor
         }
         self.window?.makeKeyAndVisible()
     }

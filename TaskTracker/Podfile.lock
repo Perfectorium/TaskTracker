@@ -40,16 +40,14 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
-  - PeekPop (1.0.0)
-  - SlideMenuControllerSwift (3.0.1)
+  - SideMenuController (0.2.4)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - PeekPop (~> 1.0)
-  - SlideMenuControllerSwift
+  - SideMenuController
 
 SPEC CHECKSUMS:
   Firebase: f984cd44a160be77ad0590f432e574562bfd4083
@@ -61,9 +59,8 @@ SPEC CHECKSUMS:
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
-  PeekPop: dcac0f339476b99eb50f8e3bc584f332c744ecf1
-  SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
+  SideMenuController: b463d2b3aa58e2afe57f57a07938fa9a647894ca
 
-PODFILE CHECKSUM: 112dfe7ddc7db858346f3cc6a49d79357a86499e
+PODFILE CHECKSUM: 30362dba81e455a1ef08709e4c31e4901f1bce07
 
 COCOAPODS: 1.2.1

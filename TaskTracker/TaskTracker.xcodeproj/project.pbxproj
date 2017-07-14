@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3C1088721F0B964B00DDBDF7 /* PFProjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */; };
+		3C241F251F1100A100841109 /* PFProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C241F241F1100A100841109 /* PFProjectDetailsViewController.storyboard */; };
 		3C4F61201F0DEE98008C6953 /* PFRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F611F1F0DEE98008C6953 /* PFRightTableViewCell.swift */; };
 		3C4F61221F0DEED7008C6953 /* PFSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F61211F0DEED7008C6953 /* PFSlideMenuController.swift */; };
+		3CA9F4191F13262F008B5CA9 /* PFTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9F4171F13262F008B5CA9 /* PFTasksViewController.swift */; };
+		3CA9F41C1F132650008B5CA9 /* PFTasksViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CA9F41B1F132650008B5CA9 /* PFTasksViewController.storyboard */; };
+		3CA9F41F1F13282B008B5CA9 /* PFTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9F41E1F13282B008B5CA9 /* PFTasksTableViewCell.swift */; };
 		3CAE56C71F0F27C6004639D1 /* PFCircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */; };
-		3CAE56C91F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAE56C81F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard */; };
 		3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3371EFD47F7008007BF /* AppDelegate.swift */; };
 		3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D33B1EFD47F7008007BF /* Main.storyboard */; };
 		3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3411EFD47F7008007BF /* Assets.xcassets */; };
@@ -43,14 +46,6 @@
 		A29323E61F06423E00EA1959 /* Heebo.otf in Resources */ = {isa = PBXBuildFile; fileRef = A29323E41F06423E00EA1959 /* Heebo.otf */; };
 		A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */ = {isa = PBXBuildFile; fileRef = A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */; };
 		A2B8EC4D1F0A355E00EFE194 /* PFRightSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC4C1F0A355E00EFE194 /* PFRightSlideMenuController.swift */; };
-		A2B8EC591F0A387600EFE194 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC511F0A387600EFE194 /* String.swift */; };
-		A2B8EC5A1F0A387600EFE194 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC521F0A387600EFE194 /* UIApplication.swift */; };
-		A2B8EC5B1F0A387600EFE194 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC531F0A387600EFE194 /* UIColor.swift */; };
-		A2B8EC5C1F0A387600EFE194 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC541F0A387600EFE194 /* UIImage.swift */; };
-		A2B8EC5D1F0A387600EFE194 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC551F0A387600EFE194 /* UIImageView.swift */; };
-		A2B8EC5E1F0A387600EFE194 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC561F0A387600EFE194 /* UITableViewExtension.swift */; };
-		A2B8EC5F1F0A387600EFE194 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC571F0A387600EFE194 /* UIView.swift */; };
-		A2B8EC601F0A387600EFE194 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8EC581F0A387600EFE194 /* UIViewController.swift */; };
 		A2B8EC621F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B8EC611F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard */; };
 		A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */; };
 		A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */; };
@@ -74,10 +69,13 @@
 
 /* Begin PBXFileReference section */
 		3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectAdapter.swift; path = Adapters/PFProjectAdapter/PFProjectAdapter.swift; sourceTree = "<group>"; };
+		3C241F241F1100A100841109 /* PFProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
 		3C4F611F1F0DEE98008C6953 /* PFRightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFRightTableViewCell.swift; path = Controllers/PFLeftSlideMenuController/PFRightTableViewCell/PFRightTableViewCell.swift; sourceTree = "<group>"; };
 		3C4F61211F0DEED7008C6953 /* PFSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFSlideMenuController.swift; path = Controllers/PFSlideMenuController/PFSlideMenuController.swift; sourceTree = "<group>"; };
+		3CA9F4171F13262F008B5CA9 /* PFTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTasksViewController.swift; path = Controllers/PFTasksViewController/PFTasksViewController.swift; sourceTree = "<group>"; };
+		3CA9F41B1F132650008B5CA9 /* PFTasksViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFTasksViewController.storyboard; path = Controllers/PFTasksViewController/PFTasksViewController.storyboard; sourceTree = "<group>"; };
+		3CA9F41E1F13282B008B5CA9 /* PFTasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTasksTableViewCell.swift; path = Controllers/PFTasksViewController/PFTasksTableViewCell/PFTasksTableViewCell.swift; sourceTree = "<group>"; };
 		3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCircularTransition.swift; path = Transitions/PFCircularTransition.swift; sourceTree = "<group>"; };
-		3CAE56C81F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFProjectDetailsViewController.storyboard; path = Controllers/PFProjectDetailsViewController/PFProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
 		3CD5D3341EFD47F7008007BF /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD5D3371EFD47F7008007BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CD5D33C1EFD47F7008007BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,14 +110,6 @@
 		A29323E41F06423E00EA1959 /* Heebo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Heebo.otf; path = Fonts/Heebo.otf; sourceTree = "<group>"; };
 		A29323E51F06423E00EA1959 /* Proxima Nova Condenced.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Proxima Nova Condenced.otf"; path = "Fonts/Proxima Nova Condenced.otf"; sourceTree = "<group>"; };
 		A2B8EC4C1F0A355E00EFE194 /* PFRightSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFRightSlideMenuController.swift; path = Controllers/PFLeftSlideMenuController/PFRightSlideMenuController.swift; sourceTree = "<group>"; };
-		A2B8EC511F0A387600EFE194 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/SlideMenuControllerSwiftExtensions/String.swift; sourceTree = "<group>"; };
-		A2B8EC521F0A387600EFE194 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIApplication.swift; sourceTree = "<group>"; };
-		A2B8EC531F0A387600EFE194 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIColor.swift; sourceTree = "<group>"; };
-		A2B8EC541F0A387600EFE194 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImage.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIImage.swift; sourceTree = "<group>"; };
-		A2B8EC551F0A387600EFE194 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIImageView.swift; sourceTree = "<group>"; };
-		A2B8EC561F0A387600EFE194 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UITableViewExtension.swift; sourceTree = "<group>"; };
-		A2B8EC571F0A387600EFE194 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIView.swift; sourceTree = "<group>"; };
-		A2B8EC581F0A387600EFE194 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/SlideMenuControllerSwiftExtensions/UIViewController.swift; sourceTree = "<group>"; };
 		A2B8EC611F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFRightSlideMenuController.storyboard; path = Controllers/PFLeftSlideMenuController/PFRightSlideMenuController.storyboard; sourceTree = "<group>"; };
 		A2B9DB121F04EDF300307AAC /* PFAuthFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFAuthFirebaseManager.swift; path = Managers/PFAuthFirebaseManager.swift; sourceTree = "<group>"; };
 		A2B9DB311F0500CA00307AAC /* PFProjectFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectFirebaseManager.swift; path = Managers/PFProjectFirebaseManager.swift; sourceTree = "<group>"; };
@@ -225,6 +215,24 @@
 			name = PFSlideMenuController;
 			sourceTree = "<group>";
 		};
+		3CA9F4161F1325E6008B5CA9 /* PFTasksViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3CA9F41D1F1327FB008B5CA9 /* PFTasksTableViewCell */,
+				3CA9F4171F13262F008B5CA9 /* PFTasksViewController.swift */,
+				3CA9F41B1F132650008B5CA9 /* PFTasksViewController.storyboard */,
+			);
+			name = PFTasksViewController;
+			sourceTree = "<group>";
+		};
+		3CA9F41D1F1327FB008B5CA9 /* PFTasksTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CA9F41E1F13282B008B5CA9 /* PFTasksTableViewCell.swift */,
+			);
+			name = PFTasksTableViewCell;
+			sourceTree = "<group>";
+		};
 		3CAE56C51F0F2748004639D1 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,7 +293,6 @@
 		3CD5D34D1EFD484A008007BF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A2B8EC501F0A380A00EFE194 /* SlideMenuControllerSwiftExtensions */,
 				3CD5D3601EFD49C5008007BF /* Other Extensions.swift */,
 				A29323DD1F06259E00EA1959 /* PFTaskModel+Converter.swift */,
 				A29323E11F0633E000EA1959 /* PFCommentModel+Converter.swift */,
@@ -396,6 +403,7 @@
 		A25751611EFD516F0003E023 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3CA9F4161F1325E6008B5CA9 /* PFTasksViewController */,
 				A2CAEEED1F0E7C1800995C9B /* PFProjectDetailsViewController */,
 				3C8A8AD51F0A7A5D00255BE1 /* PFSlideMenuController */,
 				A2B8EC481F0A2EEC00EFE194 /* PFRightSlideMenuController */,
@@ -452,21 +460,6 @@
 			name = PFRightSlideMenuController;
 			sourceTree = "<group>";
 		};
-		A2B8EC501F0A380A00EFE194 /* SlideMenuControllerSwiftExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				A2B8EC511F0A387600EFE194 /* String.swift */,
-				A2B8EC521F0A387600EFE194 /* UIApplication.swift */,
-				A2B8EC531F0A387600EFE194 /* UIColor.swift */,
-				A2B8EC541F0A387600EFE194 /* UIImage.swift */,
-				A2B8EC551F0A387600EFE194 /* UIImageView.swift */,
-				A2B8EC561F0A387600EFE194 /* UITableViewExtension.swift */,
-				A2B8EC571F0A387600EFE194 /* UIView.swift */,
-				A2B8EC581F0A387600EFE194 /* UIViewController.swift */,
-			);
-			name = SlideMenuControllerSwiftExtensions;
-			sourceTree = "<group>";
-		};
 		A2B9DB141F04F10100307AAC /* PFTaskGroupModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,7 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				A2CAEEEE1F0E7C7000995C9B /* PFProjectDetailsViewController.swift */,
-				3CAE56C81F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard */,
+				3C241F241F1100A100841109 /* PFProjectDetailsViewController.storyboard */,
 			);
 			name = PFProjectDetailsViewController;
 			sourceTree = "<group>";
@@ -562,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA9F41C1F132650008B5CA9 /* PFTasksViewController.storyboard in Resources */,
 				A2B8EC621F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard in Resources */,
 				A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */,
 				3CD5D3451EFD47F7008007BF /* LaunchScreen.storyboard in Resources */,
@@ -570,7 +564,7 @@
 				A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */,
 				3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */,
 				3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */,
-				3CAE56C91F0F7C6E004639D1 /* PFProjectDetailsViewController.storyboard in Resources */,
+				3C241F251F1100A100841109 /* PFProjectDetailsViewController.storyboard in Resources */,
 				A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,16 +631,15 @@
 				A262CC581F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift in Sources */,
 				A2B9DB341F0500E400307AAC /* PFTaskFirebaseManager.swift in Sources */,
 				A29323DB1F06233100EA1959 /* PFTaskAdapter.swift in Sources */,
-				A2B8EC601F0A387600EFE194 /* UIViewController.swift in Sources */,
 				A29323DE1F06259E00EA1959 /* PFTaskModel+Converter.swift in Sources */,
 				A2B9DB3F1F05156800307AAC /* PFOwnerModel.swift in Sources */,
 				A21B2AFF1F0BB098009D84BD /* PFProjectModel+Converter.swift in Sources */,
-				A2B8EC5A1F0A387600EFE194 /* UIApplication.swift in Sources */,
 				A2B9DB4B1F05157D00307AAC /* PFTaskModel.swift in Sources */,
 				A2B9DB321F0500CA00307AAC /* PFProjectFirebaseManager.swift in Sources */,
 				3CD5D3561EFD4995008007BF /* PFUserAdapter.swift in Sources */,
 				3CAE56C71F0F27C6004639D1 /* PFCircularTransition.swift in Sources */,
 				3CD5D35A1EFD49A1008007BF /* PFAuthAdapter.swift in Sources */,
+				3CA9F4191F13262F008B5CA9 /* PFTasksViewController.swift in Sources */,
 				A2B9DB4F1F05158200307AAC /* PFUserModel.swift in Sources */,
 				3CD5D3611EFD49C5008007BF /* Other Extensions.swift in Sources */,
 				A20FAD901F052B2300DC0390 /* PFCoreDataManager.swift in Sources */,
@@ -660,16 +653,12 @@
 				A2B9DB441F05157000307AAC /* PFProjectModel+CoreDataProperties.swift in Sources */,
 				A29323E01F06315100EA1959 /* PFCommentFirebaseManager.swift in Sources */,
 				A2B9DB501F05158200307AAC /* PFUserModel+CoreDataProperties.swift in Sources */,
-				A2B8EC5F1F0A387600EFE194 /* UIView.swift in Sources */,
 				3CD5D35D1EFD49A7008007BF /* PFCloudStorageManager.swift in Sources */,
 				A2B9DB471F05157700307AAC /* PFTaskGroupModel.swift in Sources */,
-				A2B8EC5E1F0A387600EFE194 /* UITableViewExtension.swift in Sources */,
-				A2B8EC5C1F0A387600EFE194 /* UIImage.swift in Sources */,
 				A2CAEEEF1F0E7C7000995C9B /* PFProjectDetailsViewController.swift in Sources */,
 				3C4F61221F0DEED7008C6953 /* PFSlideMenuController.swift in Sources */,
+				3CA9F41F1F13282B008B5CA9 /* PFTasksTableViewCell.swift in Sources */,
 				A2B9DB381F05155900307AAC /* PFCommentModel+CoreDataProperties.swift in Sources */,
-				A2B8EC591F0A387600EFE194 /* String.swift in Sources */,
-				A2B8EC5B1F0A387600EFE194 /* UIColor.swift in Sources */,
 				A2B8EC4D1F0A355E00EFE194 /* PFRightSlideMenuController.swift in Sources */,
 				3C1088721F0B964B00DDBDF7 /* PFProjectAdapter.swift in Sources */,
 				A25751631EFD51910003E023 /* PFLoginViewController.swift in Sources */,
@@ -678,7 +667,6 @@
 				A29323E21F0633E000EA1959 /* PFCommentModel+Converter.swift in Sources */,
 				A2B9DB4C1F05157D00307AAC /* PFTaskModel+CoreDataProperties.swift in Sources */,
 				A21B2B011F0BB270009D84BD /* PFFileModel+Converter.swift in Sources */,
-				A2B8EC5D1F0A387600EFE194 /* UIImageView.swift in Sources */,
 				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
 				A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */,
 				A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */,
@@ -809,6 +797,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TaskTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -827,6 +816,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TaskTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
