@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
-//import SlideMenuController
+//import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             let homeViewController = PFProjectsListViewController.storyboardInstance()!
             let root = PFSlideMenuController.init(mainViewController: homeViewController)
+            
             let navRoot = UINavigationController(rootViewController: root)
             self.window?.rootViewController = navRoot
             self.window?.backgroundColor = kPFWhiteColor

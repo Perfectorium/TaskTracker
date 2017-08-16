@@ -16,8 +16,9 @@ class PFTasksViewController: UIViewController {
      // MARK: - Vars & constants
     
     
-    @IBOutlet weak var tableView: UITableView!
+  //  @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - LifeCycle
     

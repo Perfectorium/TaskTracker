@@ -8,9 +8,10 @@
 
 import UIKit
 import SideMenuController
+//import SlideMenuControllerSwift
 
 
-class PFSlideMenuController:SideMenuController  {
+class PFSlideMenuController: SideMenuController  {
     
     
     // MARK: - Vars & constants
@@ -24,22 +25,25 @@ class PFSlideMenuController:SideMenuController  {
     // MARK: - LifeCycle
     
     
-    public convenience init(mainViewController: UIViewController) {
+    public convenience init(mainViewController: UIViewController){
         self.init()
         
         rightSideController = PFRightSlideMenuController.storyboardInstance()
         if mainViewController is PFProjectsListViewController {
             self.projectListController = mainViewController as? PFProjectsListViewController
         }
-        taskListController = PFTasksViewController.storyboardInstance()
-        
-        self.embed(centerViewController: mainViewController)
-        self.embed(centerViewController: taskListController!)
+         taskListController = PFTasksViewController.storyboardInstance()
+
+      self.embed(centerViewController: mainViewController)
+     //   self.embed(centerViewController: taskListController!)
         self.embed(sideViewController: rightSideController!)
+
 
         
         setupNavigationBar()
     }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +55,6 @@ class PFSlideMenuController:SideMenuController  {
     
     
     func setupNavigationBar() {
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage            = UIImage()
         self.navigationItem.hidesBackButton                             = true
@@ -71,10 +74,13 @@ class PFSlideMenuController:SideMenuController  {
         self.navigationItem.rightBarButtonItem  = item
         self.navigationItem.rightBarButtonItem?.isEnabled = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+     
     }
     
     @objc func hamburgerDidPress(_ : Any)  {
-       
+    
+
     }
 }
 

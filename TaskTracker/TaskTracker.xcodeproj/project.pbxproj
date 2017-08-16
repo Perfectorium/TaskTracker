@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C1088721F0B964B00DDBDF7 /* PFProjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */; };
-		3C241F251F1100A100841109 /* PFProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C241F241F1100A100841109 /* PFProjectDetailsViewController.storyboard */; };
 		3C4F61201F0DEE98008C6953 /* PFRightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F611F1F0DEE98008C6953 /* PFRightTableViewCell.swift */; };
 		3C4F61221F0DEED7008C6953 /* PFSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F61211F0DEED7008C6953 /* PFSlideMenuController.swift */; };
 		3CA9F4191F13262F008B5CA9 /* PFTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9F4171F13262F008B5CA9 /* PFTasksViewController.swift */; };
-		3CA9F41C1F132650008B5CA9 /* PFTasksViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CA9F41B1F132650008B5CA9 /* PFTasksViewController.storyboard */; };
 		3CA9F41F1F13282B008B5CA9 /* PFTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9F41E1F13282B008B5CA9 /* PFTasksTableViewCell.swift */; };
 		3CAE56C71F0F27C6004639D1 /* PFCircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */; };
 		3CD5D3381EFD47F7008007BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3371EFD47F7008007BF /* AppDelegate.swift */; };
@@ -26,6 +24,9 @@
 		3CD5D3611EFD49C5008007BF /* Other Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3601EFD49C5008007BF /* Other Extensions.swift */; };
 		3CD5D3641EFD49F5008007BF /* TaskTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5D3621EFD49F5008007BF /* TaskTracker.xcdatamodeld */; };
 		3CD5D3671EFD4CEE008007BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CD5D3661EFD4CEE008007BF /* GoogleService-Info.plist */; };
+		4D5F27901F38BB5F00A12DFE /* PFTasksViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5F278F1F38BB5F00A12DFE /* PFTasksViewController.storyboard */; };
+		4D5F27921F39999100A12DFE /* PFProjectDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5F27911F39999100A12DFE /* PFProjectDetailsViewController.storyboard */; };
+		4D8E0E101F39DA5E00EAA12C /* PFProjectDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E0E0F1F39DA5E00EAA12C /* PFProjectDetailsTableViewCell.swift */; };
 		6F0A2D8A35FF5CAF85570326 /* Pods_TaskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */; };
 		A20FAD901F052B2300DC0390 /* PFCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FAD8F1F052B2300DC0390 /* PFCoreDataManager.swift */; };
 		A20FAD921F052B2900DC0390 /* PFFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20FAD911F052B2900DC0390 /* PFFileManager.swift */; };
@@ -69,11 +70,9 @@
 
 /* Begin PBXFileReference section */
 		3C1088711F0B964B00DDBDF7 /* PFProjectAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFProjectAdapter.swift; path = Adapters/PFProjectAdapter/PFProjectAdapter.swift; sourceTree = "<group>"; };
-		3C241F241F1100A100841109 /* PFProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
 		3C4F611F1F0DEE98008C6953 /* PFRightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFRightTableViewCell.swift; path = Controllers/PFLeftSlideMenuController/PFRightTableViewCell/PFRightTableViewCell.swift; sourceTree = "<group>"; };
 		3C4F61211F0DEED7008C6953 /* PFSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFSlideMenuController.swift; path = Controllers/PFSlideMenuController/PFSlideMenuController.swift; sourceTree = "<group>"; };
 		3CA9F4171F13262F008B5CA9 /* PFTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTasksViewController.swift; path = Controllers/PFTasksViewController/PFTasksViewController.swift; sourceTree = "<group>"; };
-		3CA9F41B1F132650008B5CA9 /* PFTasksViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PFTasksViewController.storyboard; path = Controllers/PFTasksViewController/PFTasksViewController.storyboard; sourceTree = "<group>"; };
 		3CA9F41E1F13282B008B5CA9 /* PFTasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFTasksTableViewCell.swift; path = Controllers/PFTasksViewController/PFTasksTableViewCell/PFTasksTableViewCell.swift; sourceTree = "<group>"; };
 		3CAE56C61F0F27C6004639D1 /* PFCircularTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCircularTransition.swift; path = Transitions/PFCircularTransition.swift; sourceTree = "<group>"; };
 		3CD5D3341EFD47F7008007BF /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +89,9 @@
 		3CD5D3631EFD49F5008007BF /* TaskTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskTracker.xcdatamodel; sourceTree = "<group>"; };
 		3CD5D3651EFD4B9E008007BF /* TaskTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskTracker.entitlements; sourceTree = "<group>"; };
 		3CD5D3661EFD4CEE008007BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4D5F278F1F38BB5F00A12DFE /* PFTasksViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFTasksViewController.storyboard; sourceTree = "<group>"; };
+		4D5F27911F39999100A12DFE /* PFProjectDetailsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PFProjectDetailsViewController.storyboard; sourceTree = "<group>"; };
+		4D8E0E0F1F39DA5E00EAA12C /* PFProjectDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFProjectDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		909729A70D9F2DF57531D741 /* Pods_TaskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20FAD8F1F052B2300DC0390 /* PFCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFCoreDataManager.swift; path = Managers/PFCoreDataManager.swift; sourceTree = "<group>"; };
 		A20FAD911F052B2900DC0390 /* PFFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PFFileManager.swift; path = Managers/PFFileManager.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 			children = (
 				3CA9F41D1F1327FB008B5CA9 /* PFTasksTableViewCell */,
 				3CA9F4171F13262F008B5CA9 /* PFTasksViewController.swift */,
-				3CA9F41B1F132650008B5CA9 /* PFTasksViewController.storyboard */,
+				4D5F278F1F38BB5F00A12DFE /* PFTasksViewController.storyboard */,
 			);
 			name = PFTasksViewController;
 			sourceTree = "<group>";
@@ -361,6 +363,29 @@
 			name = PFUserAdapter;
 			sourceTree = "<group>";
 		};
+		4D3562751F3AE59B00FFD50F /* PFProjectsListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */,
+			);
+			name = PFProjectsListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		4D3562761F3AE5BB00FFD50F /* PFProjectFullDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PFProjectFullDetailsViewController;
+			sourceTree = "<group>";
+		};
+		4D8E0E0E1F39DA3600EAA12C /* PFProjectDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D8E0E0F1F39DA5E00EAA12C /* PFProjectDetailsTableViewCell.swift */,
+			);
+			name = PFProjectDetailsTableViewCell;
+			sourceTree = "<group>";
+		};
 		58FCDDC2588092DB45B460E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +428,7 @@
 		A25751611EFD516F0003E023 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4D3562761F3AE5BB00FFD50F /* PFProjectFullDetailsViewController */,
 				3CA9F4161F1325E6008B5CA9 /* PFTasksViewController */,
 				A2CAEEED1F0E7C1800995C9B /* PFProjectDetailsViewController */,
 				3C8A8AD51F0A7A5D00255BE1 /* PFSlideMenuController */,
@@ -426,9 +452,9 @@
 		A25751671EFD54D40003E023 /* PFProjectsListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D3562751F3AE59B00FFD50F /* PFProjectsListCollectionViewCell */,
 				A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */,
 				A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */,
-				A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */,
 			);
 			name = PFProjectsListViewController;
 			sourceTree = "<group>";
@@ -472,8 +498,9 @@
 		A2CAEEED1F0E7C1800995C9B /* PFProjectDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D8E0E0E1F39DA3600EAA12C /* PFProjectDetailsTableViewCell */,
 				A2CAEEEE1F0E7C7000995C9B /* PFProjectDetailsViewController.swift */,
-				3C241F241F1100A100841109 /* PFProjectDetailsViewController.storyboard */,
+				4D5F27911F39999100A12DFE /* PFProjectDetailsViewController.storyboard */,
 			);
 			name = PFProjectDetailsViewController;
 			sourceTree = "<group>";
@@ -555,16 +582,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CA9F41C1F132650008B5CA9 /* PFTasksViewController.storyboard in Resources */,
 				A2B8EC621F0A3CBF00EFE194 /* PFRightSlideMenuController.storyboard in Resources */,
 				A29323E71F06423E00EA1959 /* Proxima Nova Condenced.otf in Resources */,
 				3CD5D3451EFD47F7008007BF /* LaunchScreen.storyboard in Resources */,
 				A29323E61F06423E00EA1959 /* Heebo.otf in Resources */,
+				4D5F27921F39999100A12DFE /* PFProjectDetailsViewController.storyboard in Resources */,
 				3CD5D3671EFD4CEE008007BF /* GoogleService-Info.plist in Resources */,
 				A25751661EFD52AD0003E023 /* PFLoginViewController.storyboard in Resources */,
 				3CD5D3421EFD47F7008007BF /* Assets.xcassets in Resources */,
 				3CD5D33D1EFD47F7008007BF /* Main.storyboard in Resources */,
-				3C241F251F1100A100841109 /* PFProjectDetailsViewController.storyboard in Resources */,
+				4D5F27901F38BB5F00A12DFE /* PFTasksViewController.storyboard in Resources */,
 				A25751691EFD54F90003E023 /* PFProjectsListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +696,7 @@
 				A21B2B011F0BB270009D84BD /* PFFileModel+Converter.swift in Sources */,
 				A257516B1EFD55240003E023 /* PFProjectsListViewController.swift in Sources */,
 				A2B9DB131F04EDF300307AAC /* PFAuthFirebaseManager.swift in Sources */,
+				4D8E0E101F39DA5E00EAA12C /* PFProjectDetailsTableViewCell.swift in Sources */,
 				A2226A9A1F024739005ACC9F /* PFFirebaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -795,9 +823,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X8R96VPB27;
 				INFOPLIST_FILE = TaskTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -814,9 +842,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X8R96VPB27;
 				INFOPLIST_FILE = TaskTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PF.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

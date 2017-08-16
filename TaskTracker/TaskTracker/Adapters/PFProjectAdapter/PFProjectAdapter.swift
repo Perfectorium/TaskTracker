@@ -52,14 +52,6 @@ class PFProjectAdapter {
     func newProject(withID projectId: String,
                     mainInfo: [String:String]) -> PFProjectModel {
         let entity = PFCoreDataManager.shared.newEntity(ofype: .project) as! PFProjectModel
-        //        guard let mainInfo = projectDict[kProjectMainInfo] as! [String:String]?,
-        //            let users = projectDict[kProjectUsers] as! [String:Bool]?,
-        //            let tasks = projectDict[kProjectTasks] as! [String:Any]?,
-        //            let files = projectDict[kProjectFiles] as! [String:Any]?,
-        //            let comments = projectDict[kProjectComments] as! [String:Any]?
-        //            else {
-        //                return PFProjectModel()
-        //        }
         
         entity.name = mainInfo[kProjectName]
         entity.avatarUrl = mainInfo[kProjectAvatarURL]

@@ -53,7 +53,7 @@ class PFRightSlideMenuController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        maskProjectAvatarWith(image: #imageLiteral(resourceName: "romb+logo "))
+        maskProjectAvatarWith(image: #imageLiteral(resourceName: "romb+logo"))
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -92,9 +92,9 @@ extension PFRightSlideMenuController : UITableViewDelegate {
 
 extension PFRightSlideMenuController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return PFRightTableViewCell.heigth()
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return PFRightTableViewCell.heigth()
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menus.count

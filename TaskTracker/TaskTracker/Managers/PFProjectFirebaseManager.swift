@@ -16,7 +16,9 @@ class PFProjectFirebaseManager: PFFirebaseManager {
     
     class func downloadMainInfo(projectID: String,
                                 completionHandler: @escaping (_ success:Bool, _ projectInfo: [String:Any]) -> Void) {
+        
         let path = buildPath(withComponents: [kProjects, projectID, kMainInfo])
+        print(path)
         fetchDatabase(withPath: path) { (result) in
             guard  let response = result as! [String:Any]?
                 else {

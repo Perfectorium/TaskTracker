@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Entity" syncable="YES"/>
     <entity name="PFCommentModel" representedClassName="PFCommentModel" syncable="YES">
         <attribute name="commentId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -77,5 +78,6 @@
         <element name="PFTaskGroupModel" positionX="-36" positionY="135" width="128" height="120"/>
         <element name="PFTaskModel" positionX="-36" positionY="108" width="128" height="270"/>
         <element name="PFUserModel" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Entity" positionX="-36" positionY="135" width="128" height="45"/>
     </elements>
 </model>

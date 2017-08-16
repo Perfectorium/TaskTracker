@@ -13,13 +13,14 @@ class PFProjectDetailsViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var projectDetailsTableView: UITableView!
     @IBOutlet weak var projectAvatarImageView: UIImageView!
-    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var clientLabel: UILabel!
-    @IBOutlet weak var estimatedTimeLabel: UILabel!
     
+
     
+    @IBOutlet weak var closeButtonOutlet: UIButton!
+
+
     // MARK: - Properties
     
     var name: String?
@@ -40,7 +41,9 @@ class PFProjectDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      projectDetailsTableView.delegate = self
+        projectDetailsTableView.dataSource = self
+        maskProjectAvatarWith(image: #imageLiteral(resourceName: "romb+logo"))
     }
 
 
@@ -50,12 +53,14 @@ class PFProjectDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var projectDetailsArray: [String] = []
+    
     func configureWith(projectModel: PFProjectModel) {
-        projectNameLabel.text = projectModel.name
-        textView.text = projectModel.descriptionText ?? ""
-        estimatedTimeLabel.text = projectModel.totatEstimated
-        spentTime = projectModel.totalSpent
-        clientLabel.text = projectModel.client
+        
+        projectDetailsArray.append(projectModel.name!)
+        projectDetailsArray.append(projectModel.descriptionText!)
+        projectDetailsArray.append(projectModel.totatEstimated!)
+        projectDetailsArray.append(projectModel.client!)
     }
     
     
@@ -63,22 +68,43 @@ class PFProjectDetailsViewController: UIViewController {
     
     
     private func maskProjectAvatarWith(image:UIImage) {
-        let projectMask = #imageLiteral(resourceName: "romb black@1x-1")
+        
         projectAvatarImageView.image = image
-        projectAvatarImageView.mask = UIImageView(image: projectMask)
-        projectAvatarImageView.mask?.frame = projectAvatarImageView.bounds
+//        let projectMask = #imageLiteral(resourceName: "romb black@1x-1")
+//        projectAvatarImageView.image = image
+//        projectAvatarImageView.mask = UIImageView(image: projectMask)
+//        projectAvatarImageView.mask?.frame = projectAvatarImageView.bounds
     }
     
     
     // MARK: - IBActions
     
     
-    @IBAction func BackButtonDidPress(_ sender: UIButton) {
-        sender.blink(scale: 0.98)
-        self.view.backgroundColor = UIColor.clear
-        self.dismiss(animated: true) { 
-            
-        }
+    @IBAction func closeButton(_ sender: UIButton) {
+      
+        self.dismiss(animated: true, completion: nil)
+        
+        
     }
 
+}
+
+//MARK: - Data Source
+
+extension PFProjectDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return projectDetailsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PFProjectDetailsTableViewCell", for: indexPath) as! PFProjectDetailsTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        if  let textPerCell = projectDetailsArray[indexPath.item] as? String {
+                        cell.setCell(textPerCell)
+    }
+    
+        
+        return cell
+    }
 }
