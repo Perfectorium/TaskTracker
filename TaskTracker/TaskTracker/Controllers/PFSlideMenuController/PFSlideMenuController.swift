@@ -17,7 +17,7 @@ class PFSlideMenuController:SideMenuController  {
 
     
     var rightSideController: PFRightSlideMenuController?
-    var taskListController:PFTasksViewController?
+   // var taskListController:PFTasksViewController?
     var projectListController:PFProjectsListViewController?
     
     
@@ -31,10 +31,10 @@ class PFSlideMenuController:SideMenuController  {
         if mainViewController is PFProjectsListViewController {
             self.projectListController = mainViewController as? PFProjectsListViewController
         }
-        taskListController = PFTasksViewController.storyboardInstance()
+      //  taskListController = PFTasksViewController.storyboardInstance()
         
         self.embed(centerViewController: mainViewController)
-        self.embed(centerViewController: taskListController!)
+       // self.embed(centerViewController: taskListController!)
         self.embed(sideViewController: rightSideController!)
 
         
@@ -74,7 +74,7 @@ class PFSlideMenuController:SideMenuController  {
     }
     
     @objc func hamburgerDidPress(_ : Any)  {
-       
+       //present(PFSlideMenuController.)
     }
 }
 
