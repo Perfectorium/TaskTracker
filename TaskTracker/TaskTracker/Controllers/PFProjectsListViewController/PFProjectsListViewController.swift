@@ -36,6 +36,7 @@ class PFProjectsListViewController: UIViewController{
         
         setupData()
         self.navigationController?.navigationBar.isHidden = true
+        self.hideKeyboardWhenTappedAround()
     }
     
 
@@ -244,6 +245,22 @@ extension PFProjectsListViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+//MARK: - Gesture Recognizer hides the keyboard
+
+extension PFProjectsListViewController {
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(PFProjectsListViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension PFProjectsListViewController: UIViewControllerTransitioningDelegate {

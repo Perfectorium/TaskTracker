@@ -363,6 +363,14 @@
 			name = PFUserAdapter;
 			sourceTree = "<group>";
 		};
+		4DACC7EA1F55A90700A452D2 /* PFProjectsListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */,
+			);
+			name = PFProjectsListCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		4DD67F241F4B03C7006A40A9 /* PFProjectDetailsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,9 +444,9 @@
 		A25751671EFD54D40003E023 /* PFProjectsListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4DACC7EA1F55A90700A452D2 /* PFProjectsListCollectionViewCell */,
 				A25751681EFD54F90003E023 /* PFProjectsListViewController.storyboard */,
 				A257516A1EFD55240003E023 /* PFProjectsListViewController.swift */,
-				A262CC571F01222700BB7C20 /* PFProjectsListCollectionViewCell.swift */,
 			);
 			name = PFProjectsListViewController;
 			sourceTree = "<group>";
