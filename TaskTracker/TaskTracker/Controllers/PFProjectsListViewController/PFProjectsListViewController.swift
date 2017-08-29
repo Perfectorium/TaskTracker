@@ -114,7 +114,7 @@ class PFProjectsListViewController: UIViewController{
             
             transitionOptions = [kDuration : 0.5,
                                  kStartPoint : point,
-                                 kCircleColor : kPFPurpleColor
+                                // kCircleColor : kPFPurpleColor
                 ] as [String : Any]
             
             controllerToPresent = projectViewController(indexPath: indexPath) as! PFProjectDetailsViewController

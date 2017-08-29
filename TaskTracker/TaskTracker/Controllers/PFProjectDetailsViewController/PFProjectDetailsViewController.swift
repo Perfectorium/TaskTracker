@@ -12,13 +12,10 @@ class PFProjectDetailsViewController: UIViewController {
 
     
     // MARK: - Outlets
-    
     @IBOutlet weak var projectAvatarImageView: UIImageView!
-    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var clientLabel: UILabel!
-    @IBOutlet weak var estimatedTimeLabel: UILabel!
+
     
+    @IBOutlet weak var tableViewProjectDetails: UITableView!
     
     // MARK: - Properties
     
@@ -40,6 +37,10 @@ class PFProjectDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewProjectDetails.delegate = self
+        tableViewProjectDetails.dataSource = self
+        
+        maskProjectAvatarWith(image:#imageLiteral(resourceName: "romb+logo ") )
         
     }
 
@@ -50,12 +51,18 @@ class PFProjectDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var projectDetailsArray: [String] = []
+    
     func configureWith(projectModel: PFProjectModel) {
-        projectNameLabel.text = projectModel.name
-        textView.text = projectModel.descriptionText ?? ""
-        estimatedTimeLabel.text = projectModel.totatEstimated
-        spentTime = projectModel.totalSpent
-        clientLabel.text = projectModel.client
+//        projectNameLabel.text = projectModel.name
+//        textView.text = projectModel.descriptionText ?? ""
+//        estimatedTimeLabel.text = projectModel.totatEstimated
+//        spentTime = projectModel.totalSpent
+//        clientLabel.text = projectModel.client
+        projectDetailsArray.append(projectModel.name!)
+        projectDetailsArray.append(projectModel.descriptionText!)
+        projectDetailsArray.append(projectModel.totatEstimated!)
+        projectDetailsArray.append(projectModel.client!)
     }
     
     
@@ -72,13 +79,38 @@ class PFProjectDetailsViewController: UIViewController {
     
     // MARK: - IBActions
     
-    
-    @IBAction func BackButtonDidPress(_ sender: UIButton) {
-        sender.blink(scale: 0.98)
-        self.view.backgroundColor = UIColor.clear
-        self.dismiss(animated: true) { 
-            
-        }
+    @IBAction func closeButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
+    
+//    @IBAction func BackButtonDidPress(_ sender: UIButton) {
+//        sender.blink(scale: 0.98)
+//        self.view.backgroundColor = UIColor.clear
+//        self.dismiss(animated: true) { 
+//            
+//        }
+//    }
+    
+    
 
+}
+extension PFProjectDetailsViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return projectDetailsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PFProjectDetailsTableViewCell", for: indexPath) as! PFProjectDetailsTableViewCell
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
+        if let textPerCell = projectDetailsArray[indexPath.item] as? String{
+            cell.setUpCell(textPerCell)
+        }
+        return cell
+    
+    }
+    
 }
