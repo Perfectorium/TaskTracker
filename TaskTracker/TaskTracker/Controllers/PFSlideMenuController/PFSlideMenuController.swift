@@ -43,7 +43,7 @@ class PFSlideMenuController:SideMenuController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         //self.navigationController?.navigationBar.backgroundColor = UIColor.white
     }
     
     
@@ -52,12 +52,12 @@ class PFSlideMenuController:SideMenuController  {
     
     func setupNavigationBar() {
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage            = UIImage()
+      //  self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+     //   self.navigationController?.navigationBar.shadowImage            = UIImage()
         self.navigationItem.hidesBackButton                             = true
-        self.navigationController?.navigationBar.barTintColor           = kPFWhiteColor
+        self.navigationController?.navigationBar.barTintColor           =  UIColor(red: 255.0/255, green: 255.0/255, blue: 255.0/255, alpha: 1.0)//kPFWhiteColor
         self.navigationController?.navigationBar.isTranslucent          = false
-        self.navigationController?.navigationBar.backgroundColor        = kPFWhiteColor
+        self.navigationController?.navigationBar.backgroundColor        = UIColor(red: 255.0/255, green: 255.0/255, blue: 255.0/255, alpha: 1.0)//.white //kPFWhiteColor
         self.navigationController?.navigationBar.topItem?.title         = "Projects"
         self.navigationController?.navigationBar.titleTextAttributes    = [NSFontAttributeName:kPFFontTitles!,
                                                                            NSForegroundColorAttributeName:kPFBlackColor]
@@ -68,13 +68,13 @@ class PFSlideMenuController:SideMenuController  {
                                                                   target: self,
                                                                   action: #selector(hamburgerDidPress(_:)))
         item.tintColor                          = kPFPurpleColor
-        self.navigationItem.rightBarButtonItem  = item
-        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        self.navigationItem.leftBarButtonItem  = item
+        self.navigationItem.leftBarButtonItem?.isEnabled = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func hamburgerDidPress(_ : Any)  {
-       //present(PFSlideMenuController.)
+      toggle()//present(PFSlideMenuController.)
     }
 }
 
