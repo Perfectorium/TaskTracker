@@ -12,7 +12,7 @@ import UIKit
 
 private let reuseIdentifier = "PFProjectsListCollectionViewCell"
 
-class PFProjectsListViewController: UIViewController{
+class PFProjectsListViewController: UIViewController {
     
     
     // MARK: - Vars & constants
@@ -38,8 +38,6 @@ class PFProjectsListViewController: UIViewController{
         self.navigationController?.navigationBar.isHidden = true
         self.hideKeyboardWhenTappedAround()
     }
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

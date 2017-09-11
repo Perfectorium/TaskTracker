@@ -28,7 +28,9 @@ class PFProjectDetailsViewController: UIViewController {
     static func storyboardInstance() -> PFProjectDetailsViewController? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as? PFProjectDetailsViewController
-        controller?.view.backgroundColor = UIColor.clear
+        controller?.view.isOpaque = false
+        controller?.view.backgroundColor = UIColor.white
+        controller?.view.alpha = 0.2
         return controller
     }
     
@@ -41,7 +43,7 @@ class PFProjectDetailsViewController: UIViewController {
         tableViewProjectDetails.dataSource = self
         
         maskProjectAvatarWith(image:#imageLiteral(resourceName: "romb+logo ") )
-        
+       
     }
 
 
