@@ -12,6 +12,41 @@ import FirebaseDatabase
 
 class PFTaskFirebaseManager: PFFirebaseManager {
     
+    
+    class func downloadMainInfo(projectID: String,
+                                taskID: String,
+                                completionHandler: @escaping (_ success: Bool,
+        _ projectInfo: [String: Any]) -> Void) {
+        
+        let path = buildPath(withComponents: [kProjects, projectID, kTasks, taskID, kMainInfo])
+        
+        fetchDatabase(withPath: path) { (result) in
+            guard let response = result as! [String: Any]?
+                else {
+                   printError("downloadMainInfoError: result is nil")
+                    completionHandler(false, [:])
+                    return
+            }
+                      completionHandler(true, response)
+        }
+    }
+    
+    class func getTasksList(projectID: String,
+                            completionHandler: @escaping (_ tasks: [String]) -> Void) {
+        let path = buildPath(withComponents: [kProjects, projectID, kTasks])
+        
+        fetchDatabase(withPath: path) { (result) in
+            guard let response = result as! [String: Any]?
+                else {
+                    printError("getProjectsListError: projects is nil")
+                    completionHandler([])
+                    return
+            }
+            let tasks = Array(response.keys)
+            completionHandler(tasks)
+        }
+    }
+    
     class func add(task: [String:Any],
                    withID taskId: String, //PFTaskModel,
         toProjectID projectID: String,

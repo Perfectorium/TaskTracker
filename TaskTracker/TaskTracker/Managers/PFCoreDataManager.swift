@@ -176,6 +176,17 @@ class PFCoreDataManager: NSObject  {
         return fetchedResultsController as? NSFetchedResultsController<PFTaskModel>
     }
     
+    func fetchedResultsControllerForTasks() -> NSFetchedResultsController<PFTaskModel>? {
+        let fetchedResultController = self.fetchedResultsController(forEntity: .task)
+        do {
+            try fetchedResultController.performFetch()
+        } catch  {
+             print(error.localizedDescription)
+            return nil
+        }
+        return fetchedResultController as? NSFetchedResultsController<PFTaskModel>
+    }
+    
     func fetchedResultsControllerForProjects() -> NSFetchedResultsController<PFProjectModel>?   {
         let fetchedResultsController = self.fetchedResultsController(forEntity: .project)
         do

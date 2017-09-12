@@ -130,6 +130,30 @@ class PFProjectsListViewController: UIViewController {
         {            print("couldn't find index path")
         }
     }
+    
+    func handleTap(gesture: UITapGestureRecognizer!) {
+        if gesture.state != .ended {
+            return
+        }
+        
+        let tapLocation = gesture.location(in: self.collectionView)
+        if let indexPath = self.collectionView.indexPathForItem(at: tapLocation ) {
+            
+            let cell = self.collectionView.cellForItem(at: indexPath) as! PFProjectsListCollectionViewCell
+            let startingPoint = gesture.location(in: self.view)
+            let projectID = projects[indexPath.item].projectId!
+            
+            if let controllerToPresentByTap = PFTasksViewController.storyboardInstance() {
+               
+                //TODO: - Create in  PFTasksViewController func configureWith(projectID: projectId)
+               // controllerToPresentByTap.configureWith(projectID: projectId)
+                self.present(controllerToPresentByTap, animated:  true, completion: {})
+            }
+            
+        } else {
+              print("couldn't find index path")
+        }
+    }
 }
 
 
@@ -139,6 +163,7 @@ class PFProjectsListViewController: UIViewController {
 extension PFProjectsListViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //Valera's!!!
 //        let slideMenuController = self.slideMenuController() as! PFSlideMenuController
 //        slideMenuController.changeViewController(.tasks)
     }
@@ -153,8 +178,10 @@ extension PFProjectsListViewController: UICollectionViewDataSource,UICollectionV
         cell.setupCell(withLabel: project)
         let recogniser = UILongPressGestureRecognizer(target: self,
                                                       action: #selector(self.handleLongPress))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         recogniser.minimumPressDuration = CFTimeInterval(0.5)
         cell.addGestureRecognizer(recogniser)
+        cell.addGestureRecognizer(tapRecognizer)
         return cell
     }
     
@@ -243,6 +270,11 @@ extension PFProjectsListViewController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 
 //MARK: - Gesture Recognizer hides the keyboard
@@ -260,6 +292,8 @@ extension PFProjectsListViewController {
         view.endEditing(true)
     }
 }
+
+//MARK: - Animation of transition
 
 extension PFProjectsListViewController: UIViewControllerTransitioningDelegate {
     
